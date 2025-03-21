@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1742552896561,
+    "description" : "",
+    "identifier" : "Avondale-Nifi-Flow",
+    "lastModifiedTimestamp" : 1742552896561,
+    "name" : "Avondale Nifi Flow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
