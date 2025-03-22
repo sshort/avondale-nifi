@@ -29,7 +29,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "44525a3b-4a74-3c27-8e1d-911f6a1e2db0",
-        "name" : "JoltTransformJSON",
+        "name" : "Jolt set member to first entry in members",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -59,7 +59,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
-        "name" : "UpdateAttribute",
+        "name" : "Update filename attribute to message id",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -76,7 +76,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "RouteOnAttribute - email subject",
+        "name" : "Route on email subject",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -106,7 +106,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "08b762f7-e51f-3bf5-8a02-e0dfb4858a2a",
-        "name" : "PutDatabaseRecord",
+        "name" : "PutDatabaseRecord - update member_signup table",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -119,7 +119,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "b2975481-0195-1000-9bef-20866fe176f9",
-        "name" : "ExtractText - read members and payer from email",
+        "name" : "Extract members and payer from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -136,7 +136,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "RouteOnAttribute - email subject",
+        "name" : "Route on email subject",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -149,7 +149,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
-        "name" : "ExtractText - read subscription payment from email",
+        "name" : "Extract subscription payment from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -166,7 +166,67 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "RouteOnContent - detect payment type",
+        "name" : "Route on payment type",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "4ff6a3f0-b27b-3ced-9a19-93d7a9aacb6f",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
+        "name" : "Evaluate - update member attribute from record",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd314ea6-0195-1000-a9fa-1ad2117a3ffb",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "eb7f4e01-d125-3527-aa51-77759a92511f",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
+        "name" : "Route on payment type",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -179,7 +239,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "RouteOnContent - detect payment type",
+        "name" : "Route on payment type",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -196,7 +256,37 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "b2975481-0195-1000-9bef-20866fe176f9",
-        "name" : "ExtractText - read members and payer from email",
+        "name" : "Extract members and payer from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "747c56d3-91ae-3140-9102-3720f31f4274",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
+        "name" : "Extract completed payment info from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -209,7 +299,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "ExtractText - read direct debit payment from email",
+        "name" : "Extrac direct debit payment info from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -226,7 +316,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "RouteOnContent - detect payment type",
+        "name" : "Route on payment type",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -239,7 +329,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "UpdateAttribute",
+        "name" : "Update quantity attribute",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -256,7 +346,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "ExtractText - read direct debit payment from email",
+        "name" : "Extrac direct debit payment info from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -269,7 +359,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
-        "name" : "EvaluateJsonPath",
+        "name" : "Evaluate - update member attribute from record",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -286,7 +376,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "44525a3b-4a74-3c27-8e1d-911f6a1e2db0",
-        "name" : "JoltTransformJSON",
+        "name" : "Jolt set member to first entry in members",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -298,55 +388,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ae81041e-0195-1000-6b5a-0fbaf285a27f",
-        "name" : "LogAttribute",
+        "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
+        "name" : "LogMessage",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "4ec97347-0aa6-3a64-95ae-ad0dbd93dfd2",
+      "identifier" : "397fcdf3-7730-3f53-9223-a94b7207eaac",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
+      "selectedRelationships" : [ "failure" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "RouteOnContent - detect payment type",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "a9e6284e-0195-1000-d4e5-0ad815a82f01",
-        "name" : "LogAttribute",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d2c470ac-be55-3b65-bb71-f755e08fdc5c",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
-        "name" : "ExtractText - read completed payment from email",
+        "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
+        "name" : "Jolt split member string into members attribute",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -359,7 +419,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
-        "name" : "Collapse names with dots in",
+        "name" : "Copy signup attributes to names without dots ",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -376,7 +436,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "UpdateAttribute",
+        "name" : "Update quantity attribute",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -389,7 +449,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "08b762f7-e51f-3bf5-8a02-e0dfb4858a2a",
-        "name" : "PutDatabaseRecord",
+        "name" : "PutDatabaseRecord - update member_signup table",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -406,7 +466,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "57020fb8-2e53-3b6c-9e9e-9aaa6c263fc0",
-        "name" : "ConvertRecord",
+        "name" : "Convert JSON to CSV",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -436,7 +496,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "613de55c-f1ff-3050-adf0-0a972dce21b0",
-        "name" : "ConsumeIMAP",
+        "name" : "ConsumeIMAP - shortcentral",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -448,25 +508,55 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "b2a891bc-0195-1000-f998-019d75ac403f",
-        "name" : "LogAttribute",
+        "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
+        "name" : "LogMessage",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "9e9fd1a4-a373-38f7-92a7-8734e1c2b8f1",
+      "identifier" : "d7c59795-ec5a-3620-803d-98438ee48781",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
+      "selectedRelationships" : [ "failure" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
-        "name" : "ExtractText - read members and payer from email",
+        "id" : "84faa40c-662b-39c3-a2d6-0aada1f306f7",
+        "name" : "ForkRecord on members",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd39cab0-0195-1000-e1dd-23ceaedf3567",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "818dcafa-f48d-3d0e-8c79-413997ec05f4",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "08b762f7-e51f-3bf5-8a02-e0dfb4858a2a",
+        "name" : "PutDatabaseRecord - update member_signup table",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -508,6 +598,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "bd2f6021-0195-1000-897b-5c61b4f5294c",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c42805f2-c69f-30f0-ab14-f33619ac32c7",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
+        "name" : "Extract members and payer from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "84faa40c-662b-39c3-a2d6-0aada1f306f7",
         "name" : "ForkRecord on members",
         "type" : "PROCESSOR"
@@ -526,7 +646,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
-        "name" : "JoltTransformJSON",
+        "name" : "Jolt split member string into members attribute",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -539,7 +659,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "RouteOnAttribute - email subject",
+        "name" : "Route on email subject",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -568,13 +688,13 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "aa505684-0195-1000-5199-93bdb3006673",
-        "name" : "LogAttribute",
+        "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
+        "name" : "LogMessage",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0cb366a6-f1e2-3d61-8367-2a81a797b67f",
+      "identifier" : "922133ef-a21a-3095-8154-5904357f71d5",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -585,8 +705,8 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "08b762f7-e51f-3bf5-8a02-e0dfb4858a2a",
-        "name" : "PutDatabaseRecord",
+        "id" : "44525a3b-4a74-3c27-8e1d-911f6a1e2db0",
+        "name" : "Jolt set member to first entry in members",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -599,7 +719,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "79e796c7-d2f1-33e5-b89c-92c5197a167b",
-        "name" : "AttributesToJSON",
+        "name" : "Convert signup attributes to JSON",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -616,37 +736,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
-        "name" : "Collapse names with dots in",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "a9d3bdab-0195-1000-0d94-d3ba2f495180",
-        "name" : "LogAttribute",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d03bf353-255e-3141-a134-cdc2a06a2268",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "RouteOnAttribute - email subject",
+        "name" : "Copy signup attributes to names without dots ",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -659,7 +749,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "1ef8b710-1f97-3d90-84a4-d4231cb730a1",
-        "name" : "PutFile",
+        "name" : "Save message to email store",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -676,7 +766,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
-        "name" : "UpdateAttribute",
+        "name" : "Update filename attribute to message id",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -688,25 +778,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "aea89481-0195-1000-4fd1-76c671fe178e",
-        "name" : "LogAttribute",
+        "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
+        "name" : "LogMessage",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "8a6da2b5-e7f5-3485-9b52-8788fcf4714b",
+      "identifier" : "9f1c6123-cf5b-330e-99e1-4a79d7cf45ee",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
+      "selectedRelationships" : [ "failure" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "ExtractText - read direct debit payment from email",
+        "id" : "dcff21be-7769-3639-a9c0-a0c6746bfb4f",
+        "name" : "SplitRecord",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -719,7 +809,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
-        "name" : "Collapse names with dots in",
+        "name" : "Copy signup attributes to names without dots ",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -736,7 +826,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
-        "name" : "ExtractText - read subscription payment from email",
+        "name" : "Extract subscription payment from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -778,8 +868,68 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "bd38de58-0195-1000-9925-1962655c176d",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "9aaec989-043e-3d93-87df-2a5f47be502f",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "57020fb8-2e53-3b6c-9e9e-9aaa6c263fc0",
+        "name" : "Convert JSON to CSV",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ef76b573-2efc-3c50-97f9-8bee09ffe420",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "0523a6b4-b390-3874-b139-3d0648d539ad",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "UpdateAttribute",
+        "name" : "Update quantity attribute",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -796,7 +946,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
-        "name" : "ExtractText - read completed payment from email",
+        "name" : "Extract completed payment info from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -809,7 +959,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "57020fb8-2e53-3b6c-9e9e-9aaa6c263fc0",
-        "name" : "ConvertRecord",
+        "name" : "Convert JSON to CSV",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -826,37 +976,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
-        "name" : "EvaluateJsonPath",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aeaa8cc5-0195-1000-15a0-bc5267558646",
-        "name" : "LogAttribute",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0f12bc42-e963-3ece-ae1f-0080bc4c76a7",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
-        "name" : "ExtractText - read subscription payment from email",
+        "name" : "Evaluate - update member attribute from record",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -898,8 +1018,68 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "343ec0f5-3805-3aa1-bf0f-1c3c4f92d85c",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
+        "name" : "Extrac direct debit payment info from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "5f65e622-e40c-3330-a441-cf0ec15c0cc7",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
+        "name" : "Extract subscription payment from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
-        "name" : "ExtractText - read completed payment from email",
+        "name" : "Extract completed payment info from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -916,7 +1096,37 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "RouteOnContent - detect payment type",
+        "name" : "Route on payment type",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd363761-0195-1000-608b-edaa159beae6",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a8360da7-258f-3232-ab39-e621f81502e9",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "79e796c7-d2f1-33e5-b89c-92c5197a167b",
+        "name" : "Convert signup attributes to JSON",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -929,7 +1139,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
-        "name" : "JoltTransformJSON",
+        "name" : "Jolt split member string into members attribute",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -946,7 +1156,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "79e796c7-d2f1-33e5-b89c-92c5197a167b",
-        "name" : "AttributesToJSON",
+        "name" : "Convert signup attributes to JSON",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1958,7 +2168,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "88a99077-e13f-34ad-8f12-3c591694cdff",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "UpdateAttribute",
+      "name" : "Update filename attribute to message id",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1168.0,
@@ -2031,7 +2241,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "Collapse names with dots in",
+      "name" : "Copy signup attributes to names without dots ",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -472.0,
@@ -2145,118 +2355,7 @@
       "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "aea89481-0195-1000-4fd1-76c671fe178e",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "LogAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 424.0,
-        "y" : 8.0
-      },
-      "properties" : {
-        "character-set" : "UTF-8",
-        "Log FlowFile Properties" : "true",
-        "Log Level" : "info",
-        "attributes-to-log-regex" : ".*",
-        "Output Format" : "Line per Attribute",
-        "Log Payload" : "false"
-      },
-      "propertyDescriptors" : {
-        "Log prefix" : {
-          "displayName" : "Log prefix",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log prefix",
-          "sensitive" : false
-        },
-        "character-set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "character-set",
-          "sensitive" : false
-        },
-        "Log FlowFile Properties" : {
-          "displayName" : "Log FlowFile Properties",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log FlowFile Properties",
-          "sensitive" : false
-        },
-        "Log Level" : {
-          "displayName" : "Log Level",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Level",
-          "sensitive" : false
-        },
-        "attributes-to-ignore-regex" : {
-          "displayName" : "Attributes to Ignore by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-ignore-regex",
-          "sensitive" : false
-        },
-        "Attributes to Ignore" : {
-          "displayName" : "Attributes to Ignore",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Ignore",
-          "sensitive" : false
-        },
-        "Attributes to Log" : {
-          "displayName" : "Attributes to Log",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Log",
-          "sensitive" : false
-        },
-        "attributes-to-log-regex" : {
-          "displayName" : "Attributes to Log by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-log-regex",
-          "sensitive" : false
-        },
-        "Output Format" : {
-          "displayName" : "Output Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Format",
-          "sensitive" : false
-        },
-        "Log Payload" : {
-          "displayName" : "Log Payload",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Payload",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "autoTerminatedRelationships" : [ "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -2474,7 +2573,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "b2975481-0195-1000-9bef-20866fe176f9",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "ExtractText - read members and payer from email",
+      "name" : "Extract members and payer from email",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -560.0,
@@ -2645,7 +2744,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "613de55c-f1ff-3050-adf0-0a972dce21b0",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "ConsumeIMAP",
+      "name" : "ConsumeIMAP - shortcentral",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1168.0,
@@ -2752,7 +2851,7 @@
       "retriedRelationships" : [ ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
+      "scheduledState" : "DISABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
@@ -2774,7 +2873,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "ExtractText - read completed payment from email",
+      "name" : "Extract completed payment info from email",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1096.0,
@@ -2951,17 +3050,17 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "1c0830dd-b04e-35c6-aa01-6a9d663c9143",
+      "identifier" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
       "maxBackoffPeriod" : "10 mins",
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1080.0,
-        "y" : 1736.0
+        "x" : -1136.0,
+        "y" : 1360.0
       },
       "properties" : {
-        "log-message" : "Successfully added membership for ${member}",
-        "log-level" : "info"
+        "log-message" : "Message ${email.headers.message-id}: JSON processing error.",
+        "log-level" : "warn"
       },
       "propertyDescriptors" : {
         "log-message" : {
@@ -3009,91 +3108,38 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "a9d3bdab-0195-1000-0d94-d3ba2f495180",
+      "identifier" : "1c0830dd-b04e-35c6-aa01-6a9d663c9143",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "LogAttribute",
+      "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 136.0,
-        "y" : -1168.0
+        "x" : -1072.0,
+        "y" : 1920.0
       },
       "properties" : {
-        "character-set" : "UTF-8",
-        "Log FlowFile Properties" : "true",
-        "Log Level" : "info",
-        "attributes-to-log-regex" : ".*",
-        "Output Format" : "Line per Attribute",
-        "Log Payload" : "false"
+        "log-message" : "Message ${email.headers.message-id}: Successfully added membership signup for ${member}",
+        "log-level" : "info"
       },
       "propertyDescriptors" : {
-        "Log prefix" : {
-          "displayName" : "Log prefix",
+        "log-message" : {
+          "displayName" : "Log message",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Log prefix",
+          "name" : "log-message",
           "sensitive" : false
         },
-        "character-set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "character-set",
-          "sensitive" : false
-        },
-        "Log FlowFile Properties" : {
-          "displayName" : "Log FlowFile Properties",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log FlowFile Properties",
-          "sensitive" : false
-        },
-        "Log Level" : {
+        "log-level" : {
           "displayName" : "Log Level",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Log Level",
+          "name" : "log-level",
           "sensitive" : false
         },
-        "attributes-to-ignore-regex" : {
-          "displayName" : "Attributes to Ignore by Regular Expression",
+        "log-prefix" : {
+          "displayName" : "Log prefix",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "attributes-to-ignore-regex",
-          "sensitive" : false
-        },
-        "Attributes to Ignore" : {
-          "displayName" : "Attributes to Ignore",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Ignore",
-          "sensitive" : false
-        },
-        "Attributes to Log" : {
-          "displayName" : "Attributes to Log",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Log",
-          "sensitive" : false
-        },
-        "attributes-to-log-regex" : {
-          "displayName" : "Attributes to Log by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-log-regex",
-          "sensitive" : false
-        },
-        "Output Format" : {
-          "displayName" : "Output Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Format",
-          "sensitive" : false
-        },
-        "Log Payload" : {
-          "displayName" : "Log Payload",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Payload",
+          "name" : "log-prefix",
           "sensitive" : false
         }
       },
@@ -3104,7 +3150,7 @@
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
@@ -3122,7 +3168,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "UpdateAttribute",
+      "name" : "Update quantity attribute",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -808.0,
@@ -3180,117 +3226,6 @@
       "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ae81041e-0195-1000-6b5a-0fbaf285a27f",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "LogAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 144.0,
-        "y" : -536.0
-      },
-      "properties" : {
-        "character-set" : "UTF-8",
-        "Log FlowFile Properties" : "true",
-        "Log Level" : "info",
-        "attributes-to-log-regex" : ".*",
-        "Output Format" : "Line per Attribute",
-        "Log Payload" : "false"
-      },
-      "propertyDescriptors" : {
-        "Log prefix" : {
-          "displayName" : "Log prefix",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log prefix",
-          "sensitive" : false
-        },
-        "character-set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "character-set",
-          "sensitive" : false
-        },
-        "Log FlowFile Properties" : {
-          "displayName" : "Log FlowFile Properties",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log FlowFile Properties",
-          "sensitive" : false
-        },
-        "Log Level" : {
-          "displayName" : "Log Level",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Level",
-          "sensitive" : false
-        },
-        "attributes-to-ignore-regex" : {
-          "displayName" : "Attributes to Ignore by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-ignore-regex",
-          "sensitive" : false
-        },
-        "Attributes to Ignore" : {
-          "displayName" : "Attributes to Ignore",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Ignore",
-          "sensitive" : false
-        },
-        "Attributes to Log" : {
-          "displayName" : "Attributes to Log",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Log",
-          "sensitive" : false
-        },
-        "attributes-to-log-regex" : {
-          "displayName" : "Attributes to Log by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-log-regex",
-          "sensitive" : false
-        },
-        "Output Format" : {
-          "displayName" : "Output Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Format",
-          "sensitive" : false
-        },
-        "Log Payload" : {
-          "displayName" : "Log Payload",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Payload",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
       "autoTerminatedRelationships" : [ "retry" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -3306,11 +3241,11 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "08b762f7-e51f-3bf5-8a02-e0dfb4858a2a",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "PutDatabaseRecord",
+      "name" : "PutDatabaseRecord - update member_signup table",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -464.0,
-        "y" : 1736.0
+        "x" : -456.0,
+        "y" : 1936.0
       },
       "properties" : {
         "put-db-record-allow-multiple-statements" : "false",
@@ -3533,7 +3468,7 @@
       "type" : "org.apache.nifi.processors.standard.PutDatabaseRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -3548,11 +3483,11 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "57020fb8-2e53-3b6c-9e9e-9aaa6c263fc0",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "ConvertRecord",
+      "name" : "Convert JSON to CSV",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -464.0,
-        "y" : 1416.0
+        "x" : -456.0,
+        "y" : 1584.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
@@ -3592,118 +3527,7 @@
       "type" : "org.apache.nifi.processors.standard.ConvertRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "aa505684-0195-1000-5199-93bdb3006673",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "LogAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 224.0,
-        "y" : 1744.0
-      },
-      "properties" : {
-        "character-set" : "UTF-8",
-        "Log FlowFile Properties" : "true",
-        "Log Level" : "info",
-        "attributes-to-log-regex" : ".*",
-        "Output Format" : "Line per Attribute",
-        "Log Payload" : "false"
-      },
-      "propertyDescriptors" : {
-        "Log prefix" : {
-          "displayName" : "Log prefix",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log prefix",
-          "sensitive" : false
-        },
-        "character-set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "character-set",
-          "sensitive" : false
-        },
-        "Log FlowFile Properties" : {
-          "displayName" : "Log FlowFile Properties",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log FlowFile Properties",
-          "sensitive" : false
-        },
-        "Log Level" : {
-          "displayName" : "Log Level",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Level",
-          "sensitive" : false
-        },
-        "attributes-to-ignore-regex" : {
-          "displayName" : "Attributes to Ignore by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-ignore-regex",
-          "sensitive" : false
-        },
-        "Attributes to Ignore" : {
-          "displayName" : "Attributes to Ignore",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Ignore",
-          "sensitive" : false
-        },
-        "Attributes to Log" : {
-          "displayName" : "Attributes to Log",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Log",
-          "sensitive" : false
-        },
-        "attributes-to-log-regex" : {
-          "displayName" : "Attributes to Log by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-log-regex",
-          "sensitive" : false
-        },
-        "Output Format" : {
-          "displayName" : "Output Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Format",
-          "sensitive" : false
-        },
-        "Log Payload" : {
-          "displayName" : "Log Payload",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Payload",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -3718,7 +3542,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "79e796c7-d2f1-33e5-b89c-92c5197a167b",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "AttributesToJSON",
+      "name" : "Convert signup attributes to JSON",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -472.0,
@@ -3806,91 +3630,38 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "a9e6284e-0195-1000-d4e5-0ad815a82f01",
+      "identifier" : "bd363761-0195-1000-608b-edaa159beae6",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "LogAttribute",
+      "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1664.0,
-        "y" : -184.0
+        "x" : 152.0,
+        "y" : 808.0
       },
       "properties" : {
-        "character-set" : "UTF-8",
-        "Log FlowFile Properties" : "true",
-        "Log Level" : "info",
-        "attributes-to-log-regex" : ".*",
-        "Output Format" : "Line per Attribute",
-        "Log Payload" : "false"
+        "log-message" : "Message ${email.headers.message-id}: Failed to create signup JSON.",
+        "log-level" : "warn"
       },
       "propertyDescriptors" : {
-        "Log prefix" : {
-          "displayName" : "Log prefix",
+        "log-message" : {
+          "displayName" : "Log message",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Log prefix",
+          "name" : "log-message",
           "sensitive" : false
         },
-        "character-set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "character-set",
-          "sensitive" : false
-        },
-        "Log FlowFile Properties" : {
-          "displayName" : "Log FlowFile Properties",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log FlowFile Properties",
-          "sensitive" : false
-        },
-        "Log Level" : {
+        "log-level" : {
           "displayName" : "Log Level",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Log Level",
+          "name" : "log-level",
           "sensitive" : false
         },
-        "attributes-to-ignore-regex" : {
-          "displayName" : "Attributes to Ignore by Regular Expression",
+        "log-prefix" : {
+          "displayName" : "Log prefix",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "attributes-to-ignore-regex",
-          "sensitive" : false
-        },
-        "Attributes to Ignore" : {
-          "displayName" : "Attributes to Ignore",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Ignore",
-          "sensitive" : false
-        },
-        "Attributes to Log" : {
-          "displayName" : "Attributes to Log",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Log",
-          "sensitive" : false
-        },
-        "attributes-to-log-regex" : {
-          "displayName" : "Attributes to Log by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-log-regex",
-          "sensitive" : false
-        },
-        "Output Format" : {
-          "displayName" : "Output Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Format",
-          "sensitive" : false
-        },
-        "Log Payload" : {
-          "displayName" : "Log Payload",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Payload",
+          "name" : "log-prefix",
           "sensitive" : false
         }
       },
@@ -3901,10 +3672,126 @@
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 104.0,
+        "y" : 88.0
+      },
+      "properties" : {
+        "log-message" : "Message ${email.headers.message-id}: Payment method ${method.method} information not found.",
+        "log-level" : "warn"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bd39cab0-0195-1000-e1dd-23ceaedf3567",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 184.0,
+        "y" : 1936.0
+      },
+      "properties" : {
+        "log-message" : "Message ${email.headers.message-id}: Failed to add membership signup for ${member}",
+        "log-level" : "warn"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -3919,11 +3806,11 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "44525a3b-4a74-3c27-8e1d-911f6a1e2db0",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "JoltTransformJSON",
+      "name" : "Jolt set member to first entry in members",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1600.0,
-        "y" : 1416.0
+        "x" : -1760.0,
+        "y" : 1592.0
       },
       "properties" : {
         "Jolt Transform" : "jolt-transform-chain",
@@ -4016,7 +3903,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "RouteOnContent - detect payment type",
+      "name" : "Route on payment type",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -560.0,
@@ -4084,7 +3971,7 @@
       "type" : "org.apache.nifi.processors.standard.RouteOnContent",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -4099,7 +3986,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "JoltTransformJSON",
+      "name" : "Jolt split member string into members attribute",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -472.0,
@@ -4203,7 +4090,65 @@
         "y" : -1400.0
       },
       "properties" : {
-        "log-level" : "info"
+        "log-level" : "warn"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bd38de58-0195-1000-9925-1962655c176d",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 192.0,
+        "y" : 1584.0
+      },
+      "properties" : {
+        "log-message" : "Message ${email.headers.message-id}: Failed to convert JSON to CSV.",
+        "log-level" : "warn"
       },
       "propertyDescriptors" : {
         "log-message" : {
@@ -4253,10 +4198,10 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "aea8bc35-0195-1000-0963-f2628879b369",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "ExtractText - read subscription payment from email",
+      "name" : "Extract subscription payment from email",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 144.0,
+        "x" : -128.0,
         "y" : -208.0
       },
       "properties" : {
@@ -4440,7 +4385,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "1ef8b710-1f97-3d90-84a4-d4231cb730a1",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "PutFile",
+      "name" : "Save message to email store",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1168.0,
@@ -4532,91 +4477,38 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "aeaa8cc5-0195-1000-15a0-bc5267558646",
+      "identifier" : "ef76b573-2efc-3c50-97f9-8bee09ffe420",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "LogAttribute",
+      "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 624.0,
-        "y" : -208.0
+        "x" : 152.0,
+        "y" : -1176.0
       },
       "properties" : {
-        "character-set" : "UTF-8",
-        "Log FlowFile Properties" : "true",
-        "Log Level" : "info",
-        "attributes-to-log-regex" : ".*",
-        "Output Format" : "Line per Attribute",
-        "Log Payload" : "false"
+        "log-message" : "Message ${email.headers.message-id}: No route for subject ${email.headers.subject}. \n",
+        "log-level" : "warn"
       },
       "propertyDescriptors" : {
-        "Log prefix" : {
-          "displayName" : "Log prefix",
+        "log-message" : {
+          "displayName" : "Log message",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Log prefix",
+          "name" : "log-message",
           "sensitive" : false
         },
-        "character-set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "character-set",
-          "sensitive" : false
-        },
-        "Log FlowFile Properties" : {
-          "displayName" : "Log FlowFile Properties",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log FlowFile Properties",
-          "sensitive" : false
-        },
-        "Log Level" : {
+        "log-level" : {
           "displayName" : "Log Level",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "Log Level",
+          "name" : "log-level",
           "sensitive" : false
         },
-        "attributes-to-ignore-regex" : {
-          "displayName" : "Attributes to Ignore by Regular Expression",
+        "log-prefix" : {
+          "displayName" : "Log prefix",
           "dynamic" : false,
           "identifiesControllerService" : false,
-          "name" : "attributes-to-ignore-regex",
-          "sensitive" : false
-        },
-        "Attributes to Ignore" : {
-          "displayName" : "Attributes to Ignore",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Ignore",
-          "sensitive" : false
-        },
-        "Attributes to Log" : {
-          "displayName" : "Attributes to Log",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Log",
-          "sensitive" : false
-        },
-        "attributes-to-log-regex" : {
-          "displayName" : "Attributes to Log by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-log-regex",
-          "sensitive" : false
-        },
-        "Output Format" : {
-          "displayName" : "Output Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Format",
-          "sensitive" : false
-        },
-        "Log Payload" : {
-          "displayName" : "Log Payload",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Payload",
+          "name" : "log-prefix",
           "sensitive" : false
         }
       },
@@ -4627,118 +4519,7 @@
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b2a891bc-0195-1000-f998-019d75ac403f",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "LogAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 128.0,
-        "y" : -904.0
-      },
-      "properties" : {
-        "character-set" : "UTF-8",
-        "Log FlowFile Properties" : "true",
-        "Log Level" : "info",
-        "attributes-to-log-regex" : ".*",
-        "Output Format" : "Line per Attribute",
-        "Log Payload" : "false"
-      },
-      "propertyDescriptors" : {
-        "Log prefix" : {
-          "displayName" : "Log prefix",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log prefix",
-          "sensitive" : false
-        },
-        "character-set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "character-set",
-          "sensitive" : false
-        },
-        "Log FlowFile Properties" : {
-          "displayName" : "Log FlowFile Properties",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log FlowFile Properties",
-          "sensitive" : false
-        },
-        "Log Level" : {
-          "displayName" : "Log Level",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Level",
-          "sensitive" : false
-        },
-        "attributes-to-ignore-regex" : {
-          "displayName" : "Attributes to Ignore by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-ignore-regex",
-          "sensitive" : false
-        },
-        "Attributes to Ignore" : {
-          "displayName" : "Attributes to Ignore",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Ignore",
-          "sensitive" : false
-        },
-        "Attributes to Log" : {
-          "displayName" : "Attributes to Log",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Attributes to Log",
-          "sensitive" : false
-        },
-        "attributes-to-log-regex" : {
-          "displayName" : "Attributes to Log by Regular Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "attributes-to-log-regex",
-          "sensitive" : false
-        },
-        "Output Format" : {
-          "displayName" : "Output Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Output Format",
-          "sensitive" : false
-        },
-        "Log Payload" : {
-          "displayName" : "Log Payload",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Log Payload",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
@@ -4792,6 +4573,64 @@
       "type" : "org.apache.nifi.processors.email.ExtractEmailHeaders",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bd2f6021-0195-1000-897b-5c61b4f5294c",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 144.0,
+        "y" : -896.0
+      },
+      "properties" : {
+        "log-message" : "Message ${email.headers.message-id}: Member and payer informmation not found.",
+        "log-level" : "warn"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -4807,7 +4646,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "RouteOnAttribute - email subject",
+      "name" : "Route on email subject",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -552.0,
@@ -4843,6 +4682,64 @@
       "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bd314ea6-0195-1000-a9fa-1ad2117a3ffb",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 128.0,
+        "y" : -536.0
+      },
+      "properties" : {
+        "log-message" : "Message ${email.headers.message-id}: Payment type information not found.",
+        "log-level" : "warn"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -4858,11 +4755,11 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "EvaluateJsonPath",
+      "name" : "Evaluate - update member attribute from record",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1080.0,
-        "y" : 1416.0
+        "x" : -1120.0,
+        "y" : 1592.0
       },
       "properties" : {
         "Destination" : "flowfile-attribute",
@@ -4941,7 +4838,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "aea6c58a-0195-1000-6341-7e19d4860e52",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "ExtractText - read direct debit payment from email",
+      "name" : "Extrac direct debit payment info from email",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -568.0,
@@ -5105,7 +5002,7 @@
       "type" : "org.apache.nifi.processors.standard.ExtractText",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "autoTerminatedRelationships" : [ "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -5123,8 +5020,8 @@
       "name" : "SplitRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1600.0,
-        "y" : 1072.0
+        "x" : -1760.0,
+        "y" : 1064.0
       },
       "properties" : {
         "Record Writer" : "8ebb759d-9899-3050-a25a-6d0a54097ec3",
