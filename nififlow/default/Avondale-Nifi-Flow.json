@@ -299,7 +299,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "Extrac direct debit payment info from email",
+        "name" : "Extract direct debit payment info from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -346,7 +346,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "Extrac direct debit payment info from email",
+        "name" : "Extract direct debit payment info from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -658,36 +658,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "3cf13101-c57f-3ad8-8fa1-d1b2656a5262",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
-        "name" : "ExtractEmailHeaders",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -737,6 +707,36 @@
         "groupId" : "flow-contents-group",
         "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
         "name" : "Copy signup attributes to names without dots ",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7cd2e343-0ec4-31f2-9d68-c68c18ede58e",
+        "name" : "ReplaceText",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "58098212-258f-3ed1-8dea-bab2cd833678",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
+        "name" : "ExtractEmailBody",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -827,6 +827,36 @@
         "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
         "name" : "Extract subscription payment from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "af4009cf-8482-323b-869a-5f1406336cc9",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7cd2e343-0ec4-31f2-9d68-c68c18ede58e",
+        "name" : "ReplaceText",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -958,6 +988,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
+        "name" : "ExtractEmailBody",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bc3e3352-a706-3450-a4a3-353d6e78ff25",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
+        "name" : "ExtractEmailHeaders",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "57020fb8-2e53-3b6c-9e9e-9aaa6c263fc0",
         "name" : "Convert JSON to CSV",
         "type" : "PROCESSOR"
@@ -1036,7 +1096,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "Extrac direct debit payment info from email",
+        "name" : "Extract direct debit payment info from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1067,6 +1127,36 @@
         "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
         "name" : "Extract subscription payment from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
+        "name" : "ExtractEmailHeaders",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "cc41fdce-26e2-33ae-90ed-2f9610690225",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd420874-0195-1000-7cd6-1a7bf0886d48",
+        "name" : "ConsumeIMAP - members.avondale",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -2448,8 +2538,8 @@
       "name" : "GetFile",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 152.0,
-        "y" : -1600.0
+        "x" : -96.0,
+        "y" : -1824.0
       },
       "properties" : {
         "Keep Source File" : "false",
@@ -2577,7 +2667,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -560.0,
-        "y" : -896.0
+        "y" : -928.0
       },
       "properties" : {
         "Enable Unicode Predefined Character Classes" : "false",
@@ -2747,8 +2837,8 @@
       "name" : "ConsumeIMAP - shortcentral",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1168.0,
-        "y" : -1600.0
+        "x" : -1056.0,
+        "y" : -1816.0
       },
       "properties" : {
         "delete.messages" : "false",
@@ -2884,8 +2974,8 @@
         "Permit Whitespace and Comments in Pattern" : "false",
         "Enable Unicode-aware Case Folding" : "false",
         "Enable named group support" : "true",
-        "cost" : "^Total cost: £(?<cost>.*)$",
-        "method" : "^Payment method: (?<method>.*)$",
+        "cost" : "Total cost: £|&#163;(?<cost>[0-9-.]+)",
+        "method" : "Payment method: (?<method>.*)",
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
@@ -2897,7 +2987,7 @@
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false",
-        "status" : "^We\\s+have\\s+successfully\\s+received\\s+payment\\s+by\\s+credit\\s+or\\s+debit\\s+card,\\s+and\\s+the\\s+membership\\s+is\\s+\\\"(?<status>.*)\\\".$"
+        "status" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+by\\s+credit\\s+or\\s+debit\\s+card,\\s+and\\s+the\\s+membership\\s+is\\s+\\\"(?<status>.*)\\\"."
       },
       "propertyDescriptors" : {
         "Enable Unicode Predefined Character Classes" : {
@@ -3095,6 +3185,111 @@
       "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "7cd2e343-0ec4-31f2-9d68-c68c18ede58e",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ReplaceText",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1176.0,
+        "y" : -1344.0
+      },
+      "properties" : {
+        "Regular Expression" : "\\s<br\\s*\\/>",
+        "Replacement Value" : "\n",
+        "Evaluation Mode" : "Entire text",
+        "Line-by-Line Evaluation Mode" : "All",
+        "Character Set" : "UTF-8",
+        "Maximum Buffer Size" : "1 MB",
+        "Replacement Strategy" : "Regex Replace"
+      },
+      "propertyDescriptors" : {
+        "Regular Expression" : {
+          "displayName" : "Search Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Regular Expression",
+          "sensitive" : false
+        },
+        "Replacement Value" : {
+          "displayName" : "Replacement Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Replacement Value",
+          "sensitive" : false
+        },
+        "Evaluation Mode" : {
+          "displayName" : "Evaluation Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Evaluation Mode",
+          "sensitive" : false
+        },
+        "Text to Prepend" : {
+          "displayName" : "Text to Prepend",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Text to Prepend",
+          "sensitive" : false
+        },
+        "Line-by-Line Evaluation Mode" : {
+          "displayName" : "Line-by-Line Evaluation Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Line-by-Line Evaluation Mode",
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Character Set",
+          "sensitive" : false
+        },
+        "Maximum Buffer Size" : {
+          "displayName" : "Maximum Buffer Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Buffer Size",
+          "sensitive" : false
+        },
+        "Replacement Strategy" : {
+          "displayName" : "Replacement Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Replacement Strategy",
+          "sensitive" : false
+        },
+        "Text to Append" : {
+          "displayName" : "Text to Append",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Text to Append",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ReplaceText",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -3114,7 +3309,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1072.0,
-        "y" : 1920.0
+        "y" : 1936.0
       },
       "properties" : {
         "log-message" : "Message ${email.headers.message-id}: Successfully added membership signup for ${member}",
@@ -3617,6 +3812,178 @@
       "type" : "org.apache.nifi.processors.standard.AttributesToJSON",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-ExtractEmailBody-nar",
+        "group" : "com.shortcentral",
+        "version" : "1.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ExtractEmailBody",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1614.9615783439197,
+        "y" : -1576.6800898126019
+      },
+      "properties" : {
+        "MIME_type" : "text/html"
+      },
+      "propertyDescriptors" : {
+        "MIME_type" : {
+          "displayName" : "MIME type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "MIME_type",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "com.shortcentral.nifi.processors.ExtractEmailBody",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "DEBUG",
+      "bundle" : {
+        "artifact" : "nifi-email-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bd420874-0195-1000-7cd6-1a7bf0886d48",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ConsumeIMAP - members.avondale",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -552.0,
+        "y" : -1824.0
+      },
+      "properties" : {
+        "delete.messages" : "false",
+        "folder" : "NewMemberships",
+        "port" : "993",
+        "connection.timeout" : "30 sec",
+        "host" : "imap.gmail.com",
+        "Mark Messages as Read" : "false",
+        "user" : "members.avondaleltc@gmail.com",
+        "Use SSL" : "true",
+        "authorization-mode" : "password-based-authorization-mode",
+        "fetch.size" : "10"
+      },
+      "propertyDescriptors" : {
+        "delete.messages" : {
+          "displayName" : "Delete Messages",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "delete.messages",
+          "sensitive" : false
+        },
+        "password" : {
+          "displayName" : "Password",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "password",
+          "sensitive" : true
+        },
+        "folder" : {
+          "displayName" : "Folder",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "folder",
+          "sensitive" : false
+        },
+        "port" : {
+          "displayName" : "Port",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "port",
+          "sensitive" : false
+        },
+        "connection.timeout" : {
+          "displayName" : "Connection timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "connection.timeout",
+          "sensitive" : false
+        },
+        "oauth2-access-token-provider" : {
+          "displayName" : "OAuth2 Access Token Provider",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "oauth2-access-token-provider",
+          "sensitive" : false
+        },
+        "host" : {
+          "displayName" : "Host Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "host",
+          "sensitive" : false
+        },
+        "Mark Messages as Read" : {
+          "displayName" : "Mark Messages as Read",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Mark Messages as Read",
+          "sensitive" : false
+        },
+        "user" : {
+          "displayName" : "User Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "user",
+          "sensitive" : false
+        },
+        "Use SSL" : {
+          "displayName" : "Use SSL",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Use SSL",
+          "sensitive" : false
+        },
+        "authorization-mode" : {
+          "displayName" : "Authorization Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "authorization-mode",
+          "sensitive" : false
+        },
+        "fetch.size" : {
+          "displayName" : "Fetch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "fetch.size",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "DISABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.email.ConsumeIMAP",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -3873,7 +4240,7 @@
           "name" : "Jolt Specification",
           "resourceDefinition" : {
             "cardinality" : "SINGLE",
-            "resourceTypes" : [ "TEXT", "FILE" ]
+            "resourceTypes" : [ "FILE", "TEXT" ]
           },
           "sensitive" : false
         }
@@ -4053,7 +4420,7 @@
           "name" : "Jolt Specification",
           "resourceDefinition" : {
             "cardinality" : "SINGLE",
-            "resourceTypes" : [ "TEXT", "FILE" ]
+            "resourceTypes" : [ "FILE", "TEXT" ]
           },
           "sensitive" : false
         }
@@ -4086,8 +4453,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 144.0,
-        "y" : -1400.0
+        "x" : 152.0,
+        "y" : -1544.0
       },
       "properties" : {
         "log-level" : "warn"
@@ -4209,9 +4576,9 @@
         "Permit Whitespace and Comments in Pattern" : "false",
         "Enable Unicode-aware Case Folding" : "false",
         "Enable named group support" : "true",
-        "quantity" : "Number of installments: (?<quantity>.*)$",
-        "cost" : "Monthly cost: £(?<cost>.*)$",
-        "method" : "^Payment method: (?<method>.*)$",
+        "quantity" : "Number of installments: (?<quantity>.*)",
+        "cost" : "Monthly cost: £|&#163;(?<cost>[0-9-.]+)",
+        "method" : "Payment method: (?<method>.*)",
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
@@ -4486,7 +4853,7 @@
         "y" : -1176.0
       },
       "properties" : {
-        "log-message" : "Message ${email.headers.message-id}: No route for subject ${email.headers.subject}. \n",
+        "log-message" : "Message ${email.headers.message-id}: No route for subject \"${email.headers.subject}\". \n",
         "log-level" : "warn"
       },
       "propertyDescriptors" : {
@@ -4540,8 +4907,8 @@
       "name" : "ExtractEmailHeaders",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -560.0,
-        "y" : -1592.0
+        "x" : -552.0,
+        "y" : -1544.0
       },
       "properties" : {
         "STRICT_ADDRESS_PARSING" : "true",
@@ -4838,7 +5205,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "aea6c58a-0195-1000-6341-7e19d4860e52",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "Extrac direct debit payment info from email",
+      "name" : "Extract direct debit payment info from email",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -568.0,
@@ -4849,8 +5216,8 @@
         "Permit Whitespace and Comments in Pattern" : "false",
         "Enable Unicode-aware Case Folding" : "false",
         "Enable named group support" : "true",
-        "cost" : "^Total cost: £(?<cost>.*)$",
-        "method" : "^Payment method: (?<method>.*)$",
+        "cost" : "Total cost: £|&#163;(?<cost>[0-9-.]+)",
+        "method" : "Payment method: (?<method>.*)",
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
@@ -4862,7 +5229,7 @@
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false",
-        "status" : "^We\\s+have\\s+successfully\\s+received\\s+payment\\s+instructions\\s+to\\s+set\\s+up\\s+the\\s+Direct\\s+Debit.\\s+Their\\s+payment\\s+will\\s+appear\\s+as\\s+\\\"(?<status>.*)\\\"\\s+until\\s+we\\s+receive\\s+notification\\s+from\\s+GoCardless\\s+that\\s+the\\s+payment\\s+has\\s+cleared.$"
+        "status" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+instructions\\s+to\\s+set\\s+up\\s+the\\s+Direct\\s+Debit.\\s+Their\\s+payment\\s+will\\s+appear\\s+as\\s+\\\"(?<status>.*)\\\"\\s+until\\s+we\\s+receive\\s+notification\\s+from\\s+GoCardless\\s+that\\s+the\\s+payment\\s+has\\s+cleared."
       },
       "propertyDescriptors" : {
         "Enable Unicode Predefined Character Classes" : {
