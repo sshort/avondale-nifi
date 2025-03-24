@@ -388,6 +388,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
+        "name" : "ConvertHTMLToText",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "0d991990-cfd1-33cf-b51a-e95329bdca44",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
+        "name" : "ExtractEmailBody",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -718,36 +748,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "7cd2e343-0ec4-31f2-9d68-c68c18ede58e",
-        "name" : "ReplaceText",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "58098212-258f-3ed1-8dea-bab2cd833678",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
-        "name" : "ExtractEmailBody",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "1ef8b710-1f97-3d90-84a4-d4231cb730a1",
         "name" : "Save message to email store",
         "type" : "PROCESSOR"
@@ -827,36 +827,6 @@
         "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
         "name" : "Extract subscription payment from email",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "af4009cf-8482-323b-869a-5f1406336cc9",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "7cd2e343-0ec4-31f2-9d68-c68c18ede58e",
-        "name" : "ReplaceText",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1127,6 +1097,36 @@
         "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
         "name" : "Extract subscription payment from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a815f30e-ad5e-3a9f-b9d5-9b9a1b568333",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
+        "name" : "ConvertHTMLToText",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -2520,6 +2520,49 @@
       "type" : "org.apache.nifi.processors.standard.ForkRecord",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-ExtractEmailBody-nar",
+        "group" : "com.shortcentral",
+        "version" : "1.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ConvertHTMLToText",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1184.0,
+        "y" : -1360.0
+      },
+      "properties" : {
+        "convert_br_to_lf" : "true"
+      },
+      "propertyDescriptors" : {
+        "convert_br_to_lf" : {
+          "displayName" : "Convert <br/> to linefeed",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "convert_br_to_lf",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "com.shortcentral.nifi.processors.ConvertHTMLToText",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -2677,13 +2720,13 @@
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
-        "payer" : "^(?<payer>.*) has applied for (?<product>.*).$",
+        "payer" : "(?<payer>.*) has applied for (?<product>.*).",
         "Enable Canonical Equivalence" : "false",
         "Enable Case-insensitive Matching" : "false",
         "Enable Multiline Mode" : "true",
         "Enable repeating capture group" : "false",
         "Maximum Capture Group Length" : "1024",
-        "member" : "^Members? names?: (?<member>[\\p{L}\\s-*',]+)\\S*$",
+        "member" : "Members? names?: (?<member>[\\p{L}\\x20-*',]+)",
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false"
@@ -3183,111 +3226,6 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.LogMessage",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "failure" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "7cd2e343-0ec4-31f2-9d68-c68c18ede58e",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "ReplaceText",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -1176.0,
-        "y" : -1344.0
-      },
-      "properties" : {
-        "Regular Expression" : "\\s<br\\s*\\/>",
-        "Replacement Value" : "\n",
-        "Evaluation Mode" : "Entire text",
-        "Line-by-Line Evaluation Mode" : "All",
-        "Character Set" : "UTF-8",
-        "Maximum Buffer Size" : "1 MB",
-        "Replacement Strategy" : "Regex Replace"
-      },
-      "propertyDescriptors" : {
-        "Regular Expression" : {
-          "displayName" : "Search Value",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Regular Expression",
-          "sensitive" : false
-        },
-        "Replacement Value" : {
-          "displayName" : "Replacement Value",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Replacement Value",
-          "sensitive" : false
-        },
-        "Evaluation Mode" : {
-          "displayName" : "Evaluation Mode",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Evaluation Mode",
-          "sensitive" : false
-        },
-        "Text to Prepend" : {
-          "displayName" : "Text to Prepend",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Text to Prepend",
-          "sensitive" : false
-        },
-        "Line-by-Line Evaluation Mode" : {
-          "displayName" : "Line-by-Line Evaluation Mode",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Line-by-Line Evaluation Mode",
-          "sensitive" : false
-        },
-        "Character Set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Character Set",
-          "sensitive" : false
-        },
-        "Maximum Buffer Size" : {
-          "displayName" : "Maximum Buffer Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Maximum Buffer Size",
-          "sensitive" : false
-        },
-        "Replacement Strategy" : {
-          "displayName" : "Replacement Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Replacement Strategy",
-          "sensitive" : false
-        },
-        "Text to Append" : {
-          "displayName" : "Text to Append",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Text to Append",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.ReplaceText",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ "success" ],
@@ -3830,8 +3768,8 @@
       "name" : "ExtractEmailBody",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1614.9615783439197,
-        "y" : -1576.6800898126019
+        "x" : -1184.0,
+        "y" : -1552.0
       },
       "properties" : {
         "MIME_type" : "text/html"
