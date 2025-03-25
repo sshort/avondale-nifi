@@ -88,36 +88,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
-        "name" : "Update filename attribute to message id",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d7751fcc-6279-3580-b557-e5ccb8f7f84e",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "newmembership" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "1c0830dd-b04e-35c6-aa01-6a9d663c9143",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -238,36 +208,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
-        "name" : "ConvertHTMLToText",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0d991990-cfd1-33cf-b51a-e95329bdca44",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
-        "name" : "ExtractEmailBody",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "bd372ff2-0195-1000-8752-7a3359ead8f0",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -287,6 +227,36 @@
         "groupId" : "flow-contents-group",
         "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
         "name" : "Jolt split member string into members attribute",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ef76b573-2efc-3c50-97f9-8bee09ffe420",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "86accaa4-2ecb-3205-b15c-9d6bc7196ee3",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -478,6 +448,66 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "cc921901-0195-1000-a0e8-0fe534521fff",
+        "name" : "Extract cost",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c24bfd9b-d6e5-39fb-b576-748a05e194ef",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
+        "name" : "ConvertHTMLToText",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
+        "name" : "Update filename attribute to message id",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "0ba032df-665d-3a13-9c81-d0c8d1aac6fd",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "newmembership" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -598,25 +628,55 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "cc921901-0195-1000-a0e8-0fe534521fff",
-        "name" : "Extract cost",
+        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
+        "name" : "ExtractEmailBody",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d4decfe9-efa2-36b2-b87f-74ba0f11526b",
+      "identifier" : "bb5c0a97-f857-3694-aaa6-0bfd23801c28",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "newmembership" ],
+      "selectedRelationships" : [ "success" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
+        "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
+        "name" : "Update filename attribute to message id",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
+        "name" : "ConvertHTMLToText",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "f04714f1-2d42-3410-a671-08438c293051",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
+        "name" : "ExtractEmailBody",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -868,36 +928,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ef76b573-2efc-3c50-97f9-8bee09ffe420",
-        "name" : "LogMessage",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0523a6b4-b390-3874-b139-3d0648d539ad",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
         "name" : "Copy signup attributes to names without dots ",
         "type" : "PROCESSOR"
@@ -917,36 +947,6 @@
         "groupId" : "flow-contents-group",
         "id" : "ccb0eb6b-0195-1000-1c86-2953c95b5aad",
         "name" : "Extract payment status from email",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d17c629b-b57d-3131-a7b9-e112a7cf5422",
-        "name" : "ExtractEmailBody",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "bc3e3352-a706-3450-a4a3-353d6e78ff25",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
-        "name" : "ExtractEmailHeaders",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1138,6 +1138,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "654cfd5a-a0bf-3070-bea5-cf9cdbc06c5d",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
+        "name" : "ExtractEmailHeaders",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
         "name" : "Extract subscription payment from email",
         "type" : "PROCESSOR"
@@ -1187,66 +1217,6 @@
         "groupId" : "flow-contents-group",
         "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
         "name" : "Update quantity attribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "a815f30e-ad5e-3a9f-b9d5-9b9a1b568333",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
-        "name" : "ConvertHTMLToText",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
-        "name" : "ExtractEmailHeaders",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "cc41fdce-26e2-33ae-90ed-2f9610690225",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "bd420874-0195-1000-7cd6-1a7bf0886d48",
-        "name" : "ConsumeIMAP - members.avondale",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1337,6 +1307,36 @@
         "groupId" : "flow-contents-group",
         "id" : "79e796c7-d2f1-33e5-b89c-92c5197a167b",
         "name" : "Convert signup attributes to JSON",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
+        "name" : "ExtractEmailHeaders",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3d612528-33d8-372e-80ed-996b49ac3815",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ccd217f3-0195-1000-3fbf-7f3bf46038e4",
+        "name" : "ConsumeIMAP - members.avondale",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -2351,8 +2351,8 @@
       "name" : "Update filename attribute to message id",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1168.0,
-        "y" : -1176.0
+        "x" : -520.0,
+        "y" : -1264.0
       },
       "properties" : {
         "filename" : "${email.headers.message-id}",
@@ -2628,8 +2628,8 @@
       "name" : "ConvertHTMLToText",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1184.0,
-        "y" : -1360.0
+        "x" : -1088.0,
+        "y" : -1064.0
       },
       "properties" : {
         "convert_br_to_lf" : "true"
@@ -2811,13 +2811,13 @@
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
-        "payer" : "^(?<payer>.*) has applied for (?<product>.*).$",
+        "payer" : "^(?<payer>[\\p{L}\\x20\\-']+) has applied for (?<product>.*).$",
         "Enable Canonical Equivalence" : "false",
         "Enable Case-insensitive Matching" : "false",
         "Enable Multiline Mode" : "true",
         "Enable repeating capture group" : "false",
         "Maximum Capture Group Length" : "1024",
-        "member" : "^Members? names?: (?<member>[\\p{L}\\x20-*',]+);?$",
+        "member" : "^Members? names?: (?<member>[\\p{L}\\x20\\-',]+);?$",
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false"
@@ -2958,6 +2958,135 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.ExtractText",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "DEBUG",
+      "bundle" : {
+        "artifact" : "nifi-email-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ccd217f3-0195-1000-3fbf-7f3bf46038e4",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ConsumeIMAP - members.avondale",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -528.0,
+        "y" : -1816.0
+      },
+      "properties" : {
+        "delete.messages" : "false",
+        "folder" : "NewMemberships",
+        "port" : "993",
+        "connection.timeout" : "30 sec",
+        "host" : "imap.gmail.com",
+        "Mark Messages as Read" : "false",
+        "user" : "members.avondaleltc@gmail.com",
+        "Use SSL" : "true",
+        "authorization-mode" : "password-based-authorization-mode",
+        "fetch.size" : "10"
+      },
+      "propertyDescriptors" : {
+        "delete.messages" : {
+          "displayName" : "Delete Messages",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "delete.messages",
+          "sensitive" : false
+        },
+        "password" : {
+          "displayName" : "Password",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "password",
+          "sensitive" : true
+        },
+        "folder" : {
+          "displayName" : "Folder",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "folder",
+          "sensitive" : false
+        },
+        "port" : {
+          "displayName" : "Port",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "port",
+          "sensitive" : false
+        },
+        "connection.timeout" : {
+          "displayName" : "Connection timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "connection.timeout",
+          "sensitive" : false
+        },
+        "oauth2-access-token-provider" : {
+          "displayName" : "OAuth2 Access Token Provider",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "oauth2-access-token-provider",
+          "sensitive" : false
+        },
+        "host" : {
+          "displayName" : "Host Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "host",
+          "sensitive" : false
+        },
+        "Mark Messages as Read" : {
+          "displayName" : "Mark Messages as Read",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Mark Messages as Read",
+          "sensitive" : false
+        },
+        "user" : {
+          "displayName" : "User Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "user",
+          "sensitive" : false
+        },
+        "Use SSL" : {
+          "displayName" : "Use SSL",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Use SSL",
+          "sensitive" : false
+        },
+        "authorization-mode" : {
+          "displayName" : "Authorization Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "authorization-mode",
+          "sensitive" : false
+        },
+        "fetch.size" : {
+          "displayName" : "Fetch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "fetch.size",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "DISABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.email.ConsumeIMAP",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
@@ -3386,7 +3515,7 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 96.0,
+        "x" : 120.0,
         "y" : 448.0
       },
       "properties" : {
@@ -3908,8 +4037,8 @@
       "name" : "ExtractEmailBody",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1184.0,
-        "y" : -1552.0
+        "x" : -536.0,
+        "y" : -1048.0
       },
       "properties" : {
         "MIME_type" : "text/html"
@@ -3931,135 +4060,6 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "com.shortcentral.nifi.processors.ExtractEmailBody",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "DEBUG",
-      "bundle" : {
-        "artifact" : "nifi-email-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "bd420874-0195-1000-7cd6-1a7bf0886d48",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "ConsumeIMAP - members.avondale",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -552.0,
-        "y" : -1824.0
-      },
-      "properties" : {
-        "delete.messages" : "false",
-        "folder" : "NewMemberships",
-        "port" : "993",
-        "connection.timeout" : "30 sec",
-        "host" : "imap.gmail.com",
-        "Mark Messages as Read" : "false",
-        "user" : "members.avondaleltc@gmail.com",
-        "Use SSL" : "true",
-        "authorization-mode" : "password-based-authorization-mode",
-        "fetch.size" : "10"
-      },
-      "propertyDescriptors" : {
-        "delete.messages" : {
-          "displayName" : "Delete Messages",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "delete.messages",
-          "sensitive" : false
-        },
-        "password" : {
-          "displayName" : "Password",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "password",
-          "sensitive" : true
-        },
-        "folder" : {
-          "displayName" : "Folder",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "folder",
-          "sensitive" : false
-        },
-        "port" : {
-          "displayName" : "Port",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "port",
-          "sensitive" : false
-        },
-        "connection.timeout" : {
-          "displayName" : "Connection timeout",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "connection.timeout",
-          "sensitive" : false
-        },
-        "oauth2-access-token-provider" : {
-          "displayName" : "OAuth2 Access Token Provider",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "oauth2-access-token-provider",
-          "sensitive" : false
-        },
-        "host" : {
-          "displayName" : "Host Name",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "host",
-          "sensitive" : false
-        },
-        "Mark Messages as Read" : {
-          "displayName" : "Mark Messages as Read",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Mark Messages as Read",
-          "sensitive" : false
-        },
-        "user" : {
-          "displayName" : "User Name",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "user",
-          "sensitive" : false
-        },
-        "Use SSL" : {
-          "displayName" : "Use SSL",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Use SSL",
-          "sensitive" : false
-        },
-        "authorization-mode" : {
-          "displayName" : "Authorization Mode",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "authorization-mode",
-          "sensitive" : false
-        },
-        "fetch.size" : {
-          "displayName" : "Fetch Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "fetch.size",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "DISABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.email.ConsumeIMAP",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ "success" ],
@@ -4254,8 +4254,8 @@
       "name" : "Extract cost",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -552.0,
-        "y" : -896.0
+        "x" : -1096.0,
+        "y" : -808.0
       },
       "properties" : {
         "Enable Unicode Predefined Character Classes" : "false",
@@ -4678,7 +4678,7 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 152.0,
+        "x" : -1656.0,
         "y" : -1544.0
       },
       "properties" : {
@@ -4988,8 +4988,8 @@
       "name" : "Extract payment status from email",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -520.0,
-        "y" : 128.0
+        "x" : -480.0,
+        "y" : 136.0
       },
       "properties" : {
         "Enable Unicode Predefined Character Classes" : "false",
@@ -5007,7 +5007,7 @@
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false",
-        "status" : "^We have successfully received payment by credit or debit card, and the membership is\\\"(?<status>.*)\".$"
+        "status" : "^We have successfully received payment instructions to set up the (?<installmenttype>Subscription|Direct Debit)\\. Their payment will appear as \\\"(?<status>.*)\\\" until we receive notification from (?<provider>.+) that the payment has cleared\\.$"
       },
       "propertyDescriptors" : {
         "Enable Unicode Predefined Character Classes" : {
@@ -5151,8 +5151,8 @@
       "name" : "Save message to email store",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1168.0,
-        "y" : -912.0
+        "x" : -1144.0,
+        "y" : -1272.0
       },
       "properties" : {
         "Create Missing Directories" : "true",
@@ -5245,8 +5245,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 152.0,
-        "y" : -1176.0
+        "x" : 64.0,
+        "y" : -1528.0
       },
       "properties" : {
         "log-message" : "Message ${email.headers.message-id}: No route for subject \"${email.headers.subject}\". \n",
@@ -5303,7 +5303,7 @@
       "name" : "ExtractEmailHeaders",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -552.0,
+        "x" : -1072.0,
         "y" : -1544.0
       },
       "properties" : {
@@ -5355,7 +5355,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : 144.0,
-        "y" : -896.0
+        "y" : -856.0
       },
       "properties" : {
         "log-message" : "Message ${email.headers.message-id}: Cost informmation not found.",
@@ -5412,7 +5412,7 @@
       "name" : "Extract payment status from email",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 104.0,
+        "x" : 120.0,
         "y" : 128.0
       },
       "properties" : {
@@ -5431,7 +5431,7 @@
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false",
-        "status" : "^We have successfully received payment instructions to set up the Direct Debit\\. Their payment will appear as \\\"(?<status>.*)\\\" until we receive notification from (?<provider>.+) that the payment has cleared\\.$"
+        "status" : "^Their membership will now appear as \\\"(?<status>.*)\" in Clubspark with the payment status of pending. Make sure you update their payment history as soon as you receive their payment. You can do this here.$"
       },
       "propertyDescriptors" : {
         "Enable Unicode Predefined Character Classes" : {
@@ -5575,8 +5575,8 @@
       "name" : "Route on email subject",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -552.0,
-        "y" : -1184.0
+        "x" : -512.0,
+        "y" : -1520.0
       },
       "properties" : {
         "Routing Strategy" : "Route to Property name",
