@@ -28,6 +28,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "ccb0ef5c-0195-1000-1d25-86d5f1145411",
+        "name" : "Extract payment status from email",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "beb3ce29-4bab-3485-9287-78a4e13b21fe",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ccb0eb6b-0195-1000-1c86-2953c95b5aad",
+        "name" : "Extract payment status from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "44525a3b-4a74-3c27-8e1d-911f6a1e2db0",
         "name" : "Jolt set member to first entry in members",
         "type" : "PROCESSOR"
@@ -118,55 +148,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
-        "name" : "Extract members and payer from email",
+        "id" : "cc95f116-0195-1000-bd01-7442f64d0ac8",
+        "name" : "Route for total paid vs monthy payments",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b6a8b707-20e1-3f24-bec5-aed321fcd2af",
+      "identifier" : "5ebabb93-dc8e-3368-9ee1-354a279dea50",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "newmembership" ],
+      "selectedRelationships" : [ "matched" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
-        "name" : "Extract subscription payment from email",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "a22f09a5-7239-3a04-8fc0-8a86cc15c2f2",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "subscription" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "Route on payment type",
+        "id" : "cc921901-0195-1000-a0e8-0fe534521fff",
+        "name" : "Extract cost",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -197,156 +197,6 @@
         "groupId" : "flow-contents-group",
         "id" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
         "name" : "Evaluate - update member attribute from record",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "bd314ea6-0195-1000-a9fa-1ad2117a3ffb",
-        "name" : "LogMessage",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "eb7f4e01-d125-3527-aa51-77759a92511f",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "Route on payment type",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "Route on payment type",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "6c819e01-83ab-3dba-b23e-11d31b64bf8f",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
-        "name" : "Extract members and payer from email",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
-        "name" : "LogMessage",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "747c56d3-91ae-3140-9102-3720f31f4274",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
-        "name" : "Extract completed payment info from email",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "Extract direct debit payment info from email",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "82e0a884-55f0-3c7d-b407-4cb18d0201cf",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "directdebit" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "Route on payment type",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "Update quantity attribute",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "968e444f-2e07-3828-8771-fd99a131c057",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "Extract direct debit payment info from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -437,36 +287,6 @@
         "groupId" : "flow-contents-group",
         "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
         "name" : "Jolt split member string into members attribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
-        "name" : "Copy signup attributes to names without dots ",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "2fb932cc-e79e-313f-9238-49d533430296",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "Update quantity attribute",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -628,13 +448,13 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "bd2f6021-0195-1000-897b-5c61b4f5294c",
-        "name" : "LogMessage",
+        "id" : "ccb0eb6b-0195-1000-1c86-2953c95b5aad",
+        "name" : "Extract payment status from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "c42805f2-c69f-30f0-ab14-f33619ac32c7",
+      "identifier" : "4116c9c5-dc8f-3b6f-bb52-da0fbf1e5323",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -645,8 +465,38 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
-        "name" : "Extract members and payer from email",
+        "id" : "ccaff89b-0195-1000-d064-82553b0634f3",
+        "name" : "Extract payment status from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "03c25009-544c-3818-8f93-8494ab4f2e21",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
+        "name" : "Extract subscription payment from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -748,6 +598,66 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "cc921901-0195-1000-a0e8-0fe534521fff",
+        "name" : "Extract cost",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "d4decfe9-efa2-36b2-b87f-74ba0f11526b",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "newmembership" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bb4e7be9-0034-3aff-a134-713adac152cf",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
+        "name" : "Extract members and payer from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "1ef8b710-1f97-3d90-84a4-d4231cb730a1",
         "name" : "Save message to email store",
         "type" : "PROCESSOR"
@@ -808,25 +718,85 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
-        "name" : "Copy signup attributes to names without dots ",
+        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
+        "name" : "Extract members and payer from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ffc913a0-0643-308e-9f7b-bfaea33c66ab",
+      "identifier" : "b0dd3e47-163f-3167-adc0-386b991a5059",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
+      "selectedRelationships" : [ "paid" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
-        "name" : "Extract subscription payment from email",
+        "id" : "cc95f116-0195-1000-bd01-7442f64d0ac8",
+        "name" : "Route for total paid vs monthy payments",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd2f6021-0195-1000-897b-5c61b4f5294c",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "cf564e87-cf8e-3f43-b7cb-b7005ec7cccf",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "cc95f116-0195-1000-bd01-7442f64d0ac8",
+        "name" : "Route for total paid vs monthy payments",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "bd2f6021-0195-1000-897b-5c61b4f5294c",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "20613805-64a1-3681-a9c0-ad7b6e6aa10c",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "cc921901-0195-1000-a0e8-0fe534521fff",
+        "name" : "Extract cost",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -928,13 +898,13 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "Update quantity attribute",
+        "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
+        "name" : "Copy signup attributes to names without dots ",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "a4aecb03-eb24-3d76-abc9-8914fa9a1ea6",
+      "identifier" : "5e24be6a-a08e-3bd8-9b16-e9ee9e660635",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -945,8 +915,8 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
-        "name" : "Extract completed payment info from email",
+        "id" : "ccb0eb6b-0195-1000-1c86-2953c95b5aad",
+        "name" : "Extract payment status from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -988,6 +958,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
+        "name" : "Update quantity attribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ef58305a-3e34-372f-8734-5e38698d6253",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "b2975481-0195-1000-9bef-20866fe176f9",
+        "name" : "Extract members and payer from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "57020fb8-2e53-3b6c-9e9e-9aaa6c263fc0",
         "name" : "Convert JSON to CSV",
         "type" : "PROCESSOR"
@@ -1007,6 +1007,36 @@
         "groupId" : "flow-contents-group",
         "id" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
         "name" : "Evaluate - update member attribute from record",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
+        "name" : "Copy signup attributes to names without dots ",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3b4d4f2a-7df8-3108-a82d-e0f7b55702aa",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ccb0ef5c-0195-1000-1d25-86d5f1145411",
+        "name" : "Extract payment status from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1048,25 +1078,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
-        "name" : "LogMessage",
+        "id" : "ccaff89b-0195-1000-d064-82553b0634f3",
+        "name" : "Extract payment status from email",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "343ec0f5-3805-3aa1-bf0f-1c3c4f92d85c",
+      "identifier" : "faa0a9d4-80da-3f52-a87c-9df87eb56d28",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
+      "selectedRelationships" : [ "matched" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-        "name" : "Extract direct debit payment info from email",
+        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
+        "name" : "Extract subscription payment from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1078,13 +1108,13 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "bd338e5b-0195-1000-22e8-0ba667ac159e",
+        "id" : "ccb28189-0195-1000-3235-2a4aa2d5c622",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "5f65e622-e40c-3330-a441-cf0ec15c0cc7",
+      "identifier" : "63c48501-45a7-3117-a752-3d7825be2544",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -1095,8 +1125,68 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "ccb0ef5c-0195-1000-1d25-86d5f1145411",
+        "name" : "Extract payment status from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "aea8bc35-0195-1000-0963-f2628879b369",
         "name" : "Extract subscription payment from email",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "128111ec-50f9-34ab-a510-e51826b3531b",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "installments" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "cc95f116-0195-1000-bd01-7442f64d0ac8",
+        "name" : "Route for total paid vs monthy payments",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ccaff89b-0195-1000-d064-82553b0634f3",
+        "name" : "Extract payment status from email",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "86f2c3fd-4b38-3848-a0d6-257762ce937e",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
+        "name" : "Update quantity attribute",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1168,36 +1258,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
-        "name" : "Extract completed payment info from email",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ce1baba2-d16a-3788-9eae-3f09c687b933",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "paid" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-        "name" : "Route on payment type",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "bd363761-0195-1000-608b-edaa159beae6",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -1217,6 +1277,36 @@
         "groupId" : "flow-contents-group",
         "id" : "79e796c7-d2f1-33e5-b89c-92c5197a167b",
         "name" : "Convert signup attributes to JSON",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "022b8dd0-89b4-3ef6-a3f3-9a33558c8183",
+        "name" : "Copy signup attributes to names without dots ",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c07a446e-2f7f-3e5a-a1e4-c0172f25d022",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ccaff89b-0195-1000-d064-82553b0634f3",
+        "name" : "Extract payment status from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -2709,24 +2799,25 @@
       "name" : "Extract members and payer from email",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -560.0,
-        "y" : -928.0
+        "x" : -1216.0,
+        "y" : -328.0
       },
       "properties" : {
         "Enable Unicode Predefined Character Classes" : "false",
         "Permit Whitespace and Comments in Pattern" : "false",
         "Enable Unicode-aware Case Folding" : "false",
         "Enable named group support" : "true",
+        "method" : "^Payment method: (?<method>.*)$",
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
-        "payer" : "(?<payer>.*) has applied for (?<product>.*).",
+        "payer" : "^(?<payer>.*) has applied for (?<product>.*).$",
         "Enable Canonical Equivalence" : "false",
         "Enable Case-insensitive Matching" : "false",
         "Enable Multiline Mode" : "true",
         "Enable repeating capture group" : "false",
         "Maximum Capture Group Length" : "1024",
-        "member" : "Members? names?: (?<member>[\\p{L}\\x20-*',]+)",
+        "member" : "^Members? names?: (?<member>[\\p{L}\\x20-*',]+);?$",
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false"
@@ -2758,6 +2849,13 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Enable named group support",
+          "sensitive" : false
+        },
+        "method" : {
+          "displayName" : "method",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "method",
           "sensitive" : false
         },
         "Enable DOTALL Mode" : {
@@ -2991,185 +3089,6 @@
       "type" : "org.apache.nifi.processors.email.ConsumeIMAP",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "10ac7e23-cf38-38a5-98b8-58d4378809ec",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Extract completed payment info from email",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -1096.0,
-        "y" : -192.0
-      },
-      "properties" : {
-        "Enable Unicode Predefined Character Classes" : "false",
-        "Permit Whitespace and Comments in Pattern" : "false",
-        "Enable Unicode-aware Case Folding" : "false",
-        "Enable named group support" : "true",
-        "cost" : "Total cost: £|&#163;(?<cost>[0-9-.]+)",
-        "method" : "Payment method: (?<method>.*)",
-        "Enable DOTALL Mode" : "false",
-        "Enable Unix Lines Mode" : "false",
-        "Maximum Buffer Size" : "1 MB",
-        "Enable Canonical Equivalence" : "false",
-        "Enable Case-insensitive Matching" : "false",
-        "Enable Multiline Mode" : "true",
-        "Enable repeating capture group" : "false",
-        "Maximum Capture Group Length" : "1024",
-        "Enable Literal Parsing of the Pattern" : "false",
-        "Character Set" : "UTF-8",
-        "Include Capture Group 0" : "false",
-        "status" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+by\\s+credit\\s+or\\s+debit\\s+card,\\s+and\\s+the\\s+membership\\s+is\\s+\\\"(?<status>.*)\\\"."
-      },
-      "propertyDescriptors" : {
-        "Enable Unicode Predefined Character Classes" : {
-          "displayName" : "Enable Unicode Predefined Character Classes",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable Unicode Predefined Character Classes",
-          "sensitive" : false
-        },
-        "Permit Whitespace and Comments in Pattern" : {
-          "displayName" : "Permit Whitespace and Comments in Pattern",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Permit Whitespace and Comments in Pattern",
-          "sensitive" : false
-        },
-        "Enable Unicode-aware Case Folding" : {
-          "displayName" : "Enable Unicode-aware Case Folding",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable Unicode-aware Case Folding",
-          "sensitive" : false
-        },
-        "Enable named group support" : {
-          "displayName" : "Enable named group support",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable named group support",
-          "sensitive" : false
-        },
-        "cost" : {
-          "displayName" : "cost",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "cost",
-          "sensitive" : false
-        },
-        "method" : {
-          "displayName" : "method",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "method",
-          "sensitive" : false
-        },
-        "Enable DOTALL Mode" : {
-          "displayName" : "Enable DOTALL Mode",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable DOTALL Mode",
-          "sensitive" : false
-        },
-        "Enable Unix Lines Mode" : {
-          "displayName" : "Enable Unix Lines Mode",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable Unix Lines Mode",
-          "sensitive" : false
-        },
-        "Maximum Buffer Size" : {
-          "displayName" : "Maximum Buffer Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Maximum Buffer Size",
-          "sensitive" : false
-        },
-        "Enable Canonical Equivalence" : {
-          "displayName" : "Enable Canonical Equivalence",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable Canonical Equivalence",
-          "sensitive" : false
-        },
-        "Enable Case-insensitive Matching" : {
-          "displayName" : "Enable Case-insensitive Matching",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable Case-insensitive Matching",
-          "sensitive" : false
-        },
-        "Enable Multiline Mode" : {
-          "displayName" : "Enable Multiline Mode",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable Multiline Mode",
-          "sensitive" : false
-        },
-        "Enable repeating capture group" : {
-          "displayName" : "Enable repeating capture group",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable repeating capture group",
-          "sensitive" : false
-        },
-        "Maximum Capture Group Length" : {
-          "displayName" : "Maximum Capture Group Length",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Maximum Capture Group Length",
-          "sensitive" : false
-        },
-        "Enable Literal Parsing of the Pattern" : {
-          "displayName" : "Enable Literal Parsing of the Pattern",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Enable Literal Parsing of the Pattern",
-          "sensitive" : false
-        },
-        "Character Set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Character Set",
-          "sensitive" : false
-        },
-        "Include Capture Group 0" : {
-          "displayName" : "Include Capture Group 0",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Include Capture Group 0",
-          "sensitive" : false
-        },
-        "status" : {
-          "displayName" : "status",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "status",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.ExtractText",
-      "yieldDuration" : "1 sec"
-    }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -3290,6 +3209,227 @@
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ccaff89b-0195-1000-d064-82553b0634f3",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Extract payment status from email",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1232.0,
+        "y" : 136.0
+      },
+      "properties" : {
+        "Enable Unicode Predefined Character Classes" : "false",
+        "Permit Whitespace and Comments in Pattern" : "false",
+        "Enable Unicode-aware Case Folding" : "false",
+        "Enable named group support" : "true",
+        "Enable DOTALL Mode" : "false",
+        "Enable Unix Lines Mode" : "false",
+        "Maximum Buffer Size" : "1 MB",
+        "Enable Canonical Equivalence" : "false",
+        "Enable Case-insensitive Matching" : "false",
+        "Enable Multiline Mode" : "true",
+        "Enable repeating capture group" : "false",
+        "Maximum Capture Group Length" : "1024",
+        "Enable Literal Parsing of the Pattern" : "false",
+        "Character Set" : "UTF-8",
+        "Include Capture Group 0" : "false",
+        "status" : "^We have successfully received payment by credit or debit card, and the membership is \\\"(?<status>.*)\".$"
+      },
+      "propertyDescriptors" : {
+        "Enable Unicode Predefined Character Classes" : {
+          "displayName" : "Enable Unicode Predefined Character Classes",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unicode Predefined Character Classes",
+          "sensitive" : false
+        },
+        "Permit Whitespace and Comments in Pattern" : {
+          "displayName" : "Permit Whitespace and Comments in Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Permit Whitespace and Comments in Pattern",
+          "sensitive" : false
+        },
+        "Enable Unicode-aware Case Folding" : {
+          "displayName" : "Enable Unicode-aware Case Folding",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unicode-aware Case Folding",
+          "sensitive" : false
+        },
+        "Enable named group support" : {
+          "displayName" : "Enable named group support",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable named group support",
+          "sensitive" : false
+        },
+        "Enable DOTALL Mode" : {
+          "displayName" : "Enable DOTALL Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable DOTALL Mode",
+          "sensitive" : false
+        },
+        "Enable Unix Lines Mode" : {
+          "displayName" : "Enable Unix Lines Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unix Lines Mode",
+          "sensitive" : false
+        },
+        "Maximum Buffer Size" : {
+          "displayName" : "Maximum Buffer Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Buffer Size",
+          "sensitive" : false
+        },
+        "Enable Canonical Equivalence" : {
+          "displayName" : "Enable Canonical Equivalence",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Canonical Equivalence",
+          "sensitive" : false
+        },
+        "Enable Case-insensitive Matching" : {
+          "displayName" : "Enable Case-insensitive Matching",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Case-insensitive Matching",
+          "sensitive" : false
+        },
+        "Enable Multiline Mode" : {
+          "displayName" : "Enable Multiline Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Multiline Mode",
+          "sensitive" : false
+        },
+        "Enable repeating capture group" : {
+          "displayName" : "Enable repeating capture group",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable repeating capture group",
+          "sensitive" : false
+        },
+        "Maximum Capture Group Length" : {
+          "displayName" : "Maximum Capture Group Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Capture Group Length",
+          "sensitive" : false
+        },
+        "Enable Literal Parsing of the Pattern" : {
+          "displayName" : "Enable Literal Parsing of the Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Literal Parsing of the Pattern",
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Character Set",
+          "sensitive" : false
+        },
+        "Include Capture Group 0" : {
+          "displayName" : "Include Capture Group 0",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Include Capture Group 0",
+          "sensitive" : false
+        },
+        "status" : {
+          "displayName" : "status",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "status",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ExtractText",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ccb28189-0195-1000-3235-2a4aa2d5c622",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 96.0,
+        "y" : 448.0
+      },
+      "properties" : {
+        "log-message" : "Message ${email.headers.message-id}: Missing payment status information.",
+        "log-level" : "warn"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
         "artifact" : "nifi-update-attribute-nar",
         "group" : "org.apache.nifi",
         "version" : "2.3.0"
@@ -3304,8 +3444,8 @@
       "name" : "Update quantity attribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -808.0,
-        "y" : 240.0
+        "x" : -1224.0,
+        "y" : -80.0
       },
       "properties" : {
         "quantity.quantity" : "1",
@@ -3998,11 +4138,11 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 104.0,
-        "y" : 88.0
+        "x" : -592.0,
+        "y" : -336.0
       },
       "properties" : {
-        "log-message" : "Message ${email.headers.message-id}: Payment method ${method.method} information not found.",
+        "log-message" : "Message ${email.headers.message-id}: Missing payment information.",
         "log-level" : "warn"
       },
       "propertyDescriptors" : {
@@ -4100,6 +4240,236 @@
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "cc921901-0195-1000-a0e8-0fe534521fff",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Extract cost",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -552.0,
+        "y" : -896.0
+      },
+      "properties" : {
+        "Enable Unicode Predefined Character Classes" : "false",
+        "Permit Whitespace and Comments in Pattern" : "false",
+        "Enable Unicode-aware Case Folding" : "false",
+        "Enable named group support" : "true",
+        "cost" : "^Total cost: £(?<cost>[0-9-.]+)$",
+        "Enable DOTALL Mode" : "false",
+        "Enable Unix Lines Mode" : "false",
+        "monthlycost" : "^Monthly cost: £(?<cost>[0-9-.]+)$",
+        "Maximum Buffer Size" : "1 MB",
+        "Enable Canonical Equivalence" : "false",
+        "Enable Case-insensitive Matching" : "false",
+        "Enable Multiline Mode" : "true",
+        "Enable repeating capture group" : "false",
+        "Maximum Capture Group Length" : "1024",
+        "Enable Literal Parsing of the Pattern" : "false",
+        "Character Set" : "UTF-8",
+        "Include Capture Group 0" : "false"
+      },
+      "propertyDescriptors" : {
+        "Enable Unicode Predefined Character Classes" : {
+          "displayName" : "Enable Unicode Predefined Character Classes",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unicode Predefined Character Classes",
+          "sensitive" : false
+        },
+        "Permit Whitespace and Comments in Pattern" : {
+          "displayName" : "Permit Whitespace and Comments in Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Permit Whitespace and Comments in Pattern",
+          "sensitive" : false
+        },
+        "Enable Unicode-aware Case Folding" : {
+          "displayName" : "Enable Unicode-aware Case Folding",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unicode-aware Case Folding",
+          "sensitive" : false
+        },
+        "Enable named group support" : {
+          "displayName" : "Enable named group support",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable named group support",
+          "sensitive" : false
+        },
+        "cost" : {
+          "displayName" : "cost",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "cost",
+          "sensitive" : false
+        },
+        "Enable DOTALL Mode" : {
+          "displayName" : "Enable DOTALL Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable DOTALL Mode",
+          "sensitive" : false
+        },
+        "Enable Unix Lines Mode" : {
+          "displayName" : "Enable Unix Lines Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unix Lines Mode",
+          "sensitive" : false
+        },
+        "monthlycost" : {
+          "displayName" : "monthlycost",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "monthlycost",
+          "sensitive" : false
+        },
+        "Maximum Buffer Size" : {
+          "displayName" : "Maximum Buffer Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Buffer Size",
+          "sensitive" : false
+        },
+        "Enable Canonical Equivalence" : {
+          "displayName" : "Enable Canonical Equivalence",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Canonical Equivalence",
+          "sensitive" : false
+        },
+        "Enable Case-insensitive Matching" : {
+          "displayName" : "Enable Case-insensitive Matching",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Case-insensitive Matching",
+          "sensitive" : false
+        },
+        "Enable Multiline Mode" : {
+          "displayName" : "Enable Multiline Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Multiline Mode",
+          "sensitive" : false
+        },
+        "Enable repeating capture group" : {
+          "displayName" : "Enable repeating capture group",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable repeating capture group",
+          "sensitive" : false
+        },
+        "Maximum Capture Group Length" : {
+          "displayName" : "Maximum Capture Group Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Capture Group Length",
+          "sensitive" : false
+        },
+        "Enable Literal Parsing of the Pattern" : {
+          "displayName" : "Enable Literal Parsing of the Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Literal Parsing of the Pattern",
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Character Set",
+          "sensitive" : false
+        },
+        "Include Capture Group 0" : {
+          "displayName" : "Include Capture Group 0",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Include Capture Group 0",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ExtractText",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "cc95f116-0195-1000-bd01-7442f64d0ac8",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Route for total paid vs monthy payments",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -560.0,
+        "y" : -600.0
+      },
+      "properties" : {
+        "Routing Strategy" : "Route to Property name",
+        "installments" : "${monthlycost.cost:isEmpty():not()}",
+        "paid" : "${cost.cost:isEmpty():not()}"
+      },
+      "propertyDescriptors" : {
+        "Routing Strategy" : {
+          "displayName" : "Routing Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Routing Strategy",
+          "sensitive" : false
+        },
+        "installments" : {
+          "displayName" : "installments",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "installments",
+          "sensitive" : false
+        },
+        "paid" : {
+          "displayName" : "paid",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "paid",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
         "artifact" : "nifi-jolt-nar",
         "group" : "org.apache.nifi",
         "version" : "2.3.0"
@@ -4191,89 +4561,6 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.jolt.JoltTransformJSON",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "78ad9848-2d18-3fb9-b08f-c917ce243dea",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Route on payment type",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -560.0,
-        "y" : -528.0
-      },
-      "properties" : {
-        "Content Buffer Size" : "1 MB",
-        "directdebit" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+instructions\\s+to\\s+set\\s+up\\s+the\\s+Direct\\s+Debit.",
-        "Match Requirement" : "content must contain match",
-        "paid" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+by",
-        "subscription" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+instructions\\s+to\\s+set\\s+up\\s+the\\s+Subscription.",
-        "Character Set" : "UTF-8"
-      },
-      "propertyDescriptors" : {
-        "Content Buffer Size" : {
-          "displayName" : "Content Buffer Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Content Buffer Size",
-          "sensitive" : false
-        },
-        "directdebit" : {
-          "displayName" : "directdebit",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "directdebit",
-          "sensitive" : false
-        },
-        "Match Requirement" : {
-          "displayName" : "Match Requirement",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Match Requirement",
-          "sensitive" : false
-        },
-        "paid" : {
-          "displayName" : "paid",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "paid",
-          "sensitive" : false
-        },
-        "subscription" : {
-          "displayName" : "subscription",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "subscription",
-          "sensitive" : false
-        },
-        "Character Set" : {
-          "displayName" : "Character Set",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Character Set",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.RouteOnContent",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
@@ -4506,29 +4793,30 @@
       "name" : "Extract subscription payment from email",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -128.0,
-        "y" : -208.0
+        "x" : 16.0,
+        "y" : -336.0
       },
       "properties" : {
         "Enable Unicode Predefined Character Classes" : "false",
         "Permit Whitespace and Comments in Pattern" : "false",
         "Enable Unicode-aware Case Folding" : "false",
         "Enable named group support" : "true",
-        "quantity" : "Number of installments: (?<quantity>.*)",
-        "cost" : "Monthly cost: £|&#163;(?<cost>[0-9-.]+)",
-        "method" : "Payment method: (?<method>.*)",
+        "quantity" : "^Number of installments: (?<quantity>.*)$",
+        "cost" : "^Monthly cost: £(?<cost>[0-9-.]+)$",
+        "method" : "^Payment method: (?<method>.*)$",
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
+        "payer" : "^(?<payer>.*) has applied for (?<product>.*).$",
         "Enable Canonical Equivalence" : "false",
         "Enable Case-insensitive Matching" : "false",
         "Enable Multiline Mode" : "true",
         "Enable repeating capture group" : "false",
         "Maximum Capture Group Length" : "1024",
+        "member" : "^Members? names?: (?<member>[\\p{L}\\x20-*',]+);?$",
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
-        "Include Capture Group 0" : "false",
-        "status" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+instructions\\s+to\\s+set\\s+up\\s+the\\s+Subscription.\\s+Their\\s+payment\\s+will\\s+appear\\s+as\\s+\\\"(?<status>.*)\\\"\\s+until\\s+we\\s+receive\\s+notification\\s+from\\s+Stripe\\s+that\\s+the\\s+payment\\s+has\\s+cleared."
+        "Include Capture Group 0" : "false"
       },
       "propertyDescriptors" : {
         "Enable Unicode Predefined Character Classes" : {
@@ -4578,6 +4866,176 @@
           "dynamic" : true,
           "identifiesControllerService" : false,
           "name" : "method",
+          "sensitive" : false
+        },
+        "Enable DOTALL Mode" : {
+          "displayName" : "Enable DOTALL Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable DOTALL Mode",
+          "sensitive" : false
+        },
+        "Enable Unix Lines Mode" : {
+          "displayName" : "Enable Unix Lines Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unix Lines Mode",
+          "sensitive" : false
+        },
+        "Maximum Buffer Size" : {
+          "displayName" : "Maximum Buffer Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Buffer Size",
+          "sensitive" : false
+        },
+        "payer" : {
+          "displayName" : "payer",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "payer",
+          "sensitive" : false
+        },
+        "Enable Canonical Equivalence" : {
+          "displayName" : "Enable Canonical Equivalence",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Canonical Equivalence",
+          "sensitive" : false
+        },
+        "Enable Case-insensitive Matching" : {
+          "displayName" : "Enable Case-insensitive Matching",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Case-insensitive Matching",
+          "sensitive" : false
+        },
+        "Enable Multiline Mode" : {
+          "displayName" : "Enable Multiline Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Multiline Mode",
+          "sensitive" : false
+        },
+        "Enable repeating capture group" : {
+          "displayName" : "Enable repeating capture group",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable repeating capture group",
+          "sensitive" : false
+        },
+        "Maximum Capture Group Length" : {
+          "displayName" : "Maximum Capture Group Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Capture Group Length",
+          "sensitive" : false
+        },
+        "member" : {
+          "displayName" : "member",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "member",
+          "sensitive" : false
+        },
+        "Enable Literal Parsing of the Pattern" : {
+          "displayName" : "Enable Literal Parsing of the Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Literal Parsing of the Pattern",
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Character Set",
+          "sensitive" : false
+        },
+        "Include Capture Group 0" : {
+          "displayName" : "Include Capture Group 0",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Include Capture Group 0",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ExtractText",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ccb0eb6b-0195-1000-1c86-2953c95b5aad",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Extract payment status from email",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -520.0,
+        "y" : 128.0
+      },
+      "properties" : {
+        "Enable Unicode Predefined Character Classes" : "false",
+        "Permit Whitespace and Comments in Pattern" : "false",
+        "Enable Unicode-aware Case Folding" : "false",
+        "Enable named group support" : "true",
+        "Enable DOTALL Mode" : "false",
+        "Enable Unix Lines Mode" : "false",
+        "Maximum Buffer Size" : "1 MB",
+        "Enable Canonical Equivalence" : "false",
+        "Enable Case-insensitive Matching" : "false",
+        "Enable Multiline Mode" : "true",
+        "Enable repeating capture group" : "false",
+        "Maximum Capture Group Length" : "1024",
+        "Enable Literal Parsing of the Pattern" : "false",
+        "Character Set" : "UTF-8",
+        "Include Capture Group 0" : "false",
+        "status" : "^We have successfully received payment by credit or debit card, and the membership is\\\"(?<status>.*)\".$"
+      },
+      "propertyDescriptors" : {
+        "Enable Unicode Predefined Character Classes" : {
+          "displayName" : "Enable Unicode Predefined Character Classes",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unicode Predefined Character Classes",
+          "sensitive" : false
+        },
+        "Permit Whitespace and Comments in Pattern" : {
+          "displayName" : "Permit Whitespace and Comments in Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Permit Whitespace and Comments in Pattern",
+          "sensitive" : false
+        },
+        "Enable Unicode-aware Case Folding" : {
+          "displayName" : "Enable Unicode-aware Case Folding",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable Unicode-aware Case Folding",
+          "sensitive" : false
+        },
+        "Enable named group support" : {
+          "displayName" : "Enable named group support",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Enable named group support",
           "sensitive" : false
         },
         "Enable DOTALL Mode" : {
@@ -4900,7 +5358,7 @@
         "y" : -896.0
       },
       "properties" : {
-        "log-message" : "Message ${email.headers.message-id}: Member and payer informmation not found.",
+        "log-message" : "Message ${email.headers.message-id}: Cost informmation not found.",
         "log-level" : "warn"
       },
       "propertyDescriptors" : {
@@ -4949,213 +5407,19 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+      "identifier" : "ccb0ef5c-0195-1000-1d25-86d5f1145411",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "Route on email subject",
+      "name" : "Extract payment status from email",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -552.0,
-        "y" : -1184.0
-      },
-      "properties" : {
-        "Routing Strategy" : "Route to Property name",
-        "newmembership" : "${anyMatchingAttribute(\"email.headers.subject.*\"):contains(\"New membership application on ClubSpark\")}"
-      },
-      "propertyDescriptors" : {
-        "Routing Strategy" : {
-          "displayName" : "Routing Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Routing Strategy",
-          "sensitive" : false
-        },
-        "newmembership" : {
-          "displayName" : "newmembership",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "newmembership",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "bd314ea6-0195-1000-a9fa-1ad2117a3ffb",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "LogMessage",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 128.0,
-        "y" : -536.0
-      },
-      "properties" : {
-        "log-message" : "Message ${email.headers.message-id}: Payment type information not found.",
-        "log-level" : "warn"
-      },
-      "propertyDescriptors" : {
-        "log-message" : {
-          "displayName" : "Log message",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-message",
-          "sensitive" : false
-        },
-        "log-level" : {
-          "displayName" : "Log Level",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-level",
-          "sensitive" : false
-        },
-        "log-prefix" : {
-          "displayName" : "Log prefix",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-prefix",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogMessage",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Evaluate - update member attribute from record",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -1120.0,
-        "y" : 1592.0
-      },
-      "properties" : {
-        "Destination" : "flowfile-attribute",
-        "Max String Length" : "20 MB",
-        "Return Type" : "auto-detect",
-        "member" : "$.members[0]",
-        "Null Value Representation" : "empty string",
-        "Path Not Found Behavior" : "ignore"
-      },
-      "propertyDescriptors" : {
-        "Destination" : {
-          "displayName" : "Destination",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Destination",
-          "sensitive" : false
-        },
-        "Max String Length" : {
-          "displayName" : "Max String Length",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Max String Length",
-          "sensitive" : false
-        },
-        "Return Type" : {
-          "displayName" : "Return Type",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Return Type",
-          "sensitive" : false
-        },
-        "member" : {
-          "displayName" : "member",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "member",
-          "sensitive" : false
-        },
-        "Null Value Representation" : {
-          "displayName" : "Null Value Representation",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Null Value Representation",
-          "sensitive" : false
-        },
-        "Path Not Found Behavior" : {
-          "displayName" : "Path Not Found Behavior",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Path Not Found Behavior",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.EvaluateJsonPath",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "aea6c58a-0195-1000-6341-7e19d4860e52",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Extract direct debit payment info from email",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -568.0,
-        "y" : -200.0
+        "x" : 104.0,
+        "y" : 128.0
       },
       "properties" : {
         "Enable Unicode Predefined Character Classes" : "false",
         "Permit Whitespace and Comments in Pattern" : "false",
         "Enable Unicode-aware Case Folding" : "false",
         "Enable named group support" : "true",
-        "cost" : "Total cost: £|&#163;(?<cost>[0-9-.]+)",
-        "method" : "Payment method: (?<method>.*)",
         "Enable DOTALL Mode" : "false",
         "Enable Unix Lines Mode" : "false",
         "Maximum Buffer Size" : "1 MB",
@@ -5167,7 +5431,7 @@
         "Enable Literal Parsing of the Pattern" : "false",
         "Character Set" : "UTF-8",
         "Include Capture Group 0" : "false",
-        "status" : "We\\s+have\\s+successfully\\s+received\\s+payment\\s+instructions\\s+to\\s+set\\s+up\\s+the\\s+Direct\\s+Debit.\\s+Their\\s+payment\\s+will\\s+appear\\s+as\\s+\\\"(?<status>.*)\\\"\\s+until\\s+we\\s+receive\\s+notification\\s+from\\s+GoCardless\\s+that\\s+the\\s+payment\\s+has\\s+cleared."
+        "status" : "^We have successfully received payment instructions to set up the Direct Debit\\. Their payment will appear as \\\"(?<status>.*)\\\" until we receive notification from (?<provider>.+) that the payment has cleared\\.$"
       },
       "propertyDescriptors" : {
         "Enable Unicode Predefined Character Classes" : {
@@ -5196,20 +5460,6 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Enable named group support",
-          "sensitive" : false
-        },
-        "cost" : {
-          "displayName" : "cost",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "cost",
-          "sensitive" : false
-        },
-        "method" : {
-          "displayName" : "method",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "method",
           "sensitive" : false
         },
         "Enable DOTALL Mode" : {
@@ -5305,6 +5555,140 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.ExtractText",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Route on email subject",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -552.0,
+        "y" : -1184.0
+      },
+      "properties" : {
+        "Routing Strategy" : "Route to Property name",
+        "newmembership" : "${anyMatchingAttribute(\"email.headers.subject.*\"):contains(\"New membership application on ClubSpark\")}"
+      },
+      "propertyDescriptors" : {
+        "Routing Strategy" : {
+          "displayName" : "Routing Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Routing Strategy",
+          "sensitive" : false
+        },
+        "newmembership" : {
+          "displayName" : "newmembership",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "newmembership",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Evaluate - update member attribute from record",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1120.0,
+        "y" : 1592.0
+      },
+      "properties" : {
+        "Destination" : "flowfile-attribute",
+        "Max String Length" : "20 MB",
+        "Return Type" : "auto-detect",
+        "member" : "$.members[0]",
+        "Null Value Representation" : "empty string",
+        "Path Not Found Behavior" : "ignore"
+      },
+      "propertyDescriptors" : {
+        "Destination" : {
+          "displayName" : "Destination",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Destination",
+          "sensitive" : false
+        },
+        "Max String Length" : {
+          "displayName" : "Max String Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Max String Length",
+          "sensitive" : false
+        },
+        "Return Type" : {
+          "displayName" : "Return Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Return Type",
+          "sensitive" : false
+        },
+        "member" : {
+          "displayName" : "member",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "member",
+          "sensitive" : false
+        },
+        "Null Value Representation" : {
+          "displayName" : "Null Value Representation",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Null Value Representation",
+          "sensitive" : false
+        },
+        "Path Not Found Behavior" : {
+          "displayName" : "Path Not Found Behavior",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Path Not Found Behavior",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.EvaluateJsonPath",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ "original" ],
