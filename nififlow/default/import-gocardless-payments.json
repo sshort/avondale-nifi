@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743078916969,
+    "description" : "",
+    "identifier" : "import-gocardless-payments",
+    "lastModifiedTimestamp" : 1743078916969,
+    "name" : "import gocardless payments",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
