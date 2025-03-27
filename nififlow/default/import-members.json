@@ -199,19 +199,19 @@
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "97ea644a-ec18-35a6-a26a-788532875255",
+      "identifier" : "f5d3c2fa-a8b8-3d11-b1b2-789975cb9367",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
+      "selectedRelationships" : [ "original" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "d78758e8-0195-1000-d494-f6574014de61",
-        "name" : "LogMessage",
+        "id" : "8fc4bde9-0195-1000-83f0-65f621408f2b",
+        "name" : "Members CSV",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -662,7 +662,7 @@
       "name" : "Import Members",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : -1112.0,
+        "x" : -1096.0,
         "y" : -848.0
       },
       "scheduledState" : "ENABLED",
@@ -697,7 +697,7 @@
       "name" : "Add to members table",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1176.0,
+        "x" : -1128.0,
         "y" : -88.0
       },
       "properties" : {
@@ -921,7 +921,7 @@
       "type" : "org.apache.nifi.processors.standard.PutDatabaseRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ ],
+      "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -939,7 +939,7 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1168.0,
+        "x" : -1136.0,
         "y" : 160.0
       },
       "properties" : {
@@ -997,8 +997,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -499.5,
-        "y" : -395.5
+        "x" : -472.0,
+        "y" : -392.0
       },
       "properties" : {
         "log-message" : "Failed to convert ClubSpark member",
@@ -1113,7 +1113,7 @@
       "name" : "Convert ClubSpark member record to member table",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1176.0,
+        "x" : -1144.0,
         "y" : -400.0
       },
       "properties" : {
@@ -1172,8 +1172,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -560.0,
-        "y" : 416.0
+        "x" : -1968.0,
+        "y" : -88.0
       },
       "properties" : {
         "log-message" : "Member record to raw_members database table",
@@ -1230,8 +1230,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -568.0,
-        "y" : 616.0
+        "x" : -1576.0,
+        "y" : -80.0
       },
       "properties" : {
         "log-message" : "Failed to add member record to raw_members database table",
@@ -1270,7 +1270,7 @@
       "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "autoTerminatedRelationships" : [ "failure" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1288,7 +1288,7 @@
       "name" : "Members CSV",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1168.0,
+        "x" : -1144.0,
         "y" : -680.0
       },
       "properties" : {
@@ -1347,8 +1347,8 @@
       "name" : "Add to raw_members table",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1168.0,
-        "y" : 416.0
+        "x" : -1816.0,
+        "y" : -664.0
       },
       "properties" : {
         "put-db-record-allow-multiple-statements" : "false",
@@ -1564,7 +1564,7 @@
       "retriedRelationships" : [ ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
+      "scheduledState" : "DISABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
