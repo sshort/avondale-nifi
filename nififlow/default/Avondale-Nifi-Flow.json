@@ -2322,7 +2322,37 @@
     "funnels" : [ ],
     "identifier" : "flow-contents-group",
     "inputPorts" : [ ],
-    "labels" : [ ],
+    "labels" : [ {
+      "componentType" : "LABEL",
+      "groupIdentifier" : "flow-contents-group",
+      "height" : 312.0,
+      "identifier" : "cde621a9-0195-1000-4a9c-0cd655639fb3",
+      "label" : "* Save file to emailstore\n* extract message body\n* convert HTML to text\n",
+      "position" : {
+        "x" : 504.0,
+        "y" : -1280.0
+      },
+      "style" : {
+        "font-size" : "20px"
+      },
+      "width" : 536.0,
+      "zIndex" : 0
+    }, {
+      "componentType" : "LABEL",
+      "groupIdentifier" : "flow-contents-group",
+      "height" : 312.0,
+      "identifier" : "552232b6-8a91-31c5-9918-348e104fb89e",
+      "label" : "Import from IMAP or file\n\n* extract email headers\n* check subject is for a new membership signup",
+      "position" : {
+        "x" : 488.0,
+        "y" : -1728.0
+      },
+      "style" : {
+        "font-size" : "20px"
+      },
+      "width" : 536.0,
+      "zIndex" : 0
+    } ],
     "maxConcurrentTasks" : 1,
     "name" : "New Member Emails",
     "outputPorts" : [ ],
@@ -2774,7 +2804,7 @@
       "retriedRelationships" : [ ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
+      "scheduledState" : "DISABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
@@ -3082,7 +3112,7 @@
       "retriedRelationships" : [ ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
-      "scheduledState" : "DISABLED",
+      "scheduledState" : "ENABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
@@ -3278,7 +3308,7 @@
     }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
+      "bulletinLevel" : "INFO",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -5354,7 +5384,7 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 144.0,
+        "x" : 72.0,
         "y" : -856.0
       },
       "properties" : {
