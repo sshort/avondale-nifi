@@ -1,4 +1,26 @@
 {
+  "externalControllerServices" : {
+    "effa5772-b76d-3839-8ee1-8c97cd3c59f3" : {
+      "identifier" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+      "name" : "DBCPConnectionPool"
+    },
+    "9dbc006a-fff2-3e8d-91c3-90cc4749d019" : {
+      "identifier" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
+      "name" : "CSVRecordSetWriter - Payments"
+    },
+    "353cc34a-a0f2-3e9b-88f1-8f920c77fc67" : {
+      "identifier" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+      "name" : "CSVReader - Stripe"
+    },
+    "e98ff1c4-7784-3568-a35f-474b1640decf" : {
+      "identifier" : "e98ff1c4-7784-3568-a35f-474b1640decf",
+      "name" : "CSVRecordSetWriter - Stripe"
+    },
+    "d2bac4f6-fe98-32da-bde0-1a2240f1690c" : {
+      "identifier" : "d2bac4f6-fe98-32da-bde0-1a2240f1690c",
+      "name" : "CSVReader - Payments"
+    }
+  },
   "flow" : {
     "createdTimestamp" : 1743078898980,
     "description" : "",
@@ -7,5 +29,2639 @@
     "name" : "import stripe payments",
     "versionCount" : 0
   },
-  "latest" : false
+  "flowContents" : {
+    "comments" : "",
+    "componentType" : "PROCESS_GROUP",
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
+        "name" : "Add to Stripe payment to payments table",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab453-0195-1000-a9a8-5f141f70b727",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab437-0195-1000-e81a-1566e197d0da",
+        "name" : "Convert Stripe to Payments",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab441-0195-1000-8cac-e67c51126c83",
+        "name" : "Stripe CSV",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "4d03e654-a259-3692-9477-3329c524febf",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "flow-contents-group",
+        "id" : "8ca6330d-b72f-339f-b725-87aa44b20ec3",
+        "name" : "Import Stripe Payments",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "73e1eb5d-8cf4-3e62-aaef-8e9838252083",
+        "name" : "Select records with an id",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "85681cbe-ef72-388b-9a72-300ddbc24da8",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "splits" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab441-0195-1000-8cac-e67c51126c83",
+        "name" : "Stripe CSV",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7072e66a-5621-3bcb-86e8-c63c5b0d4a2c",
+        "name" : "UpdateAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "20300bdb-84c8-35ca-b974-52d18a9a2ebc",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "Product1" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab43b-0195-1000-dafb-3883cac454d2",
+        "name" : "Select columns",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a981b0ff-0195-1000-ed7c-6133feb5e3ca",
+        "name" : "Create payment record for second product",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "7930cf7f-ed22-316a-a9e3-3090f743024d",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "original" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "06611890-dee4-38e7-812d-6af185edf265",
+        "name" : "Create payment record for first product",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
+        "name" : "Add to Stripe payment to payments table",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "547b31de-da12-3ec9-b756-99e09b83cd75",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a981b0ff-0195-1000-ed7c-6133feb5e3ca",
+        "name" : "Create payment record for second product",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "06611890-dee4-38e7-812d-6af185edf265",
+        "name" : "Create payment record for first product",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "45599997-324e-31bd-bd92-54f4ecb87232",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "Product2" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab43b-0195-1000-dafb-3883cac454d2",
+        "name" : "Select columns",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a9941492-0195-1000-41ea-162148d1c34d",
+        "name" : "LogAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "679f5004-362d-380d-90a2-c331c86b4b78",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "06611890-dee4-38e7-812d-6af185edf265",
+        "name" : "Create payment record for first product",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab43b-0195-1000-dafb-3883cac454d2",
+        "name" : "Select columns",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "8b04f6c2-1f01-34b4-9571-c33d10805b34",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d46ac710-d731-303c-a2ef-14c8ea4446e6",
+        "name" : "Check Stripe payment record exists",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a8c92433-0195-1000-03ab-29eed2d7e716",
+        "name" : "LogAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "9e82edca-ba52-3f82-94ea-0e22c9935371",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "NoProduct" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab43b-0195-1000-dafb-3883cac454d2",
+        "name" : "Select columns",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab43d-0195-1000-78ed-7098ad3bc506",
+        "name" : "LogAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab454-0195-1000-acaa-33e6788eb2aa",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
+        "name" : "Add to Stripe payment to payments table",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab437-0195-1000-e81a-1566e197d0da",
+        "name" : "Convert Stripe to Payments",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "f3211287-8c1a-30c6-b11c-1cb944be4998",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7072e66a-5621-3bcb-86e8-c63c5b0d4a2c",
+        "name" : "UpdateAttribute",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
+        "name" : "Add to Stripe payment to payments table",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ecdb8142-330e-3c85-af2d-ee632ec18fc2",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "06611890-dee4-38e7-812d-6af185edf265",
+        "name" : "Create payment record for first product",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab434-0195-1000-1932-fb6e24f09ca9",
+        "name" : "LogAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab44a-0195-1000-99f9-fd2892619110",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
+        "name" : "Add to Stripe payment to payments table",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d46ac710-d731-303c-a2ef-14c8ea4446e6",
+        "name" : "Check Stripe payment record exists",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "39912ad0-618e-324a-8154-5485da3c0256",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "hasId" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "73e1eb5d-8cf4-3e62-aaef-8e9838252083",
+        "name" : "Select records with an id",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a9944f4d-0195-1000-d564-ea1d1d29315a",
+        "name" : "LogAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "90bcccc0-3977-33b4-ade3-0ca8a2c49d76",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a981b0ff-0195-1000-ed7c-6133feb5e3ca",
+        "name" : "Create payment record for second product",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a8bdaef0-0195-1000-a396-ea2068ad480c",
+        "name" : "LogAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3d6b1e19-634c-3e86-9540-8d970723bb85",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d46ac710-d731-303c-a2ef-14c8ea4446e6",
+        "name" : "Check Stripe payment record exists",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a8edb9b3-0195-1000-a98e-ab5b149264d4",
+        "name" : "Add to Stripe payment to raw_stripe_payments table",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "2f778776-d933-3bba-8dc1-80b9ee7aa60c",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d46ac710-d731-303c-a2ef-14c8ea4446e6",
+        "name" : "Check Stripe payment record exists",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    } ],
+    "controllerServices" : [ {
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-lookup-services-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "CONTROLLER_SERVICE",
+      "controllerServiceApis" : [ {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.3.0"
+        },
+        "type" : "org.apache.nifi.lookup.RecordLookupService"
+      }, {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.3.0"
+        },
+        "type" : "org.apache.nifi.lookup.LookupService"
+      } ],
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "6962d853-f20b-3c24-86f5-bac8d8d79b05",
+      "name" : "Lookup Stripe payment",
+      "properties" : {
+        "dbrecord-lookup-dbcp-service" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+        "dbf-default-precision" : "10",
+        "dbrecord-lookup-clear-cache-on-enabled" : "true",
+        "dbrecord-lookup-cache-size" : "0",
+        "dbrecord-lookup-value-columns" : "id",
+        "dbrecord-lookup-key-column" : "id",
+        "dbf-default-scale" : "0",
+        "dbrecord-lookup-table-name" : "raw_stripe_payments"
+      },
+      "propertyDescriptors" : {
+        "dbrecord-lookup-dbcp-service" : {
+          "displayName" : "Database Connection Pooling Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "dbrecord-lookup-dbcp-service",
+          "sensitive" : false
+        },
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-clear-cache-on-enabled" : {
+          "displayName" : "Clear Cache on Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-clear-cache-on-enabled",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-cache-size" : {
+          "displayName" : "Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-cache-size",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-value-columns" : {
+          "displayName" : "Lookup Value Columns",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-value-columns",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-key-column" : {
+          "displayName" : "Lookup Key Column",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-key-column",
+          "sensitive" : false
+        },
+        "Cache Expiration" : {
+          "displayName" : "Cache Expiration",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Cache Expiration",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-table-name" : {
+          "displayName" : "Table Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-table-name",
+          "sensitive" : false
+        }
+      },
+      "scheduledState" : "DISABLED",
+      "type" : "org.apache.nifi.lookup.db.DatabaseRecordLookupService"
+    } ],
+    "defaultBackPressureDataSizeThreshold" : "1 GB",
+    "defaultBackPressureObjectThreshold" : 10000,
+    "defaultFlowFileExpiration" : "0 sec",
+    "executionEngine" : "INHERITED",
+    "externalControllerServiceReferences" : {
+      "effa5772-b76d-3839-8ee1-8c97cd3c59f3" : {
+        "identifier" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+        "name" : "DBCPConnectionPool"
+      },
+      "9dbc006a-fff2-3e8d-91c3-90cc4749d019" : {
+        "identifier" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
+        "name" : "CSVRecordSetWriter - Payments"
+      },
+      "353cc34a-a0f2-3e9b-88f1-8f920c77fc67" : {
+        "identifier" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "name" : "CSVReader - Stripe"
+      },
+      "e98ff1c4-7784-3568-a35f-474b1640decf" : {
+        "identifier" : "e98ff1c4-7784-3568-a35f-474b1640decf",
+        "name" : "CSVRecordSetWriter - Stripe"
+      },
+      "d2bac4f6-fe98-32da-bde0-1a2240f1690c" : {
+        "identifier" : "d2bac4f6-fe98-32da-bde0-1a2240f1690c",
+        "name" : "CSVReader - Payments"
+      }
+    },
+    "flowFileConcurrency" : "UNBOUNDED",
+    "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+    "funnels" : [ ],
+    "identifier" : "flow-contents-group",
+    "inputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "INPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "8ca6330d-b72f-339f-b725-87aa44b20ec3",
+      "name" : "Import Stripe Payments",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : -1088.0,
+        "y" : -1568.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "INPUT_PORT"
+    } ],
+    "labels" : [ ],
+    "maxConcurrentTasks" : 1,
+    "name" : "Import Stripe Payments",
+    "outputPorts" : [ ],
+    "parameterContextName" : "Avondale",
+    "position" : {
+      "x" : 0.0,
+      "y" : 0.0
+    },
+    "processGroups" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "d46ac710-d731-303c-a2ef-14c8ea4446e6",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Check Stripe payment record exists",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1168.0,
+        "y" : -856.0
+      },
+      "properties" : {
+        "result-contents" : "insert-entire-record",
+        "routing-strategy" : "route-to-matched-unmatched",
+        "record-path-lookup-miss-result-cache-size" : "0",
+        "record-writer" : "e98ff1c4-7784-3568-a35f-474b1640decf",
+        "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "lookup-service" : "6962d853-f20b-3c24-86f5-bac8d8d79b05",
+        "record-update-strategy" : "use-property",
+        "key" : "/id"
+      },
+      "propertyDescriptors" : {
+        "result-contents" : {
+          "displayName" : "Record Result Contents",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "result-contents",
+          "sensitive" : false
+        },
+        "routing-strategy" : {
+          "displayName" : "Routing Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "routing-strategy",
+          "sensitive" : false
+        },
+        "Root Record Path" : {
+          "displayName" : "Root Record Path",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Root Record Path",
+          "sensitive" : false
+        },
+        "record-path-lookup-miss-result-cache-size" : {
+          "displayName" : "Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "record-path-lookup-miss-result-cache-size",
+          "sensitive" : false
+        },
+        "result-record-path" : {
+          "displayName" : "Result RecordPath",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "result-record-path",
+          "sensitive" : false
+        },
+        "record-writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-writer",
+          "sensitive" : false
+        },
+        "record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-reader",
+          "sensitive" : false
+        },
+        "lookup-service" : {
+          "displayName" : "Lookup Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "lookup-service",
+          "sensitive" : false
+        },
+        "record-update-strategy" : {
+          "displayName" : "Record Update Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "record-update-strategy",
+          "sensitive" : false
+        },
+        "key" : {
+          "displayName" : "key",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "key",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LookupRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab43d-0195-1000-78ed-7098ad3bc506",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1832.0,
+        "y" : 832.0
+      },
+      "properties" : {
+        "character-set" : "UTF-8",
+        "Log FlowFile Properties" : "true",
+        "Log Level" : "info",
+        "attributes-to-log-regex" : ".*",
+        "Output Format" : "Line per Attribute",
+        "Log Payload" : "true"
+      },
+      "propertyDescriptors" : {
+        "Log prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log prefix",
+          "sensitive" : false
+        },
+        "character-set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "character-set",
+          "sensitive" : false
+        },
+        "Log FlowFile Properties" : {
+          "displayName" : "Log FlowFile Properties",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log FlowFile Properties",
+          "sensitive" : false
+        },
+        "Log Level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Level",
+          "sensitive" : false
+        },
+        "attributes-to-ignore-regex" : {
+          "displayName" : "Attributes to Ignore by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-ignore-regex",
+          "sensitive" : false
+        },
+        "Attributes to Ignore" : {
+          "displayName" : "Attributes to Ignore",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Ignore",
+          "sensitive" : false
+        },
+        "Attributes to Log" : {
+          "displayName" : "Attributes to Log",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Log",
+          "sensitive" : false
+        },
+        "attributes-to-log-regex" : {
+          "displayName" : "Attributes to Log by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-log-regex",
+          "sensitive" : false
+        },
+        "Output Format" : {
+          "displayName" : "Output Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Format",
+          "sensitive" : false
+        },
+        "Log Payload" : {
+          "displayName" : "Log Payload",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Payload",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "retry" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Add to Stripe payment to payments table",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1440.0,
+        "y" : 568.0
+      },
+      "properties" : {
+        "put-db-record-allow-multiple-statements" : "false",
+        "put-db-record-unmatched-column-behavior" : "Fail on Unmatched Columns",
+        "put-db-record-statement-type" : "INSERT",
+        "put-db-record-quoted-identifiers" : "true",
+        "put-db-record-unmatched-field-behavior" : "Ignore Unmatched Fields",
+        "put-db-record-max-batch-size" : "1000",
+        "database-session-autocommit" : "false",
+        "table-schema-cache-size" : "100",
+        "put-db-record-quoted-table-identifiers" : "false",
+        "put-db-record-translate-field-names" : "true",
+        "put-db-record-dcbp-service" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+        "put-db-record-query-timeout" : "0 seconds",
+        "Column Name Translation Strategy" : "REMOVE_UNDERSCORE",
+        "rollback-on-failure" : "false",
+        "put-db-record-binary-format" : "UTF-8",
+        "db-type" : "PostgreSQL",
+        "put-db-record-table-name" : "payments",
+        "put-db-record-record-reader" : "d2bac4f6-fe98-32da-bde0-1a2240f1690c"
+      },
+      "propertyDescriptors" : {
+        "put-db-record-allow-multiple-statements" : {
+          "displayName" : "Allow Multiple SQL Statements",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-allow-multiple-statements",
+          "sensitive" : false
+        },
+        "put-db-record-schema-name" : {
+          "displayName" : "Schema Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-schema-name",
+          "sensitive" : false
+        },
+        "put-db-record-field-containing-sql" : {
+          "displayName" : "Field Containing SQL",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-field-containing-sql",
+          "sensitive" : false
+        },
+        "put-db-record-unmatched-column-behavior" : {
+          "displayName" : "Unmatched Column Behavior",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-unmatched-column-behavior",
+          "sensitive" : false
+        },
+        "Delete Keys" : {
+          "displayName" : "Delete Keys",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Delete Keys",
+          "sensitive" : false
+        },
+        "put-db-record-catalog-name" : {
+          "displayName" : "Catalog Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-catalog-name",
+          "sensitive" : false
+        },
+        "put-db-record-statement-type" : {
+          "displayName" : "Statement Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-statement-type",
+          "sensitive" : false
+        },
+        "put-db-record-update-keys" : {
+          "displayName" : "Update Keys",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-update-keys",
+          "sensitive" : false
+        },
+        "put-db-record-quoted-identifiers" : {
+          "displayName" : "Quote Column Identifiers",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-quoted-identifiers",
+          "sensitive" : false
+        },
+        "put-db-record-unmatched-field-behavior" : {
+          "displayName" : "Unmatched Field Behavior",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-unmatched-field-behavior",
+          "sensitive" : false
+        },
+        "put-db-record-max-batch-size" : {
+          "displayName" : "Maximum Batch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-max-batch-size",
+          "sensitive" : false
+        },
+        "Database Dialect Service" : {
+          "displayName" : "Database Dialect Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Database Dialect Service",
+          "sensitive" : false
+        },
+        "Data Record Path" : {
+          "displayName" : "Data Record Path",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Data Record Path",
+          "sensitive" : false
+        },
+        "database-session-autocommit" : {
+          "displayName" : "Database Session AutoCommit",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "database-session-autocommit",
+          "sensitive" : false
+        },
+        "table-schema-cache-size" : {
+          "displayName" : "Table Schema Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "table-schema-cache-size",
+          "sensitive" : false
+        },
+        "put-db-record-quoted-table-identifiers" : {
+          "displayName" : "Quote Table Identifiers",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-quoted-table-identifiers",
+          "sensitive" : false
+        },
+        "Statement Type Record Path" : {
+          "displayName" : "Statement Type Record Path",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Statement Type Record Path",
+          "sensitive" : false
+        },
+        "Column Name Translation Pattern" : {
+          "displayName" : "Column Name Translation Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Column Name Translation Pattern",
+          "sensitive" : false
+        },
+        "put-db-record-translate-field-names" : {
+          "displayName" : "Translate Field Names",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-translate-field-names",
+          "sensitive" : false
+        },
+        "put-db-record-dcbp-service" : {
+          "displayName" : "Database Connection Pooling Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "put-db-record-dcbp-service",
+          "sensitive" : false
+        },
+        "put-db-record-query-timeout" : {
+          "displayName" : "Max Wait Time",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-query-timeout",
+          "sensitive" : false
+        },
+        "Column Name Translation Strategy" : {
+          "displayName" : "Column Name Translation Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Column Name Translation Strategy",
+          "sensitive" : false
+        },
+        "rollback-on-failure" : {
+          "displayName" : "Rollback On Failure",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "rollback-on-failure",
+          "sensitive" : false
+        },
+        "put-db-record-binary-format" : {
+          "displayName" : "Binary String Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-binary-format",
+          "sensitive" : false
+        },
+        "db-type" : {
+          "displayName" : "Database Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "db-type",
+          "sensitive" : false
+        },
+        "put-db-record-table-name" : {
+          "displayName" : "Table Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-table-name",
+          "sensitive" : false
+        },
+        "put-db-record-record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "put-db-record-record-reader",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.PutDatabaseRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab437-0195-1000-e81a-1566e197d0da",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Convert Stripe to Payments",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1424.0,
+        "y" : 208.0
+      },
+      "properties" : {
+        "/EmailAddress" : "/Customer_Email",
+        "/Amount" : "/amount",
+        "/Quantity" : "/li_0_quantity",
+        "Record Reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "/ItemNo" : "concat(${itemNo})",
+        "/Provider" : "concat(\"Stripe\")",
+        "Replacement Value Strategy" : "record-path-value",
+        "/Description" : "/description",
+        "/ProviderId" : "/id",
+        "/FirstName" : "/customer_first_name",
+        "/Status" : "/status",
+        "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
+        "/LastName" : "/customer_last_name",
+        "/ChargeDate" : "/Created_Date",
+        "/Product" : "/li_0_product_name"
+      },
+      "propertyDescriptors" : {
+        "/EmailAddress" : {
+          "displayName" : "/EmailAddress",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/EmailAddress",
+          "sensitive" : false
+        },
+        "/Amount" : {
+          "displayName" : "/Amount",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Amount",
+          "sensitive" : false
+        },
+        "/Quantity" : {
+          "displayName" : "/Quantity",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Quantity",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        },
+        "/ItemNo" : {
+          "displayName" : "/ItemNo",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/ItemNo",
+          "sensitive" : false
+        },
+        "/Provider" : {
+          "displayName" : "/Provider",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Provider",
+          "sensitive" : false
+        },
+        "Replacement Value Strategy" : {
+          "displayName" : "Replacement Value Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Replacement Value Strategy",
+          "sensitive" : false
+        },
+        "/Description" : {
+          "displayName" : "/Description",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Description",
+          "sensitive" : false
+        },
+        "/ProviderId" : {
+          "displayName" : "/ProviderId",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/ProviderId",
+          "sensitive" : false
+        },
+        "/FirstName" : {
+          "displayName" : "/FirstName",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/FirstName",
+          "sensitive" : false
+        },
+        "/Status" : {
+          "displayName" : "/Status",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Status",
+          "sensitive" : false
+        },
+        "Record Writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer",
+          "sensitive" : false
+        },
+        "/LastName" : {
+          "displayName" : "/LastName",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/LastName",
+          "sensitive" : false
+        },
+        "/ChargeDate" : {
+          "displayName" : "/ChargeDate",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/ChargeDate",
+          "sensitive" : false
+        },
+        "/Product" : {
+          "displayName" : "/Product",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Product",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.UpdateRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab434-0195-1000-1932-fb6e24f09ca9",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1032.0,
+        "y" : 824.0
+      },
+      "properties" : {
+        "character-set" : "UTF-8",
+        "Log FlowFile Properties" : "true",
+        "Log Level" : "info",
+        "attributes-to-log-regex" : ".*",
+        "Output Format" : "Line per Attribute",
+        "Log Payload" : "true"
+      },
+      "propertyDescriptors" : {
+        "Log prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log prefix",
+          "sensitive" : false
+        },
+        "character-set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "character-set",
+          "sensitive" : false
+        },
+        "Log FlowFile Properties" : {
+          "displayName" : "Log FlowFile Properties",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log FlowFile Properties",
+          "sensitive" : false
+        },
+        "Log Level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Level",
+          "sensitive" : false
+        },
+        "attributes-to-ignore-regex" : {
+          "displayName" : "Attributes to Ignore by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-ignore-regex",
+          "sensitive" : false
+        },
+        "Attributes to Ignore" : {
+          "displayName" : "Attributes to Ignore",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Ignore",
+          "sensitive" : false
+        },
+        "Attributes to Log" : {
+          "displayName" : "Attributes to Log",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Log",
+          "sensitive" : false
+        },
+        "attributes-to-log-regex" : {
+          "displayName" : "Attributes to Log by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-log-regex",
+          "sensitive" : false
+        },
+        "Output Format" : {
+          "displayName" : "Output Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Format",
+          "sensitive" : false
+        },
+        "Log Payload" : {
+          "displayName" : "Log Payload",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Payload",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab441-0195-1000-8cac-e67c51126c83",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Stripe CSV",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1144.0,
+        "y" : -1392.0
+      },
+      "properties" : {
+        "Record Writer" : "e98ff1c4-7784-3568-a35f-474b1640decf",
+        "Record Reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "Records Per Split" : "1"
+      },
+      "propertyDescriptors" : {
+        "Record Writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        },
+        "Records Per Split" : {
+          "displayName" : "Records Per Split",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Records Per Split",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.SplitRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "73e1eb5d-8cf4-3e62-aaef-8e9838252083",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Select records with an id",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1152.0,
+        "y" : -1152.0
+      },
+      "properties" : {
+        "dbf-default-precision" : "10",
+        "hasId" : "select * from FlowFile where coalesce(id, '') <> ''",
+        "record-writer" : "e98ff1c4-7784-3568-a35f-474b1640decf",
+        "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "include-zero-record-flowfiles" : "true",
+        "dbf-default-scale" : "0"
+      },
+      "propertyDescriptors" : {
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "hasId" : {
+          "displayName" : "hasId",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "hasId",
+          "sensitive" : false
+        },
+        "record-writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-writer",
+          "sensitive" : false
+        },
+        "record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-reader",
+          "sensitive" : false
+        },
+        "include-zero-record-flowfiles" : {
+          "displayName" : "Include Zero Record FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "include-zero-record-flowfiles",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.QueryRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a8bdaef0-0195-1000-a396-ea2068ad480c",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -528.0,
+        "y" : -848.0
+      },
+      "properties" : {
+        "character-set" : "UTF-8",
+        "Log FlowFile Properties" : "true",
+        "Log Level" : "info",
+        "Attributes to Log" : "li_1_product_name",
+        "attributes-to-log-regex" : ".*",
+        "Output Format" : "Line per Attribute",
+        "Log Payload" : "true"
+      },
+      "propertyDescriptors" : {
+        "Log prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log prefix",
+          "sensitive" : false
+        },
+        "character-set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "character-set",
+          "sensitive" : false
+        },
+        "Log FlowFile Properties" : {
+          "displayName" : "Log FlowFile Properties",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log FlowFile Properties",
+          "sensitive" : false
+        },
+        "Log Level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Level",
+          "sensitive" : false
+        },
+        "attributes-to-ignore-regex" : {
+          "displayName" : "Attributes to Ignore by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-ignore-regex",
+          "sensitive" : false
+        },
+        "Attributes to Ignore" : {
+          "displayName" : "Attributes to Ignore",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Ignore",
+          "sensitive" : false
+        },
+        "Attributes to Log" : {
+          "displayName" : "Attributes to Log",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Log",
+          "sensitive" : false
+        },
+        "attributes-to-log-regex" : {
+          "displayName" : "Attributes to Log by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-log-regex",
+          "sensitive" : false
+        },
+        "Output Format" : {
+          "displayName" : "Output Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Format",
+          "sensitive" : false
+        },
+        "Log Payload" : {
+          "displayName" : "Log Payload",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Payload",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "06611890-dee4-38e7-812d-6af185edf265",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Create payment record for first product",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -744.0,
+        "y" : -56.0
+      },
+      "properties" : {
+        "dbf-default-precision" : "2",
+        "success" : "select 1 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_0_product_name as Product, li_0_quantity as Quantity, amount-#{keyDepositAmount} as Amount, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile\n",
+        "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
+        "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "include-zero-record-flowfiles" : "false",
+        "dbf-default-scale" : "0"
+      },
+      "propertyDescriptors" : {
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "success" : {
+          "displayName" : "success",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "success",
+          "sensitive" : false
+        },
+        "record-writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-writer",
+          "sensitive" : false
+        },
+        "record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-reader",
+          "sensitive" : false
+        },
+        "include-zero-record-flowfiles" : {
+          "displayName" : "Include Zero Record FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "include-zero-record-flowfiles",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.QueryRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a8edb9b3-0195-1000-a98e-ab5b149264d4",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Add to Stripe payment to raw_stripe_payments table",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -520.0,
+        "y" : -584.0
+      },
+      "properties" : {
+        "put-db-record-allow-multiple-statements" : "false",
+        "put-db-record-unmatched-column-behavior" : "Fail on Unmatched Columns",
+        "put-db-record-statement-type" : "INSERT",
+        "put-db-record-quoted-identifiers" : "true",
+        "put-db-record-unmatched-field-behavior" : "Ignore Unmatched Fields",
+        "put-db-record-max-batch-size" : "1000",
+        "database-session-autocommit" : "false",
+        "table-schema-cache-size" : "100",
+        "put-db-record-quoted-table-identifiers" : "false",
+        "put-db-record-translate-field-names" : "true",
+        "put-db-record-dcbp-service" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+        "put-db-record-query-timeout" : "0 seconds",
+        "Column Name Translation Strategy" : "REMOVE_UNDERSCORE",
+        "rollback-on-failure" : "false",
+        "put-db-record-binary-format" : "UTF-8",
+        "db-type" : "PostgreSQL",
+        "put-db-record-table-name" : "raw_stripe_payments",
+        "put-db-record-record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67"
+      },
+      "propertyDescriptors" : {
+        "put-db-record-allow-multiple-statements" : {
+          "displayName" : "Allow Multiple SQL Statements",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-allow-multiple-statements",
+          "sensitive" : false
+        },
+        "put-db-record-schema-name" : {
+          "displayName" : "Schema Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-schema-name",
+          "sensitive" : false
+        },
+        "put-db-record-field-containing-sql" : {
+          "displayName" : "Field Containing SQL",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-field-containing-sql",
+          "sensitive" : false
+        },
+        "put-db-record-unmatched-column-behavior" : {
+          "displayName" : "Unmatched Column Behavior",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-unmatched-column-behavior",
+          "sensitive" : false
+        },
+        "Delete Keys" : {
+          "displayName" : "Delete Keys",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Delete Keys",
+          "sensitive" : false
+        },
+        "put-db-record-catalog-name" : {
+          "displayName" : "Catalog Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-catalog-name",
+          "sensitive" : false
+        },
+        "put-db-record-statement-type" : {
+          "displayName" : "Statement Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-statement-type",
+          "sensitive" : false
+        },
+        "put-db-record-update-keys" : {
+          "displayName" : "Update Keys",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-update-keys",
+          "sensitive" : false
+        },
+        "put-db-record-quoted-identifiers" : {
+          "displayName" : "Quote Column Identifiers",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-quoted-identifiers",
+          "sensitive" : false
+        },
+        "put-db-record-unmatched-field-behavior" : {
+          "displayName" : "Unmatched Field Behavior",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-unmatched-field-behavior",
+          "sensitive" : false
+        },
+        "put-db-record-max-batch-size" : {
+          "displayName" : "Maximum Batch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-max-batch-size",
+          "sensitive" : false
+        },
+        "Database Dialect Service" : {
+          "displayName" : "Database Dialect Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Database Dialect Service",
+          "sensitive" : false
+        },
+        "Data Record Path" : {
+          "displayName" : "Data Record Path",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Data Record Path",
+          "sensitive" : false
+        },
+        "database-session-autocommit" : {
+          "displayName" : "Database Session AutoCommit",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "database-session-autocommit",
+          "sensitive" : false
+        },
+        "table-schema-cache-size" : {
+          "displayName" : "Table Schema Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "table-schema-cache-size",
+          "sensitive" : false
+        },
+        "put-db-record-quoted-table-identifiers" : {
+          "displayName" : "Quote Table Identifiers",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-quoted-table-identifiers",
+          "sensitive" : false
+        },
+        "Statement Type Record Path" : {
+          "displayName" : "Statement Type Record Path",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Statement Type Record Path",
+          "sensitive" : false
+        },
+        "Column Name Translation Pattern" : {
+          "displayName" : "Column Name Translation Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Column Name Translation Pattern",
+          "sensitive" : false
+        },
+        "put-db-record-translate-field-names" : {
+          "displayName" : "Translate Field Names",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-translate-field-names",
+          "sensitive" : false
+        },
+        "put-db-record-dcbp-service" : {
+          "displayName" : "Database Connection Pooling Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "put-db-record-dcbp-service",
+          "sensitive" : false
+        },
+        "put-db-record-query-timeout" : {
+          "displayName" : "Max Wait Time",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-query-timeout",
+          "sensitive" : false
+        },
+        "Column Name Translation Strategy" : {
+          "displayName" : "Column Name Translation Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Column Name Translation Strategy",
+          "sensitive" : false
+        },
+        "rollback-on-failure" : {
+          "displayName" : "Rollback On Failure",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "rollback-on-failure",
+          "sensitive" : false
+        },
+        "put-db-record-binary-format" : {
+          "displayName" : "Binary String Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-binary-format",
+          "sensitive" : false
+        },
+        "db-type" : {
+          "displayName" : "Database Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "db-type",
+          "sensitive" : false
+        },
+        "put-db-record-table-name" : {
+          "displayName" : "Table Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "put-db-record-table-name",
+          "sensitive" : false
+        },
+        "put-db-record-record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "put-db-record-record-reader",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.PutDatabaseRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a8c92433-0195-1000-03ab-29eed2d7e716",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -528.0,
+        "y" : -368.0
+      },
+      "properties" : {
+        "character-set" : "UTF-8",
+        "Log FlowFile Properties" : "true",
+        "Log Level" : "info",
+        "attributes-to-log-regex" : ".*",
+        "Output Format" : "Line per Attribute",
+        "Log Payload" : "true"
+      },
+      "propertyDescriptors" : {
+        "Log prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log prefix",
+          "sensitive" : false
+        },
+        "character-set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "character-set",
+          "sensitive" : false
+        },
+        "Log FlowFile Properties" : {
+          "displayName" : "Log FlowFile Properties",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log FlowFile Properties",
+          "sensitive" : false
+        },
+        "Log Level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Level",
+          "sensitive" : false
+        },
+        "attributes-to-ignore-regex" : {
+          "displayName" : "Attributes to Ignore by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-ignore-regex",
+          "sensitive" : false
+        },
+        "Attributes to Ignore" : {
+          "displayName" : "Attributes to Ignore",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Ignore",
+          "sensitive" : false
+        },
+        "Attributes to Log" : {
+          "displayName" : "Attributes to Log",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Log",
+          "sensitive" : false
+        },
+        "attributes-to-log-regex" : {
+          "displayName" : "Attributes to Log by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-log-regex",
+          "sensitive" : false
+        },
+        "Output Format" : {
+          "displayName" : "Output Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Format",
+          "sensitive" : false
+        },
+        "Log Payload" : {
+          "displayName" : "Log Payload",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Payload",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a53ab43b-0195-1000-dafb-3883cac454d2",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Select columns",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1168.0,
+        "y" : -368.0
+      },
+      "properties" : {
+        "dbf-default-precision" : "10",
+        "Product1" : "SELECT * FROM FLOWFILE WHERE status='Paid' and COALESCE(li_0_product_name, '') <> '' and COALESCE(li_1_product_name, '') = ''",
+        "Product2" : "SELECT * FROM FLOWFILE WHERE status='Paid' and li_1_product_name = 'Pavilion Key'",
+        "record-writer" : "e98ff1c4-7784-3568-a35f-474b1640decf",
+        "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "include-zero-record-flowfiles" : "false",
+        "NoProduct" : "SELECT * FROM FLOWFILE WHERE COALESCE(li_0_product_name, '') = ''",
+        "dbf-default-scale" : "0"
+      },
+      "propertyDescriptors" : {
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "Product1" : {
+          "displayName" : "Product1",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "Product1",
+          "sensitive" : false
+        },
+        "Product2" : {
+          "displayName" : "Product2",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "Product2",
+          "sensitive" : false
+        },
+        "record-writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-writer",
+          "sensitive" : false
+        },
+        "record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-reader",
+          "sensitive" : false
+        },
+        "include-zero-record-flowfiles" : {
+          "displayName" : "Include Zero Record FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "include-zero-record-flowfiles",
+          "sensitive" : false
+        },
+        "NoProduct" : {
+          "displayName" : "NoProduct",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "NoProduct",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.QueryRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a9941492-0195-1000-41ea-162148d1c34d",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -96.0,
+        "y" : -64.0
+      },
+      "properties" : {
+        "character-set" : "UTF-8",
+        "Log FlowFile Properties" : "true",
+        "Log Level" : "info",
+        "attributes-to-log-regex" : ".*",
+        "Output Format" : "Line per Attribute",
+        "Log Payload" : "true"
+      },
+      "propertyDescriptors" : {
+        "Log prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log prefix",
+          "sensitive" : false
+        },
+        "character-set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "character-set",
+          "sensitive" : false
+        },
+        "Log FlowFile Properties" : {
+          "displayName" : "Log FlowFile Properties",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log FlowFile Properties",
+          "sensitive" : false
+        },
+        "Log Level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Level",
+          "sensitive" : false
+        },
+        "attributes-to-ignore-regex" : {
+          "displayName" : "Attributes to Ignore by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-ignore-regex",
+          "sensitive" : false
+        },
+        "Attributes to Ignore" : {
+          "displayName" : "Attributes to Ignore",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Ignore",
+          "sensitive" : false
+        },
+        "Attributes to Log" : {
+          "displayName" : "Attributes to Log",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Log",
+          "sensitive" : false
+        },
+        "attributes-to-log-regex" : {
+          "displayName" : "Attributes to Log by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-log-regex",
+          "sensitive" : false
+        },
+        "Output Format" : {
+          "displayName" : "Output Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Format",
+          "sensitive" : false
+        },
+        "Log Payload" : {
+          "displayName" : "Log Payload",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Payload",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "original" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a981b0ff-0195-1000-ed7c-6133feb5e3ca",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Create payment record for second product",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -760.0,
+        "y" : 320.0
+      },
+      "properties" : {
+        "dbf-default-precision" : "10",
+        "success" : "select 2 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_1_product_name as Product, li_1_quantity as Quantity, #{keyDepositAmount} as Amount, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile",
+        "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
+        "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
+        "include-zero-record-flowfiles" : "true",
+        "dbf-default-scale" : "0"
+      },
+      "propertyDescriptors" : {
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "success" : {
+          "displayName" : "success",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "success",
+          "sensitive" : false
+        },
+        "record-writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-writer",
+          "sensitive" : false
+        },
+        "record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-reader",
+          "sensitive" : false
+        },
+        "include-zero-record-flowfiles" : {
+          "displayName" : "Include Zero Record FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "include-zero-record-flowfiles",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.QueryRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a9944f4d-0195-1000-d564-ea1d1d29315a",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -160.0,
+        "y" : 312.0
+      },
+      "properties" : {
+        "character-set" : "UTF-8",
+        "Log FlowFile Properties" : "true",
+        "Log Level" : "info",
+        "attributes-to-log-regex" : ".*",
+        "Output Format" : "Line per Attribute",
+        "Log Payload" : "true"
+      },
+      "propertyDescriptors" : {
+        "Log prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log prefix",
+          "sensitive" : false
+        },
+        "character-set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "character-set",
+          "sensitive" : false
+        },
+        "Log FlowFile Properties" : {
+          "displayName" : "Log FlowFile Properties",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log FlowFile Properties",
+          "sensitive" : false
+        },
+        "Log Level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Level",
+          "sensitive" : false
+        },
+        "attributes-to-ignore-regex" : {
+          "displayName" : "Attributes to Ignore by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-ignore-regex",
+          "sensitive" : false
+        },
+        "Attributes to Ignore" : {
+          "displayName" : "Attributes to Ignore",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Ignore",
+          "sensitive" : false
+        },
+        "Attributes to Log" : {
+          "displayName" : "Attributes to Log",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Attributes to Log",
+          "sensitive" : false
+        },
+        "attributes-to-log-regex" : {
+          "displayName" : "Attributes to Log by Regular Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "attributes-to-log-regex",
+          "sensitive" : false
+        },
+        "Output Format" : {
+          "displayName" : "Output Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Format",
+          "sensitive" : false
+        },
+        "Log Payload" : {
+          "displayName" : "Log Payload",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Log Payload",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-update-attribute-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "7072e66a-5621-3bcb-86e8-c63c5b0d4a2c",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "UpdateAttribute",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1408.0,
+        "y" : -96.0
+      },
+      "properties" : {
+        "Store State" : "Do not store state",
+        "canonical-value-lookup-cache-size" : "100",
+        "itemNo" : "1"
+      },
+      "propertyDescriptors" : {
+        "Delete Attributes Expression" : {
+          "displayName" : "Delete Attributes Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Delete Attributes Expression",
+          "sensitive" : false
+        },
+        "Store State" : {
+          "displayName" : "Store State",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Store State",
+          "sensitive" : false
+        },
+        "canonical-value-lookup-cache-size" : {
+          "displayName" : "Cache Value Lookup Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "canonical-value-lookup-cache-size",
+          "sensitive" : false
+        },
+        "itemNo" : {
+          "displayName" : "itemNo",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "itemNo",
+          "sensitive" : false
+        },
+        "Stateful Variables Initial Value" : {
+          "displayName" : "Stateful Variables Initial Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Stateful Variables Initial Value",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+      "yieldDuration" : "1 sec"
+    } ],
+    "remoteProcessGroups" : [ ],
+    "scheduledState" : "ENABLED",
+    "statelessFlowTimeout" : "1 min"
+  },
+  "flowEncodingVersion" : "1.0",
+  "latest" : false,
+  "parameterContexts" : {
+    "Avondale" : {
+      "componentType" : "PARAMETER_CONTEXT",
+      "inheritedParameterContexts" : [ ],
+      "name" : "Avondale",
+      "parameters" : [ {
+        "description" : "",
+        "name" : "importPath",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "/var/lib/nifi/import"
+      }, {
+        "description" : "",
+        "name" : "keyDepositAmount",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "12"
+      } ]
+    }
+  },
+  "parameterProviders" : { },
+  "snapshotMetadata" : {
+    "author" : "admin",
+    "flowIdentifier" : "import-stripe-payments",
+    "timestamp" : 0
+  }
 }
