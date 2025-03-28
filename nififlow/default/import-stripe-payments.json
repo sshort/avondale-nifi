@@ -189,36 +189,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
-        "name" : "Add to Stripe payment to payments table",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "547b31de-da12-3ec9-b756-99e09b83cd75",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "a981b0ff-0195-1000-ed7c-6133feb5e3ca",
-        "name" : "Create payment record for second product",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "06611890-dee4-38e7-812d-6af185edf265",
         "name" : "Create payment record for first product",
         "type" : "PROCESSOR"
@@ -238,6 +208,66 @@
         "groupId" : "flow-contents-group",
         "id" : "a53ab43b-0195-1000-dafb-3883cac454d2",
         "name" : "Select columns",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a53ab435-0195-1000-a270-39d07a4bf5dd",
+        "name" : "Add to Stripe payment to payments table",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e34aba95-b8d6-37bc-b5d6-f8bd83ee3c05",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "dc4f8ad1-0195-1000-49f0-5a40fb88621e",
+        "name" : "Match and replace product name",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "dc4f8ad1-0195-1000-49f0-5a40fb88621e",
+        "name" : "Match and replace product name",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "681c2919-f2e4-3fa7-bc30-739a664d2c0a",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a981b0ff-0195-1000-ed7c-6133feb5e3ca",
+        "name" : "Create payment record for second product",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1354,6 +1384,73 @@
       "type" : "org.apache.nifi.processors.standard.UpdateRecord",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "dc4f8ad1-0195-1000-49f0-5a40fb88621e",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Match and replace product name",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -744.0,
+        "y" : 456.0
+      },
+      "properties" : {
+        "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
+        "Record Reader" : "d2bac4f6-fe98-32da-bde0-1a2240f1690c",
+        "/Product" : "replace(/Product, 'Pavilion Key', 'b. Pavilion Key')",
+        "Replacement Value Strategy" : "record-path-value"
+      },
+      "propertyDescriptors" : {
+        "Record Writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        },
+        "/Product" : {
+          "displayName" : "/Product",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Product",
+          "sensitive" : false
+        },
+        "Replacement Value Strategy" : {
+          "displayName" : "Replacement Value Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Replacement Value Strategy",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.UpdateRecord",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -2383,8 +2480,8 @@
       "name" : "Create payment record for second product",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -760.0,
-        "y" : 320.0
+        "x" : -736.0,
+        "y" : 208.0
       },
       "properties" : {
         "dbf-default-precision" : "10",
