@@ -746,7 +746,7 @@
       "name" : "Import Stripe Payments",
       "portFunction" : "STANDARD",
       "position" : {
-        "x" : -1088.0,
+        "x" : -1112.0,
         "y" : -1568.0
       },
       "scheduledState" : "ENABLED",
@@ -1262,6 +1262,7 @@
         "/ProviderId" : "/id",
         "/FirstName" : "/customer_first_name",
         "/Status" : "/status",
+        "/Type" : "concat('Payment')",
         "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "/LastName" : "/customer_last_name",
         "/ChargeDate" : "/Created_Date",
@@ -1345,6 +1346,13 @@
           "name" : "/Status",
           "sensitive" : false
         },
+        "/Type" : {
+          "displayName" : "/Type",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Type",
+          "sensitive" : false
+        },
         "Record Writer" : {
           "displayName" : "Record Writer",
           "dynamic" : false,
@@ -1402,8 +1410,8 @@
       "name" : "Match and replace product name",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -744.0,
-        "y" : 456.0
+        "x" : -736.0,
+        "y" : 560.0
       },
       "properties" : {
         "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
@@ -1580,7 +1588,7 @@
       "name" : "Stripe CSV",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1144.0,
+        "x" : -1168.0,
         "y" : -1392.0
       },
       "properties" : {
@@ -1639,7 +1647,7 @@
       "name" : "Select records with an id",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1152.0,
+        "x" : -1168.0,
         "y" : -1152.0
       },
       "properties" : {
@@ -1834,12 +1842,12 @@
       "name" : "Create payment record for first product",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -744.0,
-        "y" : -56.0
+        "x" : -728.0,
+        "y" : -64.0
       },
       "properties" : {
         "dbf-default-precision" : "2",
-        "success" : "select 1 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_0_product_name as Product, li_0_quantity as Quantity, amount-#{keyDepositAmount} as Amount, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile\n",
+        "success" : "select 1 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_0_product_name as Product, li_0_quantity as Quantity, amount-#{keyDepositAmount} as Amount, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile\n",
         "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
         "include-zero-record-flowfiles" : "false",
@@ -2485,7 +2493,7 @@
       },
       "properties" : {
         "dbf-default-precision" : "10",
-        "success" : "select 2 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_1_product_name as Product, li_1_quantity as Quantity, #{keyDepositAmount} as Amount, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile",
+        "success" : "select 2 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_1_product_name as Product, li_1_quantity as Quantity, #{keyDepositAmount} as Amount, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile",
         "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
         "include-zero-record-flowfiles" : "true",
