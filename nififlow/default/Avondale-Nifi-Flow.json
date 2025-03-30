@@ -178,6 +178,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "e69d0eec-0195-1000-64f5-abe8ee3a40bf",
+        "name" : "Set type",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "10fa5164-c133-321d-857c-17286dc6f9db",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
+        "name" : "Extract subscription payment from email",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
         "name" : "Evaluate - update member attribute from record",
         "type" : "PROCESSOR"
@@ -226,7 +256,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
-        "name" : "Jolt split member string into members attribute",
+        "name" : "Jolt split member string into members value",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -556,7 +586,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
-        "name" : "Jolt split member string into members attribute",
+        "name" : "Jolt split member string into members value",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -737,6 +767,36 @@
         "groupId" : "flow-contents-group",
         "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
         "name" : "Update filename attribute to message id",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "e686a977-0195-1000-724f-cf1ef25c8cd3",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e7a7e802-ceb5-3c34-8577-10b7837de739",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "original" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "dcff21be-7769-3639-a9c0-a0c6746bfb4f",
+        "name" : "SplitRecord",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -959,7 +1019,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "Update quantity attribute",
+        "name" : "Set type and update quantity attribute ",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -1067,36 +1127,6 @@
         "groupId" : "flow-contents-group",
         "id" : "b33f468b-874e-3762-b8a6-761de2fb25a2",
         "name" : "ExtractEmailHeaders",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ccaff89b-0195-1000-d064-82553b0634f3",
-        "name" : "Extract payment status from email",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "faa0a9d4-80da-3f52-a87c-9df87eb56d28",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "aea8bc35-0195-1000-0963-f2628879b369",
-        "name" : "Extract subscription payment from email",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1216,7 +1246,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
-        "name" : "Update quantity attribute",
+        "name" : "Set type and update quantity attribute ",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1288,8 +1318,38 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "ccaff89b-0195-1000-d064-82553b0634f3",
+        "name" : "Extract payment status from email",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "6fdb39e7-0f15-3074-a0a6-d516d74815eb",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "e69d0eec-0195-1000-64f5-abe8ee3a40bf",
+        "name" : "Set type",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
-        "name" : "Jolt split member string into members attribute",
+        "name" : "Jolt split member string into members value",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -1718,17 +1778,18 @@
       } ],
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "8ebb759d-9899-3050-a25a-6d0a54097ec3",
-      "name" : "JsonRecordSetWriter",
+      "name" : "JsonRecordSetWriter - member signup group",
       "properties" : {
         "Allow Scientific Notation" : "false",
         "compression-level" : "1",
         "Pretty Print JSON" : "false",
         "compression-format" : "none",
-        "Schema Write Strategy" : "no-schema",
+        "Schema Write Strategy" : "schema-name",
         "suppress-nulls" : "never-suppress",
         "output-grouping" : "output-array",
-        "schema-name" : "${schema.name}",
-        "schema-access-strategy" : "inherit-record-schema",
+        "schema-name" : "member-signup-group",
+        "schema-registry" : "9c0d9ad1-4e13-3b8b-8a0c-ad86949806ed",
+        "schema-access-strategy" : "schema-name",
         "schema-text" : "${avro.schema}"
       },
       "propertyDescriptors" : {
@@ -2567,7 +2628,7 @@
     }, {
       "autoTerminatedRelationships" : [ "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
+      "bulletinLevel" : "DEBUG",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -2587,7 +2648,7 @@
         "y" : 1072.0
       },
       "properties" : {
-        "include-parent-fields" : "false",
+        "include-parent-fields" : "true",
         "record-writer" : "8ebb759d-9899-3050-a25a-6d0a54097ec3",
         "member" : "/members",
         "record-reader" : "0feb8305-71b4-3dcd-aad2-925843cbba25",
@@ -2658,7 +2719,7 @@
       "name" : "ConvertHTMLToText",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1088.0,
+        "x" : -1136.0,
         "y" : -1064.0
       },
       "properties" : {
@@ -2701,8 +2762,8 @@
       "name" : "GetFile",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -96.0,
-        "y" : -1824.0
+        "x" : 64.0,
+        "y" : -1800.0
       },
       "properties" : {
         "Keep Source File" : "false",
@@ -2804,7 +2865,7 @@
       "retriedRelationships" : [ ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
-      "scheduledState" : "DISABLED",
+      "scheduledState" : "ENABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
@@ -3008,8 +3069,8 @@
       "name" : "ConsumeIMAP - members.avondale",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -528.0,
-        "y" : -1816.0
+        "x" : -504.0,
+        "y" : -1824.0
       },
       "properties" : {
         "delete.messages" : "false",
@@ -3600,16 +3661,17 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "399a31c7-aafc-3f25-8163-a0936d5b4e49",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "Update quantity attribute",
+      "name" : "Set type and update quantity attribute ",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1224.0,
-        "y" : -80.0
+        "x" : -1229.0,
+        "y" : -79.0
       },
       "properties" : {
         "quantity.quantity" : "1",
         "Store State" : "Do not store state",
-        "canonical-value-lookup-cache-size" : "100"
+        "canonical-value-lookup-cache-size" : "100",
+        "type" : "Payment"
       },
       "propertyDescriptors" : {
         "quantity.quantity" : {
@@ -3645,6 +3707,94 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Stateful Variables Initial Value",
+          "sensitive" : false
+        },
+        "type" : {
+          "displayName" : "type",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "type",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-update-attribute-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e69d0eec-0195-1000-64f5-abe8ee3a40bf",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Set type",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -653.0,
+        "y" : -87.0
+      },
+      "properties" : {
+        "quantity.quantity" : "1",
+        "Store State" : "Do not store state",
+        "canonical-value-lookup-cache-size" : "100",
+        "type" : "Installments"
+      },
+      "propertyDescriptors" : {
+        "quantity.quantity" : {
+          "displayName" : "quantity.quantity",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "quantity.quantity",
+          "sensitive" : false
+        },
+        "Delete Attributes Expression" : {
+          "displayName" : "Delete Attributes Expression",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Delete Attributes Expression",
+          "sensitive" : false
+        },
+        "Store State" : {
+          "displayName" : "Store State",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Store State",
+          "sensitive" : false
+        },
+        "canonical-value-lookup-cache-size" : {
+          "displayName" : "Cache Value Lookup Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "canonical-value-lookup-cache-size",
+          "sensitive" : false
+        },
+        "Stateful Variables Initial Value" : {
+          "displayName" : "Stateful Variables Initial Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Stateful Variables Initial Value",
+          "sensitive" : false
+        },
+        "type" : {
+          "displayName" : "type",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "type",
           "sensitive" : false
         }
       },
@@ -3983,7 +4133,7 @@
       "properties" : {
         "Destination" : "flowfile-content",
         "Null Value" : "false",
-        "Attributes List" : "signup_date, member, product, payer, cost, quantity, method, status",
+        "Attributes List" : "signup_date, member, product, payer, cost, quantity, type, method, status",
         "Pretty Print" : "true",
         "Include Core Attributes" : "false",
         "JSON Handling Strategy" : "ESCAPED"
@@ -4067,7 +4217,7 @@
       "name" : "ExtractEmailBody",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -536.0,
+        "x" : -520.0,
         "y" : -1048.0
       },
       "properties" : {
@@ -4284,7 +4434,7 @@
       "name" : "Extract cost",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1096.0,
+        "x" : -1136.0,
         "y" : -808.0
       },
       "properties" : {
@@ -4578,7 +4728,7 @@
           "name" : "Jolt Specification",
           "resourceDefinition" : {
             "cardinality" : "SINGLE",
-            "resourceTypes" : [ "FILE", "TEXT" ]
+            "resourceTypes" : [ "TEXT", "FILE" ]
           },
           "sensitive" : false
         }
@@ -4608,7 +4758,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "09c0702e-f7ca-3e9d-b873-92b57dee5d94",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "Jolt split member string into members attribute",
+      "name" : "Jolt split member string into members value",
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -472.0,
@@ -4675,7 +4825,7 @@
           "name" : "Jolt Specification",
           "resourceDefinition" : {
             "cardinality" : "SINGLE",
-            "resourceTypes" : [ "FILE", "TEXT" ]
+            "resourceTypes" : [ "TEXT", "FILE" ]
           },
           "sensitive" : false
         }
@@ -4688,6 +4838,64 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.jolt.JoltTransformJSON",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e686a977-0195-1000-724f-cf1ef25c8cd3",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -2288.0,
+        "y" : 1064.0
+      },
+      "properties" : {
+        "log-message" : "Message ${email.headers.message-id}: Split record processing original.",
+        "log-level" : "warn"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ "success" ],
@@ -4823,8 +5031,8 @@
       "name" : "Extract subscription payment from email",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 16.0,
-        "y" : -336.0
+        "x" : 11.0,
+        "y" : -335.0
       },
       "properties" : {
         "Enable Unicode Predefined Character Classes" : "false",
@@ -5384,8 +5592,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 72.0,
-        "y" : -856.0
+        "x" : 64.0,
+        "y" : -816.0
       },
       "properties" : {
         "log-message" : "Message ${email.headers.message-id}: Cost informmation not found.",
@@ -5721,9 +5929,9 @@
       "type" : "org.apache.nifi.processors.standard.EvaluateJsonPath",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "original" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
+      "bulletinLevel" : "DEBUG",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
