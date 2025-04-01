@@ -166,7 +166,7 @@
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0e94f5aa-799d-3cd7-85d0-3e7d0e02f1bf",
+      "identifier" : "65b267ff-93ca-3f45-9c6f-70b10a0be9fe",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -177,7 +177,7 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ec727c34-9f05-3e4f-a8a7-dc5d63a88580",
+        "id" : "ddb0d348-0195-1000-0ad4-95b113f01688",
         "name" : "UpdateAttribute",
         "type" : "PROCESSOR"
       },
@@ -209,36 +209,6 @@
         "groupId" : "flow-contents-group",
         "id" : "ace27957-33e5-3a3c-a2fd-7f7e09e872e8",
         "name" : "ValidateRecord",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d8a801b2-0195-1000-a078-aa9442ca4e93",
-        "name" : "Convert GoCardless to Payments",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "898c5615-2de4-36b2-9270-839bc157d778",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ddb0d348-0195-1000-0ad4-95b113f01688",
-        "name" : "UpdateAttribute",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -329,6 +299,36 @@
         "groupId" : "flow-contents-group",
         "id" : "8fad9de6-0195-1000-c1a4-f1e92dc4af76",
         "name" : "Add to payments table",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d8a801b2-0195-1000-a078-aa9442ca4e93",
+        "name" : "Convert GoCardless to Payments",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "71c1c23d-2636-32a4-b9c3-a96918358b1f",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ec727c34-9f05-3e4f-a8a7-dc5d63a88580",
+        "name" : "UpdateAttribute",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1257,8 +1257,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2784.0,
-        "y" : 56.0
+        "x" : -2752.0,
+        "y" : 544.0
       },
       "properties" : {
         "log-message" : "Added GoCardless payment to payments table",
@@ -1373,13 +1373,13 @@
       "name" : "QueryRecord - is subscription",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2144.0,
-        "y" : -464.0
+        "x" : -2152.0,
+        "y" : -392.0
       },
       "properties" : {
-        "isPayment" : "select * from FlowFile where lower(customers_active_mandates) like '%false%'",
+        "isPayment" : "select id, \n    created_at,\n    charge_date,\n    amount,\n    description,\n    currency,\n    status,\n    amount_refunded,\n    reference,\n    coalesce(transaction_fee, 0) + coalesce(app_fee, 0) as transaction_fee,\n    payout_date,\n    0,\n    funds_settlement,\n    links_mandate,\n    links_creditor,\n    links_customer,\n    links_payout,\n    links_subscription,\n    customers_id,\n    customers_created_at,\n    customers_email,\n    customers_given_name,\n    customers_family_name,\n    customers_company_name,\n    customers_address_line1,\n    customers_address_line2,\n    customers_address_line3,\n    customers_city,\n    customers_region,\n    customers_postal_code,\n    customers_country_code,\n    customers_language ,\n    customers_swedish_identity_number,\n    customers_active_mandates,\n    transaction_fee_tax\n    from FlowFile where lower(customers_active_mandates) like '%false%'",
         "dbf-default-precision" : "10",
-        "isSubscription" : "select * from FlowFile where lower(customers_active_mandates) like '%true%'",
+        "isSubscription" : "select id, \n    created_at,\n    charge_date,\n    amount,\n    description,\n    currency,\n    status,\n    amount_refunded,\n    reference,\n    coalesce(transaction_fee, 0) + coalesce(app_fee, 0) as transaction_fee,\n    payout_date,\n    0,\n    funds_settlement,\n    links_mandate,\n    links_creditor,\n    links_customer,\n    links_payout,\n    links_subscription,\n    customers_id,\n    customers_created_at,\n    customers_email,\n    customers_given_name,\n    customers_family_name,\n    customers_company_name,\n    customers_address_line1,\n    customers_address_line2,\n    customers_address_line3,\n    customers_city,\n    customers_region,\n    customers_postal_code,\n    customers_country_code,\n    customers_language ,\n    customers_swedish_identity_number,\n    customers_active_mandates,\n    transaction_fee_tax\n    from FlowFile where lower(customers_active_mandates) like '%true%'\n\n",
         "record-writer" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
         "record-reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
         "include-zero-record-flowfiles" : "true",
@@ -1464,8 +1464,8 @@
       "name" : "Convert GoCardless to Payments",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2144.0,
-        "y" : -216.0
+        "x" : -2160.0,
+        "y" : 280.0
       },
       "properties" : {
         "/EmailAddress" : "/customers_email",
@@ -1473,6 +1473,7 @@
         "/Quantity" : "concat(1)",
         "Record Reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
         "/ItemNo" : "concat(1)",
+        "/Fees" : "/transaction_fee",
         "/Provider" : "concat(\"GoCardless\")",
         "Replacement Value Strategy" : "record-path-value",
         "/Description" : "/description",
@@ -1519,6 +1520,13 @@
           "dynamic" : true,
           "identifiesControllerService" : false,
           "name" : "/ItemNo",
+          "sensitive" : false
+        },
+        "/Fees" : {
+          "displayName" : "/Fees",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Fees",
           "sensitive" : false
         },
         "/Provider" : {
@@ -1627,8 +1635,8 @@
       "name" : "UpdateAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2792.0,
-        "y" : -352.0
+        "x" : -2808.0,
+        "y" : -168.0
       },
       "properties" : {
         "Store State" : "Do not store state",
@@ -1700,8 +1708,8 @@
       "name" : "UpdateAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1552.0,
-        "y" : -360.0
+        "x" : -1568.0,
+        "y" : -176.0
       },
       "properties" : {
         "Store State" : "Do not store state",
@@ -2303,8 +2311,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1440.0,
-        "y" : 64.0
+        "x" : -1424.0,
+        "y" : 552.0
       },
       "properties" : {
         "log-message" : "Failed to add GoCardless payment to payments table",
@@ -2361,8 +2369,8 @@
       "name" : "Add to payments table",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2144.0,
-        "y" : 56.0
+        "x" : -2160.0,
+        "y" : 552.0
       },
       "properties" : {
         "put-db-record-allow-multiple-statements" : "false",
