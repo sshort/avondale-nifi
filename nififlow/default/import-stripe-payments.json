@@ -1256,6 +1256,7 @@
         "/Quantity" : "/li_0_quantity",
         "Record Reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
         "/ItemNo" : "concat(${itemNo})",
+        "/Fees" : "/fee",
         "/Provider" : "concat(\"Stripe\")",
         "Replacement Value Strategy" : "record-path-value",
         "/Description" : "/description",
@@ -1302,6 +1303,13 @@
           "dynamic" : true,
           "identifiesControllerService" : false,
           "name" : "/ItemNo",
+          "sensitive" : false
+        },
+        "/Fees" : {
+          "displayName" : "/Fees",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/Fees",
           "sensitive" : false
         },
         "/Provider" : {
@@ -1847,7 +1855,7 @@
       },
       "properties" : {
         "dbf-default-precision" : "2",
-        "success" : "select 1 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_0_product_name as Product, li_0_quantity as Quantity, amount-#{keyDepositAmount} as Amount, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile\n",
+        "success" : "select 1 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_0_product_name as Product, li_0_quantity as Quantity, fee as Fees, amount-#{keyDepositAmount} as Amount, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile\n",
         "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
         "include-zero-record-flowfiles" : "false",
@@ -2493,7 +2501,7 @@
       },
       "properties" : {
         "dbf-default-precision" : "10",
-        "success" : "select 2 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_1_product_name as Product, li_1_quantity as Quantity, #{keyDepositAmount} as Amount, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile",
+        "success" : "select 2 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_1_product_name as Product, li_1_quantity as Quantity, #{keyDepositAmount} as Amount, 0 as Fees, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile",
         "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
         "include-zero-record-flowfiles" : "true",
