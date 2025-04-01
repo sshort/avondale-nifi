@@ -849,7 +849,7 @@
       "identifier" : "4e0ea25a-b100-3370-835d-2b649dfdb4a8",
       "name" : "CSVReader - GoCardless Ingest",
       "properties" : {
-        "ignore-csv-header" : "false",
+        "ignore-csv-header" : "true",
         "Trim double quote" : "true",
         "CSV Format" : "custom",
         "Quote Character" : "\"",
@@ -859,7 +859,7 @@
         "Timestamp Format" : "yyyy-MM-dd HH:mm:ss",
         "Escape Character" : "\\",
         "Date Format" : "yyyy-MM-dd",
-        "Skip Header Line" : "false",
+        "Skip Header Line" : "true",
         "Trim Fields" : "true",
         "schema-name" : "gocardless-payment",
         "schema-registry" : "9c0d9ad1-4e13-3b8b-8a0c-ad86949806ed",
@@ -1377,9 +1377,9 @@
         "y" : -464.0
       },
       "properties" : {
-        "isPayment" : "select * from FlowFile where customers_active_mandates like '%false%'",
+        "isPayment" : "select * from FlowFile where lower(customers_active_mandates) like '%false%'",
         "dbf-default-precision" : "10",
-        "isSubscription" : "select * from FlowFile where customers_active_mandates like '%true%'",
+        "isSubscription" : "select * from FlowFile where lower(customers_active_mandates) like '%true%'",
         "record-writer" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
         "record-reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
         "include-zero-record-flowfiles" : "true",
@@ -1815,7 +1815,7 @@
     }, {
       "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "DEBUG",
+      "bulletinLevel" : "INFO",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -1928,7 +1928,7 @@
     }, {
       "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
+      "bulletinLevel" : "INFO",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -1951,13 +1951,13 @@
         "put-db-record-allow-multiple-statements" : "false",
         "put-db-record-unmatched-column-behavior" : "Fail on Unmatched Columns",
         "put-db-record-statement-type" : "INSERT",
-        "put-db-record-quoted-identifiers" : "true",
+        "put-db-record-quoted-identifiers" : "false",
         "put-db-record-unmatched-field-behavior" : "Ignore Unmatched Fields",
         "put-db-record-max-batch-size" : "1000",
         "database-session-autocommit" : "false",
         "table-schema-cache-size" : "100",
         "put-db-record-quoted-table-identifiers" : "false",
-        "put-db-record-translate-field-names" : "true",
+        "put-db-record-translate-field-names" : "false",
         "put-db-record-dcbp-service" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
         "put-db-record-query-timeout" : "0 seconds",
         "Column Name Translation Strategy" : "REMOVE_UNDERSCORE",
