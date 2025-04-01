@@ -19,10 +19,6 @@
     "19ba8642-9e9d-3b89-86e4-5169f793810a" : {
       "identifier" : "19ba8642-9e9d-3b89-86e4-5169f793810a",
       "name" : "CSVRecordSetWriter - Member"
-    },
-    "044d4784-bdcb-3dd3-ac35-9041cb2e3e53" : {
-      "identifier" : "044d4784-bdcb-3dd3-ac35-9041cb2e3e53",
-      "name" : "CSVReader"
     }
   },
   "flow" : {
@@ -37,6 +33,126 @@
     "comments" : "",
     "componentType" : "PROCESS_GROUP",
     "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "8fc4d1f1-0195-1000-1a99-de3f0bb37483",
+        "name" : "Add to members table",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "528a87d8-4bbb-302a-84d4-42802f299e6e",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "hasEmailAddress" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "8a581672-8211-31e0-85c0-718c7f29f95d",
+        "name" : "QueryRecord - record has an email address",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d788bb84-0195-1000-5de7-a5028e4ac274",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ae342120-e4f2-3cb7-9051-7770c0aeecd6",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "9030c0f8-0195-1000-3c7e-7230915d6c2f",
+        "name" : "Add to members_errors table",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d7866916-0195-1000-94f3-33ab9487b1cd",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "54f5865f-771c-3360-bac2-9123d2c98921",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d80f4837-0195-1000-f25e-2df342fa4d0c",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d80f4837-0195-1000-f25e-2df342fa4d0c",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "4499b9d0-5605-33ad-83a7-97072e3750a9",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "noEmailAddress" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "8a581672-8211-31e0-85c0-718c7f29f95d",
+        "name" : "QueryRecord - record has an email address",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
       "bends" : [ ],
@@ -103,25 +219,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "d788bb84-0195-1000-5de7-a5028e4ac274",
-        "name" : "LogMessage",
+        "id" : "8a581672-8211-31e0-85c0-718c7f29f95d",
+        "name" : "QueryRecord - record has an email address",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ae342120-e4f2-3cb7-9051-7770c0aeecd6",
+      "identifier" : "02468f0f-2bf0-396e-9d94-1aa4eefd0a76",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure" ],
+      "selectedRelationships" : [ "success" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "9030c0f8-0195-1000-3c7e-7230915d6c2f",
-        "name" : "Add to raw_members table",
+        "id" : "7c0fcd1a-ca10-3793-93de-d8563d62fc2d",
+        "name" : "Convert ClubSpark member record to member table",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -163,6 +279,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "9030c0f8-0195-1000-3c7e-7230915d6c2f",
+        "name" : "Add to members_errors table",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e3a2d056-02c7-324f-ad29-ec9276d4998d",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d7866916-0195-1000-94f3-33ab9487b1cd",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "d7882131-0195-1000-1b72-1a41baaeb40f",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -181,67 +327,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "9030c0f8-0195-1000-3c7e-7230915d6c2f",
-        "name" : "Add to raw_members table",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "9030c0f8-0195-1000-3c7e-7230915d6c2f",
-        "name" : "Add to raw_members table",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "f5d3c2fa-a8b8-3d11-b1b2-789975cb9367",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "original" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "8fc4bde9-0195-1000-83f0-65f621408f2b",
-        "name" : "Members CSV",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "8fc4d1f1-0195-1000-1a99-de3f0bb37483",
-        "name" : "Add to members table",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ae3fe776-1f12-3a95-8b0e-e5545332a6f2",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "7c0fcd1a-ca10-3793-93de-d8563d62fc2d",
-        "name" : "Convert ClubSpark member record to member table",
+        "name" : "Add to members_errors table",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -302,6 +388,36 @@
         "groupId" : "flow-contents-group",
         "id" : "8fc4d1f1-0195-1000-1a99-de3f0bb37483",
         "name" : "Add to members table",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "96143c9f-27e4-3d8e-9549-1164bf3f13c9",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "7534041a-71d0-3372-aa73-3ddff3a56029",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "8fc4bde9-0195-1000-83f0-65f621408f2b",
+        "name" : "Members CSV",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -643,10 +759,6 @@
       "19ba8642-9e9d-3b89-86e4-5169f793810a" : {
         "identifier" : "19ba8642-9e9d-3b89-86e4-5169f793810a",
         "name" : "CSVRecordSetWriter - Member"
-      },
-      "044d4784-bdcb-3dd3-ac35-9041cb2e3e53" : {
-        "identifier" : "044d4784-bdcb-3dd3-ac35-9041cb2e3e53",
-        "name" : "CSVReader"
       }
     },
     "flowFileConcurrency" : "UNBOUNDED",
@@ -698,7 +810,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1128.0,
-        "y" : -88.0
+        "y" : -144.0
       },
       "properties" : {
         "put-db-record-allow-multiple-statements" : "false",
@@ -939,8 +1051,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1136.0,
-        "y" : 160.0
+        "x" : -1128.0,
+        "y" : 184.0
       },
       "properties" : {
         "log-message" : "Member record to members database table",
@@ -997,8 +1109,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -472.0,
-        "y" : -392.0
+        "x" : -488.0,
+        "y" : -560.0
       },
       "properties" : {
         "log-message" : "Failed to convert ClubSpark member",
@@ -1037,7 +1149,7 @@
       "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "success" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1055,11 +1167,11 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -480.0,
-        "y" : -88.0
+        "x" : -1760.0,
+        "y" : 96.0
       },
       "properties" : {
-        "log-message" : "Failed to add member record to database",
+        "log-message" : "Failed to add member record to members table",
         "log-level" : "info"
       },
       "propertyDescriptors" : {
@@ -1154,6 +1266,97 @@
       "type" : "org.apache.nifi.processors.standard.ConvertRecord",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "8a581672-8211-31e0-85c0-718c7f29f95d",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "QueryRecord - record has an email address",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1768.0,
+        "y" : -400.0
+      },
+      "properties" : {
+        "dbf-default-precision" : "10",
+        "record-writer" : "19ba8642-9e9d-3b89-86e4-5169f793810a",
+        "record-reader" : "59d1d950-c51f-3dc9-bbbc-92b1422a7cd5",
+        "include-zero-record-flowfiles" : "false",
+        "noEmailAddress" : "select * from FlowFile where coalesce(\"Email_Address\", '') = ''",
+        "hasEmailAddress" : "select * from FlowFile where coalesce(\"Email_Address\", '') <> ''",
+        "dbf-default-scale" : "0"
+      },
+      "propertyDescriptors" : {
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "record-writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-writer",
+          "sensitive" : false
+        },
+        "record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-reader",
+          "sensitive" : false
+        },
+        "include-zero-record-flowfiles" : {
+          "displayName" : "Include Zero Record FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "include-zero-record-flowfiles",
+          "sensitive" : false
+        },
+        "noEmailAddress" : {
+          "displayName" : "noEmailAddress",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "noEmailAddress",
+          "sensitive" : false
+        },
+        "hasEmailAddress" : {
+          "displayName" : "hasEmailAddress",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "hasEmailAddress",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.QueryRecord",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -1172,11 +1375,11 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1968.0,
-        "y" : -88.0
+        "x" : -2048.0,
+        "y" : 576.0
       },
       "properties" : {
-        "log-message" : "Member record to raw_members database table",
+        "log-message" : "Member record added to members_errors table",
         "log-level" : "info"
       },
       "propertyDescriptors" : {
@@ -1230,11 +1433,11 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1576.0,
-        "y" : -80.0
+        "x" : -1472.0,
+        "y" : 584.0
       },
       "properties" : {
-        "log-message" : "Failed to add member record to raw_members database table",
+        "log-message" : "Failed to add member record to members_errors table",
         "log-level" : "info"
       },
       "propertyDescriptors" : {
@@ -1270,7 +1473,7 @@
       "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1344,11 +1547,11 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "9030c0f8-0195-1000-3c7e-7230915d6c2f",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "Add to raw_members table",
+      "name" : "Add to members_errors table",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1816.0,
-        "y" : -664.0
+        "x" : -1768.0,
+        "y" : 312.0
       },
       "properties" : {
         "put-db-record-allow-multiple-statements" : "false",
@@ -1367,8 +1570,8 @@
         "rollback-on-failure" : "false",
         "put-db-record-binary-format" : "UTF-8",
         "db-type" : "PostgreSQL",
-        "put-db-record-table-name" : "raw_members",
-        "put-db-record-record-reader" : "044d4784-bdcb-3dd3-ac35-9041cb2e3e53"
+        "put-db-record-table-name" : "members_errors",
+        "put-db-record-record-reader" : "59d1d950-c51f-3dc9-bbbc-92b1422a7cd5"
       },
       "propertyDescriptors" : {
         "put-db-record-allow-multiple-statements" : {
@@ -1564,11 +1767,69 @@
       "retriedRelationships" : [ ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
-      "scheduledState" : "DISABLED",
+      "scheduledState" : "ENABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.PutDatabaseRecord",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "d80f4837-0195-1000-f25e-2df342fa4d0c",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -2176.0,
+        "y" : -160.0
+      },
+      "properties" : {
+        "log-message" : "Member record does not have an email address",
+        "log-level" : "info"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     } ],
     "remoteProcessGroups" : [ ],
