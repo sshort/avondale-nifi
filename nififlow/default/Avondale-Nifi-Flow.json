@@ -208,6 +208,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
+        "name" : "Update filename attribute to message id",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "48de6aa5-82e7-3264-8ad0-741f9314796d",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ecae74b5-0195-1000-ae59-66df3855f4aa",
+        "name" : "PutSQL",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "daf4cddf-4ed4-3b74-9ac2-1c799804a7de",
         "name" : "Evaluate - update member attribute from record",
         "type" : "PROCESSOR"
@@ -388,6 +418,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "ecae74b5-0195-1000-ae59-66df3855f4aa",
+        "name" : "PutSQL",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "30ef05cf-cb40-313a-960c-2a47de658289",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "newmembership" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
+        "name" : "Route on email subject",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "bd39cab0-0195-1000-e1dd-23ceaedf3567",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -497,36 +557,6 @@
         "groupId" : "flow-contents-group",
         "id" : "34c285e0-3f1c-34fc-8cc7-d7b377956232",
         "name" : "ConvertHTMLToText",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "88a99077-e13f-34ad-8f12-3c591694cdff",
-        "name" : "Update filename attribute to message id",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0ba032df-665d-3a13-9c81-d0c8d1aac6fd",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "newmembership" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "3d5ab755-30ef-3df0-a0a9-6fe405b01a49",
-        "name" : "Route on email subject",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -917,6 +947,36 @@
         "groupId" : "flow-contents-group",
         "id" : "cc921901-0195-1000-a0e8-0fe534521fff",
         "name" : "Extract cost",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ecaf6328-0195-1000-842f-eb631b156222",
+        "name" : "PutSQL",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "12bcb1d6-e091-35a8-b260-30cf8fffd38f",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "08b762f7-e51f-3bf5-8a02-e0dfb4858a2a",
+        "name" : "PutDatabaseRecord - update member_signup table",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -2762,8 +2822,8 @@
       "name" : "GetFile",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 64.0,
-        "y" : -1800.0
+        "x" : -504.0,
+        "y" : -2272.0
       },
       "properties" : {
         "Keep Source File" : "false",
@@ -3069,8 +3129,8 @@
       "name" : "ConsumeIMAP - members.avondale",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -504.0,
-        "y" : -1824.0
+        "x" : -512.0,
+        "y" : -2024.0
       },
       "properties" : {
         "delete.messages" : "false",
@@ -3198,8 +3258,8 @@
       "name" : "ConsumeIMAP - shortcentral",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1056.0,
-        "y" : -1816.0
+        "x" : -1088.0,
+        "y" : -2272.0
       },
       "properties" : {
         "delete.messages" : "false",
@@ -3309,6 +3369,104 @@
       "type" : "org.apache.nifi.processors.email.ConsumeIMAP",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "retry" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "DEBUG",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ecae74b5-0195-1000-ae59-66df3855f4aa",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "PutSQL",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1088.0,
+        "y" : -1512.0
+      },
+      "properties" : {
+        "Support Fragmented Transactions" : "true",
+        "putsql-sql-statement" : "insert into email_status (message_id, send_date, \"from\", subject, status_date, status)\nvalues ('${email.headers.message-id}', '${email.headers.sent_date}', '${email.headers.from.0}', '${email.headers.subject}', now(), 'Start processing');",
+        "Batch Size" : "100",
+        "Obtain Generated Keys" : "false",
+        "JDBC Connection Pool" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+        "database-session-autocommit" : "false",
+        "rollback-on-failure" : "false"
+      },
+      "propertyDescriptors" : {
+        "Support Fragmented Transactions" : {
+          "displayName" : "Support Fragmented Transactions",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Support Fragmented Transactions",
+          "sensitive" : false
+        },
+        "putsql-sql-statement" : {
+          "displayName" : "SQL Statement",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "putsql-sql-statement",
+          "sensitive" : false
+        },
+        "Transaction Timeout" : {
+          "displayName" : "Transaction Timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Transaction Timeout",
+          "sensitive" : false
+        },
+        "Batch Size" : {
+          "displayName" : "Batch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Batch Size",
+          "sensitive" : false
+        },
+        "Obtain Generated Keys" : {
+          "displayName" : "Obtain Generated Keys",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Obtain Generated Keys",
+          "sensitive" : false
+        },
+        "JDBC Connection Pool" : {
+          "displayName" : "JDBC Connection Pool",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "JDBC Connection Pool",
+          "sensitive" : false
+        },
+        "database-session-autocommit" : {
+          "displayName" : "Database Session AutoCommit",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "database-session-autocommit",
+          "sensitive" : false
+        },
+        "rollback-on-failure" : {
+          "displayName" : "Rollback On Failure",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "rollback-on-failure",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.PutSQL",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -3385,8 +3543,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1072.0,
-        "y" : 1936.0
+        "x" : -1168.0,
+        "y" : 1928.0
       },
       "properties" : {
         "log-message" : "Message ${email.headers.message-id}: Successfully added membership signup for ${member}",
@@ -3644,6 +3802,104 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "DEBUG",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ecaf6328-0195-1000-842f-eb631b156222",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "PutSQL",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -480.0,
+        "y" : 2200.0
+      },
+      "properties" : {
+        "Support Fragmented Transactions" : "true",
+        "putsql-sql-statement" : "update email_status set status_date = now(), status = 'Processed'\nwhere message_id = '${email.headers.message-id}';",
+        "Batch Size" : "100",
+        "Obtain Generated Keys" : "false",
+        "JDBC Connection Pool" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+        "database-session-autocommit" : "false",
+        "rollback-on-failure" : "false"
+      },
+      "propertyDescriptors" : {
+        "Support Fragmented Transactions" : {
+          "displayName" : "Support Fragmented Transactions",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Support Fragmented Transactions",
+          "sensitive" : false
+        },
+        "putsql-sql-statement" : {
+          "displayName" : "SQL Statement",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "putsql-sql-statement",
+          "sensitive" : false
+        },
+        "Transaction Timeout" : {
+          "displayName" : "Transaction Timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Transaction Timeout",
+          "sensitive" : false
+        },
+        "Batch Size" : {
+          "displayName" : "Batch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Batch Size",
+          "sensitive" : false
+        },
+        "Obtain Generated Keys" : {
+          "displayName" : "Obtain Generated Keys",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Obtain Generated Keys",
+          "sensitive" : false
+        },
+        "JDBC Connection Pool" : {
+          "displayName" : "JDBC Connection Pool",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "JDBC Connection Pool",
+          "sensitive" : false
+        },
+        "database-session-autocommit" : {
+          "displayName" : "Database Session AutoCommit",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "database-session-autocommit",
+          "sensitive" : false
+        },
+        "rollback-on-failure" : {
+          "displayName" : "Rollback On Failure",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "rollback-on-failure",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.PutSQL",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
@@ -4916,8 +5172,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1656.0,
-        "y" : -1544.0
+        "x" : -1632.0,
+        "y" : -2008.0
       },
       "properties" : {
         "log-level" : "warn"
@@ -5483,8 +5739,8 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 64.0,
-        "y" : -1528.0
+        "x" : -512.0,
+        "y" : -1776.0
       },
       "properties" : {
         "log-message" : "Message ${email.headers.message-id}: No route for subject \"${email.headers.subject}\". \n",
@@ -5541,8 +5797,8 @@
       "name" : "ExtractEmailHeaders",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1072.0,
-        "y" : -1544.0
+        "x" : -1096.0,
+        "y" : -2016.0
       },
       "properties" : {
         "STRICT_ADDRESS_PARSING" : "true",
@@ -5813,8 +6069,8 @@
       "name" : "Route on email subject",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -512.0,
-        "y" : -1520.0
+        "x" : -1088.0,
+        "y" : -1760.0
       },
       "properties" : {
         "Routing Strategy" : "Route to Property name",
