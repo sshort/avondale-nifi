@@ -1468,44 +1468,51 @@
         "y" : 280.0
       },
       "properties" : {
-        "/EmailAddress" : "/customers_email",
-        "/Amount" : "/amount",
-        "/Quantity" : "concat(1)",
+        "/quantity" : "concat(1)",
+        "/product" : "substringAfter(/description, 'Avondale Lawn Tennis Club: ' )",
+        "/type" : "concat(\"${paymentType}\")",
+        "/item_no" : "concat(1)",
         "Record Reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
-        "/ItemNo" : "concat(1)",
-        "/Fees" : "/transaction_fee",
-        "/Provider" : "concat(\"GoCardless\")",
+        "/first_name" : "/customers_given_name",
         "Replacement Value Strategy" : "record-path-value",
-        "/Description" : "/description",
-        "/ProviderId" : "/id",
-        "/FirstName" : "/customers_given_name",
-        "/Status" : "concat(\"Pending\")",
-        "/Type" : "concat(\"${paymentType}\")",
+        "/status" : "concat(\"Pending\")",
+        "/provider" : "concat(\"GoCardless\")",
+        "/provider_id" : "/id",
+        "/charge_date" : "/charge_date",
+        "/email_address" : "/customers_email",
+        "/amount" : "/amount",
         "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
-        "/LastName" : "/customers_family_name",
-        "/ChargeDate" : "/charge_date",
-        "/Product" : "substringAfter(/description, 'Avondale Lawn Tennis Club: ' )"
+        "/fees" : "/transaction_fee",
+        "/last_name" : "/customers_family_name",
+        "/description" : "/description"
       },
       "propertyDescriptors" : {
-        "/EmailAddress" : {
-          "displayName" : "/EmailAddress",
+        "/quantity" : {
+          "displayName" : "/quantity",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/EmailAddress",
+          "name" : "/quantity",
           "sensitive" : false
         },
-        "/Amount" : {
-          "displayName" : "/Amount",
+        "/product" : {
+          "displayName" : "/product",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Amount",
+          "name" : "/product",
           "sensitive" : false
         },
-        "/Quantity" : {
-          "displayName" : "/Quantity",
+        "/type" : {
+          "displayName" : "/type",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Quantity",
+          "name" : "/type",
+          "sensitive" : false
+        },
+        "/item_no" : {
+          "displayName" : "/item_no",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/item_no",
           "sensitive" : false
         },
         "Record Reader" : {
@@ -1515,25 +1522,11 @@
           "name" : "Record Reader",
           "sensitive" : false
         },
-        "/ItemNo" : {
-          "displayName" : "/ItemNo",
+        "/first_name" : {
+          "displayName" : "/first_name",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/ItemNo",
-          "sensitive" : false
-        },
-        "/Fees" : {
-          "displayName" : "/Fees",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/Fees",
-          "sensitive" : false
-        },
-        "/Provider" : {
-          "displayName" : "/Provider",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/Provider",
+          "name" : "/first_name",
           "sensitive" : false
         },
         "Replacement Value Strategy" : {
@@ -1543,39 +1536,46 @@
           "name" : "Replacement Value Strategy",
           "sensitive" : false
         },
-        "/Description" : {
-          "displayName" : "/Description",
+        "/status" : {
+          "displayName" : "/status",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Description",
+          "name" : "/status",
           "sensitive" : false
         },
-        "/ProviderId" : {
-          "displayName" : "/ProviderId",
+        "/provider" : {
+          "displayName" : "/provider",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/ProviderId",
+          "name" : "/provider",
           "sensitive" : false
         },
-        "/FirstName" : {
-          "displayName" : "/FirstName",
+        "/provider_id" : {
+          "displayName" : "/provider_id",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/FirstName",
+          "name" : "/provider_id",
           "sensitive" : false
         },
-        "/Status" : {
-          "displayName" : "/Status",
+        "/charge_date" : {
+          "displayName" : "/charge_date",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Status",
+          "name" : "/charge_date",
           "sensitive" : false
         },
-        "/Type" : {
-          "displayName" : "/Type",
+        "/email_address" : {
+          "displayName" : "/email_address",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Type",
+          "name" : "/email_address",
+          "sensitive" : false
+        },
+        "/amount" : {
+          "displayName" : "/amount",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/amount",
           "sensitive" : false
         },
         "Record Writer" : {
@@ -1585,25 +1585,25 @@
           "name" : "Record Writer",
           "sensitive" : false
         },
-        "/LastName" : {
-          "displayName" : "/LastName",
+        "/fees" : {
+          "displayName" : "/fees",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/LastName",
+          "name" : "/fees",
           "sensitive" : false
         },
-        "/ChargeDate" : {
-          "displayName" : "/ChargeDate",
+        "/last_name" : {
+          "displayName" : "/last_name",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/ChargeDate",
+          "name" : "/last_name",
           "sensitive" : false
         },
-        "/Product" : {
-          "displayName" : "/Product",
+        "/description" : {
+          "displayName" : "/description",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Product",
+          "name" : "/description",
           "sensitive" : false
         }
       },
