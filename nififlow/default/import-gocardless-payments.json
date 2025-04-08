@@ -4,13 +4,13 @@
       "identifier" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
       "name" : "DBCPConnectionPool"
     },
+    "1ec510da-39b1-3efc-84c9-8edd3772aec9" : {
+      "identifier" : "1ec510da-39b1-3efc-84c9-8edd3772aec9",
+      "name" : "CSVReader - Payments Ingest"
+    },
     "9c0d9ad1-4e13-3b8b-8a0c-ad86949806ed" : {
       "identifier" : "9c0d9ad1-4e13-3b8b-8a0c-ad86949806ed",
       "name" : "AvroSchemaRegistry - Avondale"
-    },
-    "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda" : {
-      "identifier" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
-      "name" : "CSVRecordSetWriter - GoCardless"
     },
     "9dbc006a-fff2-3e8d-91c3-90cc4749d019" : {
       "identifier" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
@@ -40,163 +40,13 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "2fa3f12e-6e89-37b3-b16a-589c8fdc6a7d",
-        "name" : "LogMessage",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "58f95420-a51c-3b5f-8a43-85628fcc1f8d",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "8faccb5e-0195-1000-9874-c1f66960aac2",
-        "name" : "GoCardless CSV",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ddb0d348-0195-1000-0ad4-95b113f01688",
-        "name" : "UpdateAttribute",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "58b9d302-d786-31f2-9a12-3c94439805ba",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "isPayment" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "4c246377-5a5a-39a8-8b22-7df63bda40f7",
-        "name" : "QueryRecord - is subscription",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "dc63cd09-0195-1000-6762-97f5ffcbf65f",
-        "name" : "LogMessage",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "49ad3c15-f626-3cf8-b278-8cf43948e639",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure" ],
-      "source" : {
-        "comments" : "Check to see if the GoCardless record has been processed before",
-        "groupId" : "flow-contents-group",
-        "id" : "dc5c4ef1-0195-1000-a1ec-509543d610ac",
-        "name" : "Check GoCardless payment record exists",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "8faccb5e-0195-1000-9874-c1f66960aac2",
-        "name" : "GoCardless CSV",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "49ad79d1-b706-3221-9ca8-30a6d252d356",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "valid" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ace27957-33e5-3a3c-a2fd-7f7e09e872e8",
-        "name" : "ValidateRecord",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d8a801b2-0195-1000-a078-aa9442ca4e93",
-        "name" : "Convert GoCardless to Payments",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "65b267ff-93ca-3f45-9c6f-70b10a0be9fe",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ddb0d348-0195-1000-0ad4-95b113f01688",
-        "name" : "UpdateAttribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "dd309cb0-0195-1000-88bf-4fd189b3e47e",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ec15dca2-9997-3cfb-9459-aa1cf6bf7386",
+      "identifier" : "4a9b0b8a-f0bc-386f-8f8a-ff626311cd62",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -218,15 +68,15 @@
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
-        "comments" : "Check to see if the GoCardless record has been processed before",
+        "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "dc5c4ef1-0195-1000-a1ec-509543d610ac",
-        "name" : "Check GoCardless payment record exists",
+        "id" : "8fad9de6-0195-1000-c1a4-f1e92dc4af76",
+        "name" : "Add to payments table",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "312f4ef1-3751-36b4-b2ef-b4ab622c03ef",
+      "identifier" : "a1a4ed41-d8b0-319f-acf5-cb9f8b1dd7d8",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -237,38 +87,8 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "8faccb5e-0195-1000-9874-c1f66960aac2",
-        "name" : "GoCardless CSV",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "dc60eeb8-0195-1000-02ba-7085b0aea535",
-        "name" : "Add to GoCardless payment to raw_gocardless_payments table",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "3d53242f-5d01-393d-8204-f48c6dfe4075",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "Check to see if the GoCardless record has been processed before",
-        "groupId" : "flow-contents-group",
-        "id" : "dc5c4ef1-0195-1000-a1ec-509543d610ac",
-        "name" : "Check GoCardless payment record exists",
+        "id" : "bc133ab9-a8a7-3cac-a928-863244c2656a",
+        "name" : "SplitRecord",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -310,66 +130,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "d8a801b2-0195-1000-a078-aa9442ca4e93",
-        "name" : "Convert GoCardless to Payments",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "71c1c23d-2636-32a4-b9c3-a96918358b1f",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "ec727c34-9f05-3e4f-a8a7-dc5d63a88580",
-        "name" : "UpdateAttribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "dc61bcf9-0195-1000-2d99-240a43e5ab1a",
-        "name" : "LogMessage",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "fb2a853e-0ee7-359d-a2a1-db5d80b56039",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "Check to see if the GoCardless record has been processed before",
-        "groupId" : "flow-contents-group",
-        "id" : "dc5c4ef1-0195-1000-a1ec-509543d610ac",
-        "name" : "Check GoCardless payment record exists",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "dc8af888-0195-1000-9648-bca01076f68a",
         "name" : "LogMessage",
         "type" : "PROCESSOR"
@@ -400,25 +160,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ec727c34-9f05-3e4f-a8a7-dc5d63a88580",
-        "name" : "UpdateAttribute",
+        "id" : "15bb4008-0196-1000-88f0-98d5695bf4be",
+        "name" : "LogMessage",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "7e7ebce0-7901-35b2-8d75-044817f87577",
+      "identifier" : "aff46edb-6372-3089-97f1-132dbb575d7b",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "isSubscription" ],
+      "selectedRelationships" : [ "failure" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "4c246377-5a5a-39a8-8b22-7df63bda40f7",
-        "name" : "QueryRecord - is subscription",
+        "id" : "ace27957-33e5-3a3c-a2fd-7f7e09e872e8",
+        "name" : "ValidateRecord",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -430,25 +190,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "4c246377-5a5a-39a8-8b22-7df63bda40f7",
-        "name" : "QueryRecord - is subscription",
+        "id" : "bc133ab9-a8a7-3cac-a928-863244c2656a",
+        "name" : "SplitRecord",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "182c801d-e02c-3a5b-b5f3-e5941b5795c8",
+      "identifier" : "baed8869-f346-31a4-aeb0-448f1ee4ae45",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
+      "selectedRelationships" : [ "valid" ],
       "source" : {
-        "comments" : "Check to see if the GoCardless record has been processed before",
+        "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "dc5c4ef1-0195-1000-a1ec-509543d610ac",
-        "name" : "Check GoCardless payment record exists",
+        "id" : "ace27957-33e5-3a3c-a2fd-7f7e09e872e8",
+        "name" : "ValidateRecord",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -477,38 +237,8 @@
       "source" : {
         "groupId" : "flow-contents-group",
         "id" : "1c7d15d2-72c6-3c37-b43c-3d5ede4d1fb1",
-        "name" : "Import GoCardless Payments",
+        "name" : "Import Manual Payments",
         "type" : "INPUT_PORT"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "8fad9de6-0195-1000-c1a4-f1e92dc4af76",
-        "name" : "Add to payments table",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "0d93e822-5ce9-361f-a30b-45d7979197c6",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d8a801b2-0195-1000-a078-aa9442ca4e93",
-        "name" : "Convert GoCardless to Payments",
-        "type" : "PROCESSOR"
       },
       "zIndex" : 0
     } ],
@@ -831,6 +561,110 @@
     }, {
       "bulletinLevel" : "WARN",
       "bundle" : {
+        "artifact" : "nifi-lookup-services-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "CONTROLLER_SERVICE",
+      "controllerServiceApis" : [ {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.3.0"
+        },
+        "type" : "org.apache.nifi.lookup.RecordLookupService"
+      }, {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.3.0"
+        },
+        "type" : "org.apache.nifi.lookup.LookupService"
+      } ],
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "988d9657-2941-314a-8b5b-b4fe8d846b3f",
+      "name" : "Lookup Payment Record",
+      "properties" : {
+        "dbrecord-lookup-dbcp-service" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
+        "dbf-default-precision" : "10",
+        "dbrecord-lookup-clear-cache-on-enabled" : "true",
+        "dbrecord-lookup-cache-size" : "0",
+        "dbrecord-lookup-value-columns" : "charge_date, email_address, product",
+        "dbrecord-lookup-key-column" : "charge_date, email_address, product",
+        "dbf-default-scale" : "0",
+        "dbrecord-lookup-table-name" : "payments"
+      },
+      "propertyDescriptors" : {
+        "dbrecord-lookup-dbcp-service" : {
+          "displayName" : "Database Connection Pooling Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "dbrecord-lookup-dbcp-service",
+          "sensitive" : false
+        },
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-clear-cache-on-enabled" : {
+          "displayName" : "Clear Cache on Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-clear-cache-on-enabled",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-cache-size" : {
+          "displayName" : "Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-cache-size",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-value-columns" : {
+          "displayName" : "Lookup Value Columns",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-value-columns",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-key-column" : {
+          "displayName" : "Lookup Key Column",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-key-column",
+          "sensitive" : false
+        },
+        "Cache Expiration" : {
+          "displayName" : "Cache Expiration",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Cache Expiration",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        },
+        "dbrecord-lookup-table-name" : {
+          "displayName" : "Table Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbrecord-lookup-table-name",
+          "sensitive" : false
+        }
+      },
+      "scheduledState" : "DISABLED",
+      "type" : "org.apache.nifi.lookup.db.DatabaseRecordLookupService"
+    }, {
+      "bulletinLevel" : "WARN",
+      "bundle" : {
         "artifact" : "nifi-record-serialization-services-nar",
         "group" : "org.apache.nifi",
         "version" : "2.3.0"
@@ -1050,13 +884,13 @@
         "identifier" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
         "name" : "DBCPConnectionPool"
       },
+      "1ec510da-39b1-3efc-84c9-8edd3772aec9" : {
+        "identifier" : "1ec510da-39b1-3efc-84c9-8edd3772aec9",
+        "name" : "CSVReader - Payments Ingest"
+      },
       "9c0d9ad1-4e13-3b8b-8a0c-ad86949806ed" : {
         "identifier" : "9c0d9ad1-4e13-3b8b-8a0c-ad86949806ed",
         "name" : "AvroSchemaRegistry - Avondale"
-      },
-      "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda" : {
-        "identifier" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
-        "name" : "CSVRecordSetWriter - GoCardless"
       },
       "9dbc006a-fff2-3e8d-91c3-90cc4749d019" : {
         "identifier" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
@@ -1077,7 +911,7 @@
       "concurrentlySchedulableTaskCount" : 1,
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "1c7d15d2-72c6-3c37-b43c-3d5ede4d1fb1",
-      "name" : "Import GoCardless Payments",
+      "name" : "Import Manual Payments",
       "portFunction" : "STANDARD",
       "position" : {
         "x" : -2088.0,
@@ -1088,7 +922,7 @@
     } ],
     "labels" : [ ],
     "maxConcurrentTasks" : 1,
-    "name" : "Import GoCardless Payments",
+    "name" : "Import Manual Payments",
     "outputPorts" : [ ],
     "parameterContextName" : "Avondale",
     "position" : {
@@ -1097,9 +931,9 @@
     },
     "processGroups" : [ ],
     "processors" : [ {
-      "autoTerminatedRelationships" : [ "failure" ],
+      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
+      "bulletinLevel" : "DEBUG",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -1120,11 +954,11 @@
       },
       "properties" : {
         "allow-extra-fields" : "false",
-        "record-writer" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
+        "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "strict-type-checking" : "true",
         "schema-name" : "${schema.name}",
         "coerce-types" : "false",
-        "record-reader" : "4e0ea25a-b100-3370-835d-2b649dfdb4a8",
+        "record-reader" : "1ec510da-39b1-3efc-84c9-8edd3772aec9",
         "maximum-validation-details-length" : "1024",
         "schema-access-strategy" : "reader-schema",
         "schema-text" : "${avro.schema}"
@@ -1241,7 +1075,7 @@
     }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
+      "bulletinLevel" : "INFO",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -1257,11 +1091,11 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2752.0,
-        "y" : 544.0
+        "x" : -2592.0,
+        "y" : -400.0
       },
       "properties" : {
-        "log-message" : "Added GoCardless payment to payments table",
+        "log-message" : "Added manual payment to payments table",
         "log-level" : "info"
       },
       "propertyDescriptors" : {
@@ -1298,946 +1132,8 @@
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "dc61bcf9-0195-1000-2d99-240a43e5ab1a",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "LogMessage",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -1392.0,
-        "y" : -712.0
-      },
-      "properties" : {
-        "log-message" : "GoCardless payment already exists.",
-        "log-level" : "info"
-      },
-      "propertyDescriptors" : {
-        "log-message" : {
-          "displayName" : "Log message",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-message",
-          "sensitive" : false
-        },
-        "log-level" : {
-          "displayName" : "Log Level",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-level",
-          "sensitive" : false
-        },
-        "log-prefix" : {
-          "displayName" : "Log prefix",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-prefix",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogMessage",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "original", "failure" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "4c246377-5a5a-39a8-8b22-7df63bda40f7",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "QueryRecord - is subscription",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -2152.0,
-        "y" : -392.0
-      },
-      "properties" : {
-        "isPayment" : "select id, \n    created_at,\n    charge_date,\n    amount,\n    description,\n    currency,\n    status,\n    amount_refunded,\n    reference,\n    coalesce(transaction_fee, 0) + coalesce(app_fee, 0) as transaction_fee,\n    payout_date,\n    0,\n    funds_settlement,\n    links_mandate,\n    links_creditor,\n    links_customer,\n    links_payout,\n    links_subscription,\n    customers_id,\n    customers_created_at,\n    customers_email,\n    customers_given_name,\n    customers_family_name,\n    customers_company_name,\n    customers_address_line1,\n    customers_address_line2,\n    customers_address_line3,\n    customers_city,\n    customers_region,\n    customers_postal_code,\n    customers_country_code,\n    customers_language ,\n    customers_swedish_identity_number,\n    customers_active_mandates,\n    transaction_fee_tax\n    from FlowFile where lower(customers_active_mandates) like '%false%'",
-        "dbf-default-precision" : "10",
-        "isSubscription" : "select id, \n    created_at,\n    charge_date,\n    amount,\n    description,\n    currency,\n    status,\n    amount_refunded,\n    reference,\n    coalesce(transaction_fee, 0) + coalesce(app_fee, 0) as transaction_fee,\n    payout_date,\n    0,\n    funds_settlement,\n    links_mandate,\n    links_creditor,\n    links_customer,\n    links_payout,\n    links_subscription,\n    customers_id,\n    customers_created_at,\n    customers_email,\n    customers_given_name,\n    customers_family_name,\n    customers_company_name,\n    customers_address_line1,\n    customers_address_line2,\n    customers_address_line3,\n    customers_city,\n    customers_region,\n    customers_postal_code,\n    customers_country_code,\n    customers_language ,\n    customers_swedish_identity_number,\n    customers_active_mandates,\n    transaction_fee_tax\n    from FlowFile where lower(customers_active_mandates) like '%true%'\n\n",
-        "record-writer" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
-        "record-reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
-        "include-zero-record-flowfiles" : "true",
-        "dbf-default-scale" : "0"
-      },
-      "propertyDescriptors" : {
-        "isPayment" : {
-          "displayName" : "isPayment",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "isPayment",
-          "sensitive" : false
-        },
-        "dbf-default-precision" : {
-          "displayName" : "Default Decimal Precision",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "dbf-default-precision",
-          "sensitive" : false
-        },
-        "isSubscription" : {
-          "displayName" : "isSubscription",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "isSubscription",
-          "sensitive" : false
-        },
-        "record-writer" : {
-          "displayName" : "Record Writer",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "record-writer",
-          "sensitive" : false
-        },
-        "record-reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "record-reader",
-          "sensitive" : false
-        },
-        "include-zero-record-flowfiles" : {
-          "displayName" : "Include Zero Record FlowFiles",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "include-zero-record-flowfiles",
-          "sensitive" : false
-        },
-        "dbf-default-scale" : {
-          "displayName" : "Default Decimal Scale",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "dbf-default-scale",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.QueryRecord",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "failure" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d8a801b2-0195-1000-a078-aa9442ca4e93",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Convert GoCardless to Payments",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -2160.0,
-        "y" : 280.0
-      },
-      "properties" : {
-        "/quantity" : "concat(1)",
-        "/product" : "substringAfter(/description, 'Avondale Lawn Tennis Club: ' )",
-        "/type" : "concat(\"${paymentType}\")",
-        "/item_no" : "concat(1)",
-        "Record Reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
-        "/first_name" : "/customers_given_name",
-        "Replacement Value Strategy" : "record-path-value",
-        "/status" : "concat(\"Pending\")",
-        "/provider" : "concat(\"GoCardless\")",
-        "/provider_id" : "/id",
-        "/charge_date" : "/charge_date",
-        "/email_address" : "/customers_email",
-        "/amount" : "/amount",
-        "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
-        "/fees" : "/transaction_fee",
-        "/last_name" : "/customers_family_name",
-        "/description" : "/description"
-      },
-      "propertyDescriptors" : {
-        "/quantity" : {
-          "displayName" : "/quantity",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/quantity",
-          "sensitive" : false
-        },
-        "/product" : {
-          "displayName" : "/product",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/product",
-          "sensitive" : false
-        },
-        "/type" : {
-          "displayName" : "/type",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/type",
-          "sensitive" : false
-        },
-        "/item_no" : {
-          "displayName" : "/item_no",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/item_no",
-          "sensitive" : false
-        },
-        "Record Reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Reader",
-          "sensitive" : false
-        },
-        "/first_name" : {
-          "displayName" : "/first_name",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/first_name",
-          "sensitive" : false
-        },
-        "Replacement Value Strategy" : {
-          "displayName" : "Replacement Value Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Replacement Value Strategy",
-          "sensitive" : false
-        },
-        "/status" : {
-          "displayName" : "/status",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/status",
-          "sensitive" : false
-        },
-        "/provider" : {
-          "displayName" : "/provider",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/provider",
-          "sensitive" : false
-        },
-        "/provider_id" : {
-          "displayName" : "/provider_id",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/provider_id",
-          "sensitive" : false
-        },
-        "/charge_date" : {
-          "displayName" : "/charge_date",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/charge_date",
-          "sensitive" : false
-        },
-        "/email_address" : {
-          "displayName" : "/email_address",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/email_address",
-          "sensitive" : false
-        },
-        "/amount" : {
-          "displayName" : "/amount",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/amount",
-          "sensitive" : false
-        },
-        "Record Writer" : {
-          "displayName" : "Record Writer",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Writer",
-          "sensitive" : false
-        },
-        "/fees" : {
-          "displayName" : "/fees",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/fees",
-          "sensitive" : false
-        },
-        "/last_name" : {
-          "displayName" : "/last_name",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/last_name",
-          "sensitive" : false
-        },
-        "/description" : {
-          "displayName" : "/description",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/description",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.UpdateRecord",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-update-attribute-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ec727c34-9f05-3e4f-a8a7-dc5d63a88580",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "UpdateAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -2808.0,
-        "y" : -168.0
-      },
-      "properties" : {
-        "Store State" : "Do not store state",
-        "canonical-value-lookup-cache-size" : "100",
-        "paymentType" : "Subscription"
-      },
-      "propertyDescriptors" : {
-        "Delete Attributes Expression" : {
-          "displayName" : "Delete Attributes Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Delete Attributes Expression",
-          "sensitive" : false
-        },
-        "Store State" : {
-          "displayName" : "Store State",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Store State",
-          "sensitive" : false
-        },
-        "canonical-value-lookup-cache-size" : {
-          "displayName" : "Cache Value Lookup Cache Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "canonical-value-lookup-cache-size",
-          "sensitive" : false
-        },
-        "Stateful Variables Initial Value" : {
-          "displayName" : "Stateful Variables Initial Value",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Stateful Variables Initial Value",
-          "sensitive" : false
-        },
-        "paymentType" : {
-          "displayName" : "paymentType",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "paymentType",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-update-attribute-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ddb0d348-0195-1000-0ad4-95b113f01688",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "UpdateAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -1568.0,
-        "y" : -176.0
-      },
-      "properties" : {
-        "Store State" : "Do not store state",
-        "canonical-value-lookup-cache-size" : "100",
-        "paymentType" : "Payment"
-      },
-      "propertyDescriptors" : {
-        "Delete Attributes Expression" : {
-          "displayName" : "Delete Attributes Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Delete Attributes Expression",
-          "sensitive" : false
-        },
-        "Store State" : {
-          "displayName" : "Store State",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Store State",
-          "sensitive" : false
-        },
-        "canonical-value-lookup-cache-size" : {
-          "displayName" : "Cache Value Lookup Cache Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "canonical-value-lookup-cache-size",
-          "sensitive" : false
-        },
-        "Stateful Variables Initial Value" : {
-          "displayName" : "Stateful Variables Initial Value",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Stateful Variables Initial Value",
-          "sensitive" : false
-        },
-        "paymentType" : {
-          "displayName" : "paymentType",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "paymentType",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "dc63cd09-0195-1000-6762-97f5ffcbf65f",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "LogMessage",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -2784.0,
-        "y" : -680.0
-      },
-      "properties" : {
-        "log-message" : "Failed to convert GoCardless record to payment.",
-        "log-level" : "info"
-      },
-      "propertyDescriptors" : {
-        "log-message" : {
-          "displayName" : "Log message",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-message",
-          "sensitive" : false
-        },
-        "log-level" : {
-          "displayName" : "Log Level",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-level",
-          "sensitive" : false
-        },
-        "log-prefix" : {
-          "displayName" : "Log prefix",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "log-prefix",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LogMessage",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "INFO",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "Check to see if the GoCardless record has been processed before",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "dc5c4ef1-0195-1000-a1ec-509543d610ac",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Check GoCardless payment record exists",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -2144.0,
-        "y" : -688.0
-      },
-      "properties" : {
-        "result-contents" : "insert-entire-record",
-        "routing-strategy" : "route-to-matched-unmatched",
-        "record-path-lookup-miss-result-cache-size" : "0",
-        "record-writer" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
-        "record-reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
-        "lookup-service" : "db813618-ca72-3289-8762-ba7f0b959c81",
-        "record-update-strategy" : "use-property",
-        "key" : "/id"
-      },
-      "propertyDescriptors" : {
-        "result-contents" : {
-          "displayName" : "Record Result Contents",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "result-contents",
-          "sensitive" : false
-        },
-        "routing-strategy" : {
-          "displayName" : "Routing Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "routing-strategy",
-          "sensitive" : false
-        },
-        "Root Record Path" : {
-          "displayName" : "Root Record Path",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Root Record Path",
-          "sensitive" : false
-        },
-        "record-path-lookup-miss-result-cache-size" : {
-          "displayName" : "Cache Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "record-path-lookup-miss-result-cache-size",
-          "sensitive" : false
-        },
-        "result-record-path" : {
-          "displayName" : "Result RecordPath",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "result-record-path",
-          "sensitive" : false
-        },
-        "record-writer" : {
-          "displayName" : "Record Writer",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "record-writer",
-          "sensitive" : false
-        },
-        "record-reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "record-reader",
-          "sensitive" : false
-        },
-        "lookup-service" : {
-          "displayName" : "Lookup Service",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "lookup-service",
-          "sensitive" : false
-        },
-        "record-update-strategy" : {
-          "displayName" : "Record Update Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "record-update-strategy",
-          "sensitive" : false
-        },
-        "key" : {
-          "displayName" : "key",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "key",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.LookupRecord",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "INFO",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "dc60eeb8-0195-1000-02ba-7085b0aea535",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Add to GoCardless payment to raw_gocardless_payments table",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -1392.0,
-        "y" : -544.0
-      },
-      "properties" : {
-        "put-db-record-allow-multiple-statements" : "false",
-        "put-db-record-unmatched-column-behavior" : "Fail on Unmatched Columns",
-        "put-db-record-statement-type" : "INSERT",
-        "put-db-record-quoted-identifiers" : "false",
-        "put-db-record-unmatched-field-behavior" : "Ignore Unmatched Fields",
-        "put-db-record-max-batch-size" : "1000",
-        "database-session-autocommit" : "false",
-        "table-schema-cache-size" : "100",
-        "put-db-record-quoted-table-identifiers" : "false",
-        "put-db-record-translate-field-names" : "false",
-        "put-db-record-dcbp-service" : "effa5772-b76d-3839-8ee1-8c97cd3c59f3",
-        "put-db-record-query-timeout" : "0 seconds",
-        "Column Name Translation Strategy" : "REMOVE_UNDERSCORE",
-        "rollback-on-failure" : "false",
-        "put-db-record-binary-format" : "UTF-8",
-        "db-type" : "PostgreSQL",
-        "put-db-record-table-name" : "raw_gocardless_payments",
-        "put-db-record-record-reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8"
-      },
-      "propertyDescriptors" : {
-        "put-db-record-allow-multiple-statements" : {
-          "displayName" : "Allow Multiple SQL Statements",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-allow-multiple-statements",
-          "sensitive" : false
-        },
-        "put-db-record-schema-name" : {
-          "displayName" : "Schema Name",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-schema-name",
-          "sensitive" : false
-        },
-        "put-db-record-field-containing-sql" : {
-          "displayName" : "Field Containing SQL",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-field-containing-sql",
-          "sensitive" : false
-        },
-        "put-db-record-unmatched-column-behavior" : {
-          "displayName" : "Unmatched Column Behavior",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-unmatched-column-behavior",
-          "sensitive" : false
-        },
-        "Delete Keys" : {
-          "displayName" : "Delete Keys",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Delete Keys",
-          "sensitive" : false
-        },
-        "put-db-record-catalog-name" : {
-          "displayName" : "Catalog Name",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-catalog-name",
-          "sensitive" : false
-        },
-        "put-db-record-statement-type" : {
-          "displayName" : "Statement Type",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-statement-type",
-          "sensitive" : false
-        },
-        "put-db-record-update-keys" : {
-          "displayName" : "Update Keys",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-update-keys",
-          "sensitive" : false
-        },
-        "put-db-record-quoted-identifiers" : {
-          "displayName" : "Quote Column Identifiers",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-quoted-identifiers",
-          "sensitive" : false
-        },
-        "put-db-record-unmatched-field-behavior" : {
-          "displayName" : "Unmatched Field Behavior",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-unmatched-field-behavior",
-          "sensitive" : false
-        },
-        "put-db-record-max-batch-size" : {
-          "displayName" : "Maximum Batch Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-max-batch-size",
-          "sensitive" : false
-        },
-        "Database Dialect Service" : {
-          "displayName" : "Database Dialect Service",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Database Dialect Service",
-          "sensitive" : false
-        },
-        "Data Record Path" : {
-          "displayName" : "Data Record Path",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Data Record Path",
-          "sensitive" : false
-        },
-        "database-session-autocommit" : {
-          "displayName" : "Database Session AutoCommit",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "database-session-autocommit",
-          "sensitive" : false
-        },
-        "table-schema-cache-size" : {
-          "displayName" : "Table Schema Cache Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "table-schema-cache-size",
-          "sensitive" : false
-        },
-        "put-db-record-quoted-table-identifiers" : {
-          "displayName" : "Quote Table Identifiers",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-quoted-table-identifiers",
-          "sensitive" : false
-        },
-        "Statement Type Record Path" : {
-          "displayName" : "Statement Type Record Path",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Statement Type Record Path",
-          "sensitive" : false
-        },
-        "Column Name Translation Pattern" : {
-          "displayName" : "Column Name Translation Pattern",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Column Name Translation Pattern",
-          "sensitive" : false
-        },
-        "put-db-record-translate-field-names" : {
-          "displayName" : "Translate Field Names",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-translate-field-names",
-          "sensitive" : false
-        },
-        "put-db-record-dcbp-service" : {
-          "displayName" : "Database Connection Pooling Service",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "put-db-record-dcbp-service",
-          "sensitive" : false
-        },
-        "put-db-record-query-timeout" : {
-          "displayName" : "Max Wait Time",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-query-timeout",
-          "sensitive" : false
-        },
-        "Column Name Translation Strategy" : {
-          "displayName" : "Column Name Translation Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Column Name Translation Strategy",
-          "sensitive" : false
-        },
-        "rollback-on-failure" : {
-          "displayName" : "Rollback On Failure",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "rollback-on-failure",
-          "sensitive" : false
-        },
-        "put-db-record-binary-format" : {
-          "displayName" : "Binary String Format",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-binary-format",
-          "sensitive" : false
-        },
-        "db-type" : {
-          "displayName" : "Database Type",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "db-type",
-          "sensitive" : false
-        },
-        "put-db-record-table-name" : {
-          "displayName" : "Table Name",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "put-db-record-table-name",
-          "sensitive" : false
-        },
-        "put-db-record-record-reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "put-db-record-record-reader",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.PutDatabaseRecord",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "original" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.3.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "8faccb5e-0195-1000-9874-c1f66960aac2",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "GoCardless CSV",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -2144.0,
-        "y" : -952.0
-      },
-      "properties" : {
-        "Record Writer" : "049dd86a-b9aa-3f49-ba9d-20e7dfdc4eda",
-        "Record Reader" : "fec2285d-0823-39a8-b4b7-cc6b09457ec8",
-        "Records Per Split" : "1"
-      },
-      "propertyDescriptors" : {
-        "Record Writer" : {
-          "displayName" : "Record Writer",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Writer",
-          "sensitive" : false
-        },
-        "Record Reader" : {
-          "displayName" : "Record Reader",
-          "dynamic" : false,
-          "identifiesControllerService" : true,
-          "name" : "Record Reader",
-          "sensitive" : false
-        },
-        "Records Per Split" : {
-          "displayName" : "Records Per Split",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Records Per Split",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 0,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.SplitRecord",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ "success" ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -2253,11 +1149,11 @@
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1400.0,
-        "y" : -1208.0
+        "x" : -1392.0,
+        "y" : -1224.0
       },
       "properties" : {
-        "log-message" : "Invalid GoCardless CSV record",
+        "log-message" : "Manual payment CSV record validation failed",
         "log-level" : "info"
       },
       "propertyDescriptors" : {
@@ -2295,7 +1191,7 @@
     }, {
       "autoTerminatedRelationships" : [ "success" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
+      "bulletinLevel" : "INFO",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
@@ -2306,16 +1202,16 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "dc8af888-0195-1000-9648-bca01076f68a",
+      "identifier" : "15bb4008-0196-1000-88f0-98d5695bf4be",
       "maxBackoffPeriod" : "10 mins",
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1424.0,
-        "y" : 552.0
+        "x" : -1408.0,
+        "y" : -1024.0
       },
       "properties" : {
-        "log-message" : "Failed to add GoCardless payment to payments table",
+        "log-message" : "Manual payment CSV record validation failed",
         "log-level" : "info"
       },
       "propertyDescriptors" : {
@@ -2369,8 +1265,8 @@
       "name" : "Add to payments table",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2160.0,
-        "y" : 552.0
+        "x" : -2152.0,
+        "y" : -656.0
       },
       "properties" : {
         "put-db-record-allow-multiple-statements" : "false",
@@ -2606,16 +1502,16 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "2fa3f12e-6e89-37b3-b16a-589c8fdc6a7d",
+      "identifier" : "dc8af888-0195-1000-9648-bca01076f68a",
       "maxBackoffPeriod" : "10 mins",
       "name" : "LogMessage",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1392.0,
-        "y" : -960.0
+        "x" : -1560.0,
+        "y" : -424.0
       },
       "properties" : {
-        "log-message" : "Failed to read GoCardless CSV record",
+        "log-message" : "Failed to add manual payment to payments table",
         "log-level" : "info"
       },
       "propertyDescriptors" : {
@@ -2649,6 +1545,65 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.3.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bc133ab9-a8a7-3cac-a928-863244c2656a",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "SplitRecord",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -2136.0,
+        "y" : -920.0
+      },
+      "properties" : {
+        "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
+        "Record Reader" : "d2bac4f6-fe98-32da-bde0-1a2240f1690c",
+        "Records Per Split" : "1"
+      },
+      "propertyDescriptors" : {
+        "Record Writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Writer",
+          "sensitive" : false
+        },
+        "Record Reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Record Reader",
+          "sensitive" : false
+        },
+        "Records Per Split" : {
+          "displayName" : "Records Per Split",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Records Per Split",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.SplitRecord",
       "yieldDuration" : "1 sec"
     } ],
     "remoteProcessGroups" : [ ],
