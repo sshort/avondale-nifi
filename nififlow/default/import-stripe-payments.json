@@ -1251,44 +1251,51 @@
         "y" : 208.0
       },
       "properties" : {
-        "/EmailAddress" : "/Customer_Email",
-        "/Amount" : "/amount",
-        "/Quantity" : "/li_0_quantity",
+        "/quantity" : "/li_0_quantity",
+        "/product" : "/li_0_product_name",
+        "/type" : "concat('Payment')",
+        "/item_no" : "concat(${itemNo})",
         "Record Reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
-        "/ItemNo" : "concat(${itemNo})",
-        "/Fees" : "/fee",
-        "/Provider" : "concat(\"Stripe\")",
+        "/first_name" : "/customer_first_name",
         "Replacement Value Strategy" : "record-path-value",
-        "/Description" : "/description",
-        "/ProviderId" : "/id",
-        "/FirstName" : "/customer_first_name",
-        "/Status" : "/status",
-        "/Type" : "concat('Payment')",
+        "/status" : "/status",
+        "/provider" : "concat(\"Stripe\")",
+        "/provider_id" : "/id",
+        "/charge_date" : "/Created_Date",
+        "/email_address" : "/Customer_Email",
+        "/amount" : "/amount",
         "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
-        "/LastName" : "/customer_last_name",
-        "/ChargeDate" : "/Created_Date",
-        "/Product" : "/li_0_product_name"
+        "/fees" : "/fee",
+        "/last_name" : "/customer_last_name",
+        "/description" : "/description"
       },
       "propertyDescriptors" : {
-        "/EmailAddress" : {
-          "displayName" : "/EmailAddress",
+        "/quantity" : {
+          "displayName" : "/quantity",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/EmailAddress",
+          "name" : "/quantity",
           "sensitive" : false
         },
-        "/Amount" : {
-          "displayName" : "/Amount",
+        "/product" : {
+          "displayName" : "/product",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Amount",
+          "name" : "/product",
           "sensitive" : false
         },
-        "/Quantity" : {
-          "displayName" : "/Quantity",
+        "/type" : {
+          "displayName" : "/type",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Quantity",
+          "name" : "/type",
+          "sensitive" : false
+        },
+        "/item_no" : {
+          "displayName" : "/item_no",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/item_no",
           "sensitive" : false
         },
         "Record Reader" : {
@@ -1298,25 +1305,11 @@
           "name" : "Record Reader",
           "sensitive" : false
         },
-        "/ItemNo" : {
-          "displayName" : "/ItemNo",
+        "/first_name" : {
+          "displayName" : "/first_name",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/ItemNo",
-          "sensitive" : false
-        },
-        "/Fees" : {
-          "displayName" : "/Fees",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/Fees",
-          "sensitive" : false
-        },
-        "/Provider" : {
-          "displayName" : "/Provider",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "/Provider",
+          "name" : "/first_name",
           "sensitive" : false
         },
         "Replacement Value Strategy" : {
@@ -1326,39 +1319,46 @@
           "name" : "Replacement Value Strategy",
           "sensitive" : false
         },
-        "/Description" : {
-          "displayName" : "/Description",
+        "/status" : {
+          "displayName" : "/status",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Description",
+          "name" : "/status",
           "sensitive" : false
         },
-        "/ProviderId" : {
-          "displayName" : "/ProviderId",
+        "/provider" : {
+          "displayName" : "/provider",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/ProviderId",
+          "name" : "/provider",
           "sensitive" : false
         },
-        "/FirstName" : {
-          "displayName" : "/FirstName",
+        "/provider_id" : {
+          "displayName" : "/provider_id",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/FirstName",
+          "name" : "/provider_id",
           "sensitive" : false
         },
-        "/Status" : {
-          "displayName" : "/Status",
+        "/charge_date" : {
+          "displayName" : "/charge_date",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Status",
+          "name" : "/charge_date",
           "sensitive" : false
         },
-        "/Type" : {
-          "displayName" : "/Type",
+        "/email_address" : {
+          "displayName" : "/email_address",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Type",
+          "name" : "/email_address",
+          "sensitive" : false
+        },
+        "/amount" : {
+          "displayName" : "/amount",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "/amount",
           "sensitive" : false
         },
         "Record Writer" : {
@@ -1368,25 +1368,25 @@
           "name" : "Record Writer",
           "sensitive" : false
         },
-        "/LastName" : {
-          "displayName" : "/LastName",
+        "/fees" : {
+          "displayName" : "/fees",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/LastName",
+          "name" : "/fees",
           "sensitive" : false
         },
-        "/ChargeDate" : {
-          "displayName" : "/ChargeDate",
+        "/last_name" : {
+          "displayName" : "/last_name",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/ChargeDate",
+          "name" : "/last_name",
           "sensitive" : false
         },
-        "/Product" : {
-          "displayName" : "/Product",
+        "/description" : {
+          "displayName" : "/description",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "/Product",
+          "name" : "/description",
           "sensitive" : false
         }
       },
@@ -1424,7 +1424,7 @@
       "properties" : {
         "Record Writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "Record Reader" : "d2bac4f6-fe98-32da-bde0-1a2240f1690c",
-        "/Product" : "replace(/Product, 'Pavilion Key', 'b. Pavilion Key')",
+        "/Product" : "replace(/product, 'Pavilion Key', 'b. Pavilion Key')",
         "Replacement Value Strategy" : "record-path-value"
       },
       "propertyDescriptors" : {
@@ -1855,7 +1855,7 @@
       },
       "properties" : {
         "dbf-default-precision" : "2",
-        "success" : "select 1 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_0_product_name as Product, li_0_quantity as Quantity, fee as Fees, amount-#{keyDepositAmount} as Amount, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile\n",
+        "success" : "select 1 as item_no, Created_Date as charge_date, customer_first_name as first_name, customer_last_name as last_name, Customer_Email as email_address, li_0_product_name as product, li_0_quantity as quantity, fee as fees, amount-#{keyDepositAmount} as amount, 'Payment' as type, status as status, description as description, 'Stripe' as provider, id as provider_id from FlowFile",
         "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
         "include-zero-record-flowfiles" : "false",
@@ -2501,7 +2501,7 @@
       },
       "properties" : {
         "dbf-default-precision" : "10",
-        "success" : "select 2 as ItemNo, Created_Date as ChargeDate, customer_first_name as FirstName, customer_last_name as LastName, Customer_Email as EmailAddress, li_1_product_name as Product, li_1_quantity as Quantity, #{keyDepositAmount} as Amount, 0 as Fees, 'Payment' as Type, status as Status, description as Description, 'Stripe' as Provider, id as ProviderId from FlowFile",
+        "success" : "select 2 as item_no, Created_Date as charge_date, customer_first_name as first_name, customer_last_name as last_name, Customer_Email as email_address, li_0_product_name as product, li_0_quantity as quantity, fee as fees, #{keyDepositAmount} as amount, 'Payment' as type, status as status, description as description, 'Stripe' as provider, id as provider_id from FlowFile",
         "record-writer" : "9dbc006a-fff2-3e8d-91c3-90cc4749d019",
         "record-reader" : "353cc34a-a0f2-3e9b-88f1-8f920c77fc67",
         "include-zero-record-flowfiles" : "true",
